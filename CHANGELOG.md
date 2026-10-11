@@ -29,6 +29,9 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - Quests with search steps no longer lose their search areas at random when the server starts.
 
 **World**
+- Dying to the guards of a battleground's central keep while it is still unclaimed no longer costs experience or
+  leaves a gravestone. Those guards have no realm, so the death counted as a PvE death; any keep guard's kill now
+  counts as an RvR death, as it already did for a keep held by an enemy realm.
 - Removed the hostile copies of friendly NPCs that 0.35's classic bestiary spawns added: the level 49
   "commander" outside Camelot (on the way to Humberton) that attacked players and bots, and six "innocents"
   in Dodens Gruva. The friendly Commander and the Midgard innocents are unchanged.
