@@ -3,6 +3,13 @@
 The newest version is first. For the full detail of every earlier update, see
 [docs/history/CHANGELOG-0.3-to-0.32b.md](docs/history/CHANGELOG-0.3-to-0.32b.md).
 
+## Coming in the next release (not released yet)
+
+**World**
+- Removed the hostile copies of friendly NPCs that 0.35's classic bestiary spawns added: the level 49
+  "commander" outside Camelot (on the way to Humberton) that attacked players and bots, and six "innocents"
+  in Dodens Gruva. The friendly Commander and the Midgard innocents are unchanged.
+
 ## 0.35 / 0.35b "Claude Takeover III" — 2026-10-08
 
 Everything added since 0.34, in one complete download. The overview is in
