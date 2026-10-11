@@ -3,14 +3,28 @@
 The newest version is first. For the full detail of every earlier update, see
 [docs/history/CHANGELOG-0.3-to-0.32b.md](docs/history/CHANGELOG-0.3-to-0.32b.md).
 
-## Coming in the next release (not released yet)
+## 0.36 / 0.36b (not released yet)
+
+These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.35 / 0.35b is the latest release.
+
+**Quests**
+- Classic quests now give their item rewards. 940 reward items that were missing are in, so every one of the
+  classic quests (1.65 and classic Shrouded Isles) hands out the items it names, including the "choose your
+  reward" endings. Stats come from the item pages as they were in 2002-2004 (573 items), a 1.65-era server
+  (1 item), or today's Allakhazam pages with later bonus kinds removed and the total kept to period strength
+  (308 items). No page records what an item looks like, so each borrows the look of a similar item of the same
+  slot and type.
+- 53 rewards have no item page anywhere. Their stats are made up to fit the item and its quest, and each has a
+  short description.
+- Rewards made for each class now go to each class: Viraniel's belts, Banba's cloaks, the Stoneheart weapons, and
+  the Ley Infused and Trustan's belts give you the version made for your class.
 
 **World**
 - Removed the hostile copies of friendly NPCs that 0.35's classic bestiary spawns added: the level 49
   "commander" outside Camelot (on the way to Humberton) that attacked players and bots, and six "innocents"
   in Dodens Gruva. The friendly Commander and the Midgard innocents are unchanged.
 
-## 0.35 / 0.35b "Claude Takeover III" — 2026-10-08
+## 0.35 / 0.35b — 2026-10-08
 
 Everything added since 0.34, in one complete download. The overview is in
 [docs/RELEASE-0.35.md](docs/RELEASE-0.35.md); every change is listed below.
@@ -445,7 +459,7 @@ Everything added since 0.34, in one complete download. The overview is in
   and Aaron Zielke) for the smooth group travel code (without its pace matching) and the Minstrel, Valewalker and Warden fixes,
   and for the shield-swap fix that inspired the Savage one.
 
-## 0.34 / 0.34b "Claude Takeover II" — 2026-10-03
+## 0.34 / 0.34b — 2026-10-03
 
 Everything added since 0.33, in one complete download. The overview is in
 [docs/RELEASE-0.34.md](docs/RELEASE-0.34.md); every change is listed below.
@@ -794,7 +808,7 @@ game, launcher and server before running one.
 The ghastly healer and Dubh Sluagh scripts need the 0.34 server, because the 0.33 server doesn't
 know these changes.
 
-## 0.33 / 0.33b "Claude Takeover" — 2026-09-30
+## 0.33 / 0.33b — 2026-09-30
 
 The full notes are in [docs/history/RELEASE-0.33.md](docs/history/RELEASE-0.33.md). In short:
 
