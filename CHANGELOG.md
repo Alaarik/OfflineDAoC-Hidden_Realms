@@ -13,6 +13,21 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   dxvk.conf. To go back to DirectX 9, delete both. dxvk.conf can also show a frame-rate counter (remove the # in front
   of dxvk.hud).
 
+**Bots and raids**
+- Forced Darkness Falls raids start again for all three realms. A quest monster added to Darkness Falls with the
+  classic quests (Archivist Borath) made the bots' Darkness Falls route check fail, so every entrance was refused.
+  Quest monsters no longer count in that check. If a forced dungeon raid cannot find a route, it now says which
+  entrance failed and why, before any bots are reserved.
+- /raid companions attack the enemy keep door when no defenders are around, instead of standing at it. Before, only
+  the ram crew's leader worked the door; now the other squads join in, and the bodyguard squad helps when you hit
+  the door yourself.
+
+**Classes**
+- Bards and Minstrels need the right instrument for each song again, as in 1.65 (later patches let any instrument
+  play any song). Random-loot instruments could look like one instrument but count as another, or as none; every
+  instrument now counts as the instrument it looks like, including the ones already in your bags.
+- The Sluaghbinder's dullahan and zombie defender now swim when they are in water, instead of standing still (0.36b).
+
 **Quests**
 - Classic quests now give their item rewards. 940 reward items that were missing are in, so every one of the
   classic quests (1.65 and classic Shrouded Isles) hands out the items it names, including the "choose your
