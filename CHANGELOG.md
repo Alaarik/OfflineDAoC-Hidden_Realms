@@ -23,6 +23,11 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - Removed the hostile copies of friendly NPCs that 0.35's classic bestiary spawns added: the level 49
   "commander" outside Camelot (on the way to Humberton) that attacked players and bots, and six "innocents"
   in Dodens Gruva. The friendly Commander and the Midgard innocents are unchanged.
+- NPCs no longer show quest notes under their names (such as "<Part of Against the Grain Quest>"). Ten NPCs did:
+  Laridia the Minstrel, Yetta Fletcher and Eowyln Astos in Cotswold, and the Master Visur teleporters. Yetta, Eowyln
+  and Master Visur show their trades again (Arrows Merchant, Dye Merchant, Teleporter).
+- Laridia the Minstrel in Cotswold now stands inside the house next to where she was, instead of outside against
+  its wall.
 
 ## 0.35 / 0.35b — 2026-10-08
 
