@@ -18,6 +18,15 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   short description.
 - Rewards made for each class now go to each class: Viraniel's belts, Banba's cloaks, the Stoneheart weapons, and
   the Ley Infused and Trustan's belts give you the version made for your class.
+- 13 classic quests can be finished again. Their "bring N items to an NPC" steps were set up as fights against that
+  NPC, and nothing dropped the items, so they stopped there: Fortune of Few, Academy Research, Traveler's Way --
+  Church Aid, Lost Townfolk of Bran Llyr, In the Interest of Plants, Silver Run, Sylvan Shadows, Secret of Nuada's
+  Silver A, Traveler's Way (Midgard), Feathers, Hill Cat Hunt, Hill Cat Hunt -- Savage Version and New Crest. You
+  now hunt the monster the walkthrough names (it drops the item while you are on that step), and the map marker
+  points to its camp, then hand the items in.
+- Fortune of Few: buy the five bronze war mattocks from a weapon merchant (Dougal Heathis in Camelot, or Alburn
+  Hale beside Master Graent) and Master Graent pays you their cost, as in the original quest.
+- Quests with search steps no longer lose their search areas at random when the server starts.
 
 **World**
 - Removed the hostile copies of friendly NPCs that 0.35's classic bestiary spawns added: the level 49
