@@ -9,9 +9,11 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 
 **Game client**
 - The game client now draws through Vulkan instead of DirectX 9, using DXVK 3.1.1 (the official release), for smoother
-  performance; a large epic dungeon raid ran noticeably better in testing. Two files sit next to game.dll: d3d9.dll and
-  dxvk.conf. To go back to DirectX 9, delete both. dxvk.conf can also show a frame-rate counter (remove the # in front
-  of dxvk.hud).
+  performance; a large epic dungeon raid ran noticeably better in testing. It is two files in the game client's
+  folder, next to game.dll: runtime\client-opendaocpp\d3d9.dll (DXVK's 32-bit d3d9.dll) and
+  runtime\client-opendaocpp\dxvk.conf (its settings). To go back to DirectX 9, close the game and delete both.
+  dxvk.conf can also show a frame-rate counter: remove the # in front of dxvk.hud. If the game will not start or
+  looks wrong, DXVK writes runtime\client-opendaocpp\game.dll_d3d9.log.
 
 **Bots and raids**
 - Forced Darkness Falls raids start again for all three realms. A quest monster added to Darkness Falls with the
