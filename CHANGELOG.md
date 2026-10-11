@@ -7,6 +7,12 @@ The newest version is first. For the full detail of every earlier update, see
 
 These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.35 / 0.35b is the latest release.
 
+**Game client**
+- The game client now draws through Vulkan instead of DirectX 9, using DXVK 3.1.1 (the official release), for smoother
+  performance; a large epic dungeon raid ran noticeably better in testing. Two files sit next to game.dll: d3d9.dll and
+  dxvk.conf. To go back to DirectX 9, delete both. dxvk.conf can also show a frame-rate counter (remove the # in front
+  of dxvk.hud).
+
 **Quests**
 - Classic quests now give their item rewards. 940 reward items that were missing are in, so every one of the
   classic quests (1.65 and classic Shrouded Isles) hands out the items it names, including the "choose your
