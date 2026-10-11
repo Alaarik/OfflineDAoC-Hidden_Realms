@@ -25,11 +25,6 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   the door yourself.
 
 **Classes**
-- Bards and Minstrels need the right instrument for each song again, as in 1.65 (later patches let any instrument
-  play any song). Random-loot instruments could look like one instrument but count as another, or as none; every
-  instrument now counts as the instrument it looks like, including the ones already in your bags.
-- Bard and Minstrel bots play their songs on a harp too (a harp plays every song). Bots carrying harps found no
-  instrument for their songs and only played their resist hymns while you stood still.
 - The Sluaghbinder's dullahan and zombie defender now swim when they are in water, instead of standing still (0.36b).
 
 **Quests**
