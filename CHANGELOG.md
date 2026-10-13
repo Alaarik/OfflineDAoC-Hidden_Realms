@@ -51,6 +51,10 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
 **Server**
+- NPCs no longer stay invisible after a teleport. Sometimes, after teleporting with companions, every NPC in a
+  large area around you was invisible until you walked away and came back. The server sends each NPC to the game
+  once, and the game could miss them while it was still loading after the jump. The server now sends everything
+  around you again shortly after each teleport, as the GM command /jump refresh does.
 - The server logs now record its memory use every five minutes and every garbage-collection pause of a quarter
   second or more, and save a heap snapshot when memory grows large, to track down the long freezes in long sessions.
   Create an empty file named gc-diagnostics.off in runtime\server to turn the detailed sampling and snapshots off.
