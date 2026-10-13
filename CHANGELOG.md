@@ -82,6 +82,11 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - Fortune of Few: buy the five bronze war mattocks from a weapon merchant (Dougal Heathis in Camelot, or Alburn
   Hale beside Master Graent) and Master Graent pays you their cost, as in the original quest.
 - Quests with search steps no longer lose their search areas at random when the server starts.
+- Quest NPCs hold a conversation instead of saying everything at once. In 55 classic quests an NPC said every stage
+  of its recorded conversation in one box; Merle the Old in Information is the Key said all four mud hand-ins, the
+  choice of topics and the answer at once. Each NPC now says its lines in the order the period walkthroughs recorded
+  them: a [keyword]'s answer when you click it, the hand-in lines when you hand in, "Did you get me the mud?" when you
+  come back, and a longer speech one part each time you talk to the NPC again. No line was added or removed.
 - The epic quests answer whispers and give their rewards again (many 0.35 reports). The quest scripts looked for
   their NPC at one exact spot; the classic quest NPCs added in 0.35 stand a few steps away (Brigit in Tir na Nog,
   Danica and Elizabeth in Mularn), so each script made an invisible-to-you twin, and only the twin listened. The
