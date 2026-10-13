@@ -23,6 +23,19 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - /raid companions attack the enemy keep door when no defenders are around, instead of standing at it. Before, only
   the ram crew's leader worked the door; now the other squads join in, and the bodyguard squad helps when you hit
   the door yourself.
+- Bots find their way to hunting spots that can only be reached the long way around. The server's path search gave
+  up when the way to a far point first leads away from it, so bots dropped the camp ("no safe connected zone seam")
+  or stopped at a dead end. Over 1,600 Hibernian trips failed in one night, most of them around Sheeroe Hills, whose
+  main ground joins the rest of Hibernia only through Bog of Cullen. The server now keeps a map of short, checked
+  paths through each outdoor zone (navmesh\roads.json) and uses it when the direct search fails, and it plans
+  zone-to-zone trips over ground that actually connects.
+- Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
+  same large route search on every AI turn (about a second each); the answer is now shared and remembered.
+
+**Server**
+- The server logs now record its memory use every five minutes and every garbage-collection pause of a quarter
+  second or more, and save a heap snapshot when memory grows large, to track down the long freezes in long sessions.
+  Create an empty file named gc-diagnostics.off in runtime\server to turn the detailed sampling and snapshots off.
 
 **Classes**
 - The Sluaghbinder's dullahan and zombie defender now swim when they are in water, instead of standing still (0.36b).
