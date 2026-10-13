@@ -38,6 +38,12 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   the long way around (now found through the new path map), and rally points checked while the bot was swimming
   (the check looked for ground at the water's surface and found none). This stopped attackers of relic and keep
   sieges from ever arriving.
+- The Hibernian dragon raid takes a much shorter way to Cuuldurach (about a third less walking). It no longer
+  marches south through Bog of Cullen and turns back: it crosses into Sheeroe Hills at the only place the Bog's main
+  ground joins it. In Sheeroe Hills it follows the southern valley to the lair instead of cutting through the middle
+  of the zone. The bots' map of short paths through each zone now knows how far each piece really is to walk (two
+  points across a ravine looked close but are a long walk apart), so long walks in other zones are shorter too.
+  Every path still follows the walking map; no shortcuts over ground it does not allow.
 - Darkness Falls raids can fight Princess Nahemah. She stood on a dais that the bots' walking map does not join
   to the rest of the floor, so raids could neither reach nor see her and skipped her untouched. She now stands
   on the floor in front of her dais.
