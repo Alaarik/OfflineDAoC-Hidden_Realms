@@ -60,6 +60,13 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   Create an empty file named gc-diagnostics.off in runtime\server to turn the detailed sampling and snapshots off.
 
 **Classes**
+- Necromancer and Bonedancer pets look as they did in 1.65, using models from the original 2003 game client instead
+  of later ones. Necromancer servants: zombies, a Briton undead, a Roman legionnaire and a blue wight, with nothing
+  in their hands; only the abomination (a glowing demon knight) carries a weapon, its red-glowing two-handed sword.
+  Bonedancer commanders: the classic bone dancer commander with one plain Norse weapon and no shield or helm.
+  Minions: grey skeletons with Norse weapons (hammers for guardians, axes for the fighters, a bow and short sword
+  for archers, a staff for casters), no bucklers. Only the look changes; pets fight as before, apart from the melee
+  minions now swinging axes and the debuffers a short sword.
 - The Sluaghbinder's dullahan and zombie defender now swim when they are in water, instead of standing still (0.36b).
 - The Sluaghbinder has realm abilities (0.36b): the usual list of a hybrid melee and pet class (stat increases,
   Toughness, Purge, Serenity, Wild Arcana, Determination, First Aid, Ignore Pain, Hail of Blows, the Masteries of
