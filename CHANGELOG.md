@@ -29,6 +29,15 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   main ground joins the rest of Hibernia only through Bog of Cullen. The server now keeps a map of short, checked
   paths through each outdoor zone (navmesh\roads.json) and uses it when the direct search fails, and it plans
   zone-to-zone trips over ground that actually connects.
+- Raids no longer stall at a cramped encounter. When only a spot or two near the target passed the checks
+  (Tuscaran Glacier's griffon ledge had room for 1 of 38 parties), the other parties stayed where they were, the
+  target was skipped untouched, and the raid then waited for "formed parties" at that spot forever: a Tuscaran
+  Glacier raid sat there for eight hours. Parties now share a checked spot when there is no free one, and when no
+  raider reaches the raid's front for three minutes the front moves to where the raid actually stands.
+- Bots reach raid, dragon and keep-siege rally points they used to give up on: points that can only be reached
+  the long way around (now found through the new path map), and rally points checked while the bot was swimming
+  (the check looked for ground at the water's surface and found none). This stopped attackers of relic and keep
+  sieges from ever arriving.
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
