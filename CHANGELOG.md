@@ -38,6 +38,9 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   the long way around (now found through the new path map), and rally points checked while the bot was swimming
   (the check looked for ground at the water's surface and found none). This stopped attackers of relic and keep
   sieges from ever arriving.
+- Darkness Falls raids can fight Princess Nahemah. She stood on a dais that the bots' walking map does not join
+  to the rest of the floor, so raids could neither reach nor see her and skipped her untouched. She now stands
+  on the floor in front of her dais.
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
