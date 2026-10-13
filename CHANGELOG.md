@@ -61,6 +61,12 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 
 **Classes**
 - The Sluaghbinder's dullahan and zombie defender now swim when they are in water, instead of standing still (0.36b).
+- The Sluaghbinder has realm abilities (0.36b): the usual list of a hybrid melee and pet class (stat increases,
+  Toughness, Purge, Serenity, Wild Arcana, Determination, First Aid, Ignore Pain, Hail of Blows, the Masteries of
+  Arms, Pain and Blocking, the three Rains and Wild Minion), and its own: Crippling Plague. It is instant, with a
+  one-minute reuse: the plague slows an enemy a little at first and more every second until, after 10 seconds, it
+  can hardly move; then it bursts and poisons everyone close by. Curing it in time stops the burst. Its look is
+  borrowed from the Sluaghbinder's plague spells for now.
 
 **Quests**
 - Classic quests now give their item rewards. 940 reward items that were missing are in, so every one of the
