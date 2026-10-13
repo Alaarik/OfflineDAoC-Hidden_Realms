@@ -88,6 +88,11 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - Fortune of Few: buy the five bronze war mattocks from a weapon merchant (Dougal Heathis in Camelot, or Alburn
   Hale beside Master Graent) and Master Graent pays you their cost, as in the original quest.
 - Quests with search steps no longer lose their search areas at random when the server starts.
+- Quests give much more experience, especially between levels 20 and 40. Quest experience is now a share of your
+  current level, as it was on the live servers in 2002-2004, set at the high end of what players recorded then: a
+  typical quest pays close to a bubble (about 8-10% of a level), wherever you are within its level range. Quests
+  between 21 and 40 used to pay only 1-3% of their lowest level; they now pay 3 to 6 times more, and more again if
+  you do them above their lowest level. Low-level quests were already close and change little. No quest pays less.
 - Quest NPCs hold a conversation instead of saying everything at once. In 55 classic quests an NPC said every stage
   of its recorded conversation in one box; Merle the Old in Information is the Key said all four mud hand-ins, the
   choice of topics and the answer at once. Each NPC now says its lines in the order the period walkthroughs recorded
