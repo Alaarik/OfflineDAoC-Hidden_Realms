@@ -72,6 +72,30 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - Fortune of Few: buy the five bronze war mattocks from a weapon merchant (Dougal Heathis in Camelot, or Alburn
   Hale beside Master Graent) and Master Graent pays you their cost, as in the original quest.
 - Quests with search steps no longer lose their search areas at random when the server starts.
+- The epic quests answer whispers and give their rewards again (many 0.35 reports). The quest scripts looked for
+  their NPC at one exact spot; the classic quest NPCs added in 0.35 stand a few steps away (Brigit in Tir na Nog,
+  Danica and Elizabeth in Mularn), so each script made an invisible-to-you twin, and only the twin listened. The
+  scripts now use the NPC that is there. This also covers the Shrouded Isles, Atlas and battleground quests.
+- Handing in an epic quest item with a full backpack no longer loses the item. Nine epics took it before checking
+  for room for the rewards.
+- Quest steps that ask you to whisper a word now show it as a clickable [word] when you talk to the NPC.
+- If you lose an item a quest step needs, or never got the one a step starts with, the quest gives it to you again.
+- You can now talk to quest NPCs that are monsters of a hostile faction while you are on their step or can take
+  their quest (Tiomoid in Lough Gur, Trefor and Curmie, Shiake, the Shrouded Isles tribe turn-in NPCs; 67 in all).
+  They used to attack you or give you a dirty look. To everyone else they are the same monsters as before.
+- Every classic quest can now be finished from start to finish. Quest monsters that were missing are placed where
+  period sources put them, at their period levels: curmudgeon puggards in Cruachan Gorge (Lost Townfolk of Bran
+  Llyr), and for collection items pictish warriors, shadowhunter she-wolves and Tylwyth Teg huntresses (Pennine
+  Mountains, Hadrian's Wall), frost giants and the ghostly and ghastly invaders (Midgard and Breifine), forest
+  stalkers, lesser zephyrs, white boars, speghouls and billious goo. The turn-in NPCs Asdis and Aserod Ilonus are
+  in, and eight collection items now drop from the monsters their quests name.
+- 28 quest steps whose target only existed as a friendly NPC now give you the fight: the target appears and comes
+  for you at the place the walkthrough gives (for example Gokstad, Fressen, Borwyr the Cursed, Aricoer at the broken
+  tower in Cornwall, the Guardian by the Deamhan Creigs, the two guards in List of Denial). Town guards leave these
+  fights to you. Six targets were misspelled or in the wrong place: Klippa, Broch, Nimh, Arica, Ulfgar and Eibhlin.
+- Quest NPCs have the race and gender their quests describe: Erdola in Connla is a firbolg woman (she was a Celt
+  man), the missing man in Howth is a man, and Cailbyn, Odlran, Tomos, Mystemas, Edmond, Raiaya, Carylina, Norma
+  and Meriach are corrected the same way.
 
 **World**
 - Dying to the guards of a battleground's central keep while it is still unclaimed no longer costs experience or
