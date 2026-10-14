@@ -83,6 +83,11 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   freezes for several seconds to take a memory snapshot (it now does so only when asked).
 - Fewer server-wide slowdowns during raids: when no free spot near a boss could be found for a party, the search ran
   again on every turn; it now waits half a minute.
+- A boss that stays outside its leash range for a minute and a half walks home and resets even while raiders are
+  fighting it. Princess Nahemah in Darkness Falls fought raiders at the edge of her leash for over twenty minutes,
+  immune the whole time, while the raid tried to draw her back.
+- An army's march leader who is fighting on the way keeps leading. Armies that had to fight their way to a keep
+  lost their leader every minute and stopped to pick a new one.
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
@@ -180,6 +185,10 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   and Master Visur show their trades again (Arrows Merchant, Dye Merchant, Teleporter).
 - Laridia the Minstrel in Cotswold now stands inside the house next to where she was, instead of outside against
   its wall.
+
+**Launcher**
+- The note beside "Make Me a GM" on the Options tab now also says that monsters will not attack you while
+  /gmstealth is on.
 
 ## 0.35 / 0.35b — 2026-10-08
 
