@@ -69,6 +69,20 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - A boss left outside its leash range with nobody fighting it now walks home and resets, as it should. Aidon the
   Archwizard in Hall of the Corrupt stayed out there, immune, for over an hour because raiders stood near him, and
   the raid to Summoner's Hall could not get past.
+- Bots that log in inside Summoner's Hall (after a raid ended there) walk out through the hall's exit. They found no
+  way out and stood still until they were sent back to their capital fifteen minutes later.
+- Relic sieges give the army two hours to reach the relic keep. The march into the enemy realm took longer than the
+  one hour it had, and the rally failed while the army was still on the road.
+- Battleground armies attack the central keep together. Each realm gathers on its side of the keep and goes in once
+  most of its bots are there; when the attack is spent it gathers again. Before, half of the bots fought in the open
+  field and only a few ever reached the keep at the same time, so gates fell and were repaired for hours and no
+  keep lord was ever attacked.
+- Bot raids pull the last boss of Summoner's Hall, Darkness Falls and the epic dungeons together (see above); this
+  took the Midgard raid through Grand Summoner Govannon on the first try.
+- Bots no longer give up on a town teleporter while walking to it along a winding path, and the server no longer
+  freezes for several seconds to take a memory snapshot (it now does so only when asked).
+- Fewer server-wide slowdowns during raids: when no free spot near a boss could be found for a party, the search ran
+  again on every turn; it now waits half a minute.
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
