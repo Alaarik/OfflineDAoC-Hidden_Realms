@@ -63,6 +63,20 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   it tries the other sides, and remembers the spot that worked. A bot planning a long walk to a teleporter no longer
   gives up after five minutes while still on its way. After teleporting, a bot no longer heads for the horse it
   picked before the jump on the other side of the realm.
+- Sieges no longer start with one attacker at the keep. A bot that walked in on its own could open the siege while
+  the army was still far down the road, and the siege was soon given up as defended. A siege now opens when the
+  army's leader arrives with most of the army, or when most of the army that marched stands at the keep.
+- An army no longer waits forever behind a leader that is busy elsewhere (the Castle Excalibur relic army waited
+  45 minutes at Hadrian's Wall while its leader's group sat at a meeting point). If the leader stops leading for
+  30 seconds, the next marcher takes over.
+- Level 50 casters and pet classes that kill from one spot are no longer sent back to their capital as "stuck"
+  every fifteen minutes. A kill counted as progress only when it gave experience, which level 50s no longer get.
+- Bots leave their pets behind at Prince Ba'alorien in Darkness Falls. He kills every pet near him and heals by its
+  health, so raids full of pet classes could never wound him. Pet classes now release their pets and do not summon
+  near him; he is unchanged.
+- A boss left outside its leash range with nobody fighting it now walks home and resets, as it should. Aidon the
+  Archwizard in Hall of the Corrupt stayed out there, immune, for over an hour because raiders stood near him, and
+  the raid to Summoner's Hall could not get past.
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
