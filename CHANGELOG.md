@@ -47,6 +47,22 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - Darkness Falls raids can fight Princess Nahemah. She stood on a dais that the bots' walking map does not join
   to the rest of the floor, so raids could neither reach nor see her and skipped her untouched. She now stands
   on the floor in front of her dais.
+- High Lord Saeor and High Lord Oro in Darkness Falls also stood on daises the walking map does not join to the
+  floor, just out of melee reach from it. Raids skipped Oro untouched and took 40 minutes on Saeor. Both now stand
+  on the floor in front of their daises.
+- Raids gather before the last boss. A Darkness Falls raid reached Legion with only eight raiders at hand and the
+  rest were pulled in a few at a time as they arrived, so it wiped and Legion healed back to full. The raid now
+  waits out of Legion's reach (and an epic dungeon's last boss's) until half of its living raiders are there, then
+  goes in together; after a wipe it gathers again.
+- Keep and relic sieges start when the army arrives together. The army's leader reached the keep alone and the
+  siege began with one attacker there while the rest were still far down the road, and the siege was soon given up
+  as defended. The leader now waits at the siege camp, at most five minutes, until most of the army has caught up.
+- Bots stuck on a small loose piece of the walking map beside the real floor (by the Aegir's Landing teleporter)
+  step onto the floor instead of failing every route; this also happens when they log in there.
+- Bots use town teleporters more reliably. When the side of the teleporter a bot comes from cannot be walked to,
+  it tries the other sides, and remembers the spot that worked. A bot planning a long walk to a teleporter no longer
+  gives up after five minutes while still on its way. After teleporting, a bot no longer heads for the horse it
+  picked before the jump on the other side of the realm.
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
@@ -56,7 +72,9 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   once, and the game could miss them while it was still loading after the jump. The server now sends everything
   around you again shortly after each teleport, as the GM command /jump refresh does.
 - The server logs now record its memory use every five minutes and every garbage-collection pause of a quarter
-  second or more, and save a heap snapshot when memory grows large, to track down the long freezes in long sessions.
+  second or more, and save a heap snapshot when the memory actually in use grows large, to track down the long
+  freezes in long sessions. (The snapshot used to trigger on the total heap, which is mostly freed memory waiting to
+  be reclaimed; taking it froze the server for about nine seconds for nothing.)
   Create an empty file named gc-diagnostics.off in runtime\server to turn the detailed sampling and snapshots off.
 
 **Classes**
