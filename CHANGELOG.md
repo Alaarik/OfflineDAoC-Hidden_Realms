@@ -121,6 +121,9 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - Soul Reckoner in Caer Sidi takes a quarter of the damage while his souls live, instead of none, and heals less
   when he kills someone. His souls return every minute during the fight, so a raid could clear them and still never
   hurt him.
+- With these changes bot raids finished Darkness Falls (Legion defeated by Midgard) and killed Prince Ba'alorien
+  and Soul Reckoner for the first time.
+- Bot status saves no longer pile up duplicate entries in their save queue (it grew by about 40,000 an hour).
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
