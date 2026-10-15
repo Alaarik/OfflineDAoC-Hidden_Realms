@@ -103,7 +103,13 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   Dun Crauchon.
 - Battleground armies no longer wait to gather for an assault while the central keep's gates are already down. The
   gates of Dun Abermenai stood broken for an hour at a time while each realm kept gathering, and its lord was never
-  attacked.
+  attacked. Bots took a battleground keep (Dun Abermenai, Albion) for the first time on the next run.
+- While a bot raid is inside Darkness Falls, Summoner's Hall, Caer Sidi or Galladoria, the ordinary monsters there
+  take ten minutes to come back. Darkness Falls monsters returned every two to three minutes, so the raid fought the
+  same corridors for forty minutes and never reached Prince Ba'alorien. Bosses keep their own timers, and nothing
+  changes when no raid is inside.
+- A realm's army marching to a siege no longer waits for its groups to meet up first. The army for a relic siege of
+  Dun Dagda spent ninety minutes with its groups gathering at their own meeting points, some still at home.
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
