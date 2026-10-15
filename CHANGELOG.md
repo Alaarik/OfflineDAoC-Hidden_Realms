@@ -110,6 +110,17 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   changes when no raid is inside.
 - A realm's army marching to a siege no longer waits for its groups to meet up first. The army for a relic siege of
   Dun Dagda spent ninety minutes with its groups gathering at their own meeting points, some still at home.
+- Relic sieges gather their army longer before marching (25 minutes, extended up to twice while the army is short).
+  The Dun Dagda army set out with a third of its strength, arrived with a dozen and was destroyed.
+- Darkness Falls raids gather in front of Legion instead of at a spot on the other side of the dungeon. The meeting
+  point for a far-away final boss was placed wherever the route search gave up, and no raider ever reached it.
+- Raiders who cannot find their way inside the raid's dungeon rejoin the raid instead of being sent home. Raiders
+  arriving at the Darkness Falls entrance were sent back to their capital, rode back, and failed again, for hours.
+- Prince Ba'alorien and Prince Asmoien in Darkness Falls devour one pet every five seconds, the nearest, instead of
+  every pet near them at once, and bots keep their pets away from Asmoien too. Each pet still heals them as before.
+- Soul Reckoner in Caer Sidi takes a quarter of the damage while his souls live, instead of none, and heals less
+  when he kills someone. His souls return every minute during the fight, so a raid could clear them and still never
+  hurt him.
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
