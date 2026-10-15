@@ -148,6 +148,9 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   Create an empty file named gc-diagnostics.off in runtime\server to turn the detailed sampling and snapshots off.
 
 **Classes**
+- Necromancer bots have their servant use its area debuffs (Shroud of Affliction, Vortex of Anguish and their ranks)
+  on a single enemy too; they were almost never cast. Billowing Death and its ranks, which burst around the servant,
+  are only commanded once the servant stands by the target, instead of from far away where they hit nothing.
 - Necromancer and Bonedancer pets look as they did in 1.65, using models from the original 2003 game client instead
   of later ones. Necromancer servants: zombies, a Briton undead, a Roman legionnaire and a blue wight, with nothing
   in their hands; only the abomination (a glowing demon knight) carries a weapon, its red-glowing two-handed sword.
