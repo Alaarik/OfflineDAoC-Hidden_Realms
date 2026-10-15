@@ -88,6 +88,22 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
   immune the whole time, while the raid tried to draw her back.
 - An army's march leader who is fighting on the way keeps leading. Armies that had to fight their way to a keep
   lost their leader every minute and stopped to pick a new one.
+- The bosses of the epic dungeons, Summoner's Hall and Darkness Falls no longer heal to full in the middle of a fight.
+  They reset whenever their list of attackers was empty for a moment, which happens in a large raid while the boss is
+  still being hit: Hurionthex in Galladoria went from 31% back to full again and again. They now reset once nobody
+  has fought them for a few seconds, as when a raid wipes or leaves.
+- Soul Reckoner in Caer Sidi can be killed. He takes no damage while any of his souls lives, and the first souls of
+  every spawn were placed outside the world, where they never appeared and could never be killed, so he stayed immune
+  for good. This affected players too.
+- Darkness Falls raids no longer give up on a prince they are still walking to. A prince reached along the long
+  waypoint route inherited the previous prince's waiting time, and Prince Ba'alorien was skipped at full health just
+  as the raid arrived. A raid that is still closing in on its target is never counted as stalled.
+- A siege started by hand (or a relic siege) takes over its realm's army when the realm is still gathering for an
+  automatic siege. A forced relic siege of Dun Dagda got no attackers at all because Midgard's army was mustering for
+  Dun Crauchon.
+- Battleground armies no longer wait to gather for an assault while the central keep's gates are already down. The
+  gates of Dun Abermenai stood broken for an hour at a time while each realm kept gathering, and its lord was never
+  attacked.
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
 
