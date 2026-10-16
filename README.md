@@ -34,9 +34,9 @@ There are three editions. They are the same game on the same server:
 
 | Edition | What it is | Download |
 |---|---|---|
-| **0.36b** (recommended) | The original DAoC client, with the custom Hibernian class, the **Sluaghbinder** (a pet-summoning undead binder), for players and bots. | [v0.36b release](https://github.com/shadowofze/OfflineDAoC/releases/tag/v0.36b) |
+| **0.36b** | The original DAoC client, with the custom Hibernian class, the **Sluaghbinder** (a pet-summoning undead binder), for players and bots. | [v0.36b release](https://github.com/shadowofze/OfflineDAoC/releases/tag/v0.36b) |
 | **0.36** | The original DAoC client with the classic Classic + SI class list only. There are no Sluaghbinder players or bots. | [v0.36 release](https://github.com/shadowofze/OfflineDAoC/releases/tag/v0.36) |
-| **0.36c** (new) | The game with **two clients**: the original one and a **new client** built in Godot 4. Both play the same account, characters, bots and world, so you can switch whenever you like. It works with 0.36b and with 0.36: the installer asks which one you want. | [v0.36c release](https://github.com/shadowofze/OfflineDAoC/releases/tag/v0.36c) |
+| **0.36c** (recommended) | The game with **two clients**: the original one and a **new client** built in Godot 4. Both play the same account, characters, bots and world, so you can switch whenever you like. It works with 0.36b and with 0.36: the installer asks which one you want. | [v0.36c release](https://github.com/shadowofze/OfflineDAoC/releases/tag/v0.36c) |
 
 ## Download and play (no Git or AI needed)
 
