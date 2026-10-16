@@ -3,6 +3,11 @@
 The newest version is first. For the full detail of every earlier update, see
 [docs/history/CHANGELOG-0.3-to-0.32b.md](docs/history/CHANGELOG-0.3-to-0.32b.md).
 
+## 0.37 / 0.37b (not released yet)
+
+Changes made after 0.36 are listed here as they are made, and will be in the 0.37 / 0.37b download. Until then,
+0.36 / 0.36b / 0.36c is the latest release. Nothing has been added yet.
+
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
 Everything added since 0.35, in one complete download, and a new game client. The overview is in
