@@ -82,7 +82,7 @@ Use **IMPORT PROGRESS FROM OLD OFFLINE DAOC.cmd** in the game folder, as in 0.36
 ## Reporting problems
 
 The new client is new. If something looks or behaves differently from the original client, please report it
-in **Bug reports** on the GitHub page, with a screenshot if you can, and say that it is the new client.
+in **[Bug reports](https://github.com/shadowofze/OfflineDAoC/discussions/14)** on the GitHub page, with a screenshot if you can, and say that it is the new client.
 
 ## For developers
 
