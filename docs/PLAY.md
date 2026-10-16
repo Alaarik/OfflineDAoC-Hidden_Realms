@@ -25,11 +25,14 @@ If the game window never appears after ENTER REALM, this feature is the usual ca
 |---|---|
 | **0.36b** | You want the custom Hibernian **Sluaghbinder** class, for you and the bots. |
 | **0.36** | You want only the original Classic + Shrouded Isles classes. |
-| **0.36c** | You want **both** game clients: the original one and the [new client](NEW-CLIENT.md). They play the same account, characters and bots. The installer asks whether you want it with 0.36b (with the Sluaghbinder) or 0.36 (classic classes only). |
+| **0.36c** (recommended) | You want **both** game clients: the original one and the [new client](NEW-CLIENT.md). They play the same account, characters and bots. The installer asks whether you want it with 0.36b (with the Sluaghbinder) or 0.36 (classic classes only). |
 
-0.36b and 0.36 are the same game otherwise. If you're unsure, pick 0.36b. The Sluaghbinder is just one more
-Hibernian choice, and you don't have to play it. 0.36c is 0.36b or 0.36 plus the new client; you can still play with the
-original client there.
+**If you're unsure, pick 0.36c.** You get the new client *and* the original client in one folder, playing the same
+account, characters, bots and world. Start either one from its own start file, and swap between them whenever you
+like. If the new client isn't for you, just keep playing with the original client: nothing is lost.
+
+0.36b and 0.36 are the same game otherwise. The Sluaghbinder is just one more Hibernian choice, and you don't have to
+play it.
 
 ## 2. Download
 
