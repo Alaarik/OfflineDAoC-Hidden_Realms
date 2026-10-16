@@ -163,6 +163,13 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - Relic sieges gather their army for longer (up to 85 minutes) while it is short of 120. An army of 98 reached Dun
   Dagda with about 60, and the relic guards and defenders killed them in four minutes; an army of 135 had brought the
   gate down to 3%.
+- Caer Sidi's horsemen (Fames, Morbus, Funus) no longer heal to full the moment they are pulled past the edge of
+  their area. They give up the fight and walk back, keeping the damage they have taken. This affected players too.
+- Apocalypse fights a bot raid properly after his flights to the ceiling. He only picked up players again afterwards,
+  so against bots he found nobody to fight and reset to full health.
+- Bot raids shoot down flying monsters within reach of their spells and bows. Galladoria's Corrupt Primal of Air
+  circles high above the floor and never fights back, so bots left it alone, and Olcasgean only wakes when all four
+  primals are dead.
 
 **Server**
 - Fixed a slow memory leak that made long sessions stutter. Every time the server saved something (a bot, an item, a
