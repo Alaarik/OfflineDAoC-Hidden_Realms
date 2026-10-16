@@ -91,6 +91,18 @@ from disk instead of GitHub)
 - Refused as they should be: a game folder path over 100 characters (before
   downloading anything) and adding the new client to a 0.35b game.
 
+Last-minute fixes, rebuilt and tested again before publishing
+- New client: four fixes (emote effects, low-health slowdown, ghostly NPC
+  colours, figure animation setting). Re-sealed; the downloader added the
+  new client to a 0.36b copy and it matched file for file (91,099 files);
+  both clients then logged in to the same account.
+- Server: one stuck bot no longer freezes the server (Claude version
+  cd0b78b). Rebuilt GameServer.dll: 2,764 server tests passed; the smoke test
+  passed for 0.36b and 0.36; the development save imported exactly and its
+  server started (24 seconds) and logged in; a fresh 0.36b download matched
+  the package file for file (37,344 files). The 0.36 edition files did not
+  change.
+
 Not claimed
 These are automated and package checks, and the short new-client logins
 above. Long live bot runs of the newest bot changes are not verified here,

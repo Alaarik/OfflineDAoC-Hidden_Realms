@@ -43,9 +43,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--repo", type=Path, required=True)
     parser.add_argument("--assets", type=Path, required=True)
+    parser.add_argument("--only", nargs="+", choices=list(EDITIONS), help="remake only these editions' downloaders")
     args = parser.parse_args()
     repo, assets = args.repo.resolve(), args.assets.resolve()
     for version, cmds in EDITIONS.items():
+        if args.only and version not in args.only:
+            continue
         folder = assets / f"v{version}"
         if not (folder / "download-manifest.json").is_file():
             raise SystemExit(f"{folder} has no download-manifest.json; seal the release first")
