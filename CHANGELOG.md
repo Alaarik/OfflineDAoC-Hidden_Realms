@@ -6,7 +6,17 @@ The newest version is first. For the full detail of every earlier update, see
 ## 0.37 / 0.37b (not released yet)
 
 Changes made after 0.36 are listed here as they are made, and will be in the 0.37 / 0.37b download. Until then,
-0.36 / 0.36b / 0.36c is the latest release. Nothing has been added yet.
+0.36 / 0.36b / 0.36c is the latest release.
+
+**The new client**
+- /bind shows the bindstone effect and plays its sound, as in the original client: the green rings for your realm
+  (Albion, Midgard or Hibernia). Players nearby see it on you too. The other emotes that come with an effect now
+  show it on the server as well (level up, pray, bind on equip and the rest of the client's emote table); before,
+  only the level-up effect was drawn.
+- Your character slows down at low health, as in the original client: below 35% health your speed drops with your
+  health, to a tenth of normal at the lowest. The new client used to run at full speed at any health. (The server
+  slows only monsters and NPCs; for players the original client does it itself, and the new client now follows the
+  same rule.)
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
@@ -325,7 +335,7 @@ Everything added since 0.35, in one complete download, and a new game client. Th
 **Launcher**
 - The note beside "Make Me a GM" on the Options tab now also says that monsters will not attack you while
   /gmstealth is on.
-- The launcher has a new-client mode for 0.36c: the copy in new-clientuntime starts the new client and runs the
+- The launcher has a new-client mode for 0.36c: the copy in new-client\runtime starts the new client and runs the
   game's own server (named in server_root.txt), so both clients use one account, one bot roster and one world. It
   shows VERSION 0.36c.
 
