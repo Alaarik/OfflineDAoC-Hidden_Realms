@@ -3,9 +3,42 @@
 The newest version is first. For the full detail of every earlier update, see
 [docs/history/CHANGELOG-0.3-to-0.32b.md](docs/history/CHANGELOG-0.3-to-0.32b.md).
 
-## 0.36 / 0.36b (not released yet)
+## 0.36 / 0.36b / 0.36c — 2026-10-16
 
-These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.35 / 0.35b is the latest release.
+Everything added since 0.35, in one complete download, and a new game client. The overview is in
+[docs/RELEASE-0.36.md](docs/RELEASE-0.36.md); every change is listed below.
+
+**Download and setup**
+- Three editions of the same game on the same server:
+  - **0.36b** includes the Sluaghbinder.
+  - **0.36** has the classic class list only.
+  - **0.36c** is 0.36b or 0.36 with a second, new client added (see below).
+- One small downloader zip per edition: unzip it and double-click the `.cmd` inside. It fetches the game in
+  checked parts, as in 0.35, and continues where it stopped if you run it again.
+- Every install gets its own account on the first ENTER REALM, an empty world for its own bots, default launcher
+  settings and a client settings profile that is new for 0.36. Every keep, relic and battleground keep starts with
+  its original owner and level, and every keep door whole.
+- The progress transfer tool now also imports **0.35 and 0.35b** saves, as well as every earlier version.
+  See [docs/TRANSFER-PROGRESS.md](docs/TRANSFER-PROGRESS.md).
+- Every database and client change listed below is already in the download.
+
+**The new client (0.36c)**
+- A second game client for the same game, built in Godot 4. The zones, buildings, characters, monsters, spell
+  effects, sounds, music and interface are converted from the original client's own files, with textures upscaled
+  4x. It has the 1.65-era interface (quickbars, map and war map, quest journal, group and raid windows, pet window,
+  trainer, merchants, the Realm Exchange), WoW-style movement, rebindable keys and graphics presets.
+- It shares everything with the original client: the same server, account, characters, bots and world. A 0.36c
+  folder has both: **START OFFLINE DAOC.cmd** plays with the original client, **START OFFLINE DAOC - NEW
+  CLIENT.cmd** with the new one. Use one launcher at a time.
+- **DOWNLOAD-AND-PLAY-v0.36c.cmd** asks for 0.36b or 0.36, installs that complete game and then the new client in
+  one go. **ADD-NEW-CLIENT-TO-0.36-OR-0.36b.cmd** adds the new client to an existing 0.36b or 0.36 folder without
+  changing its saves.
+- On a 0.36 game (classic classes only) the new client's character creation offers the classic classes only: the
+  launcher tells it the game's class setting (`--custom-class=off`).
+- The new client's download comes in independent, checked parts: each is unpacked and deleted before the next, so
+  the install never needs twice its size on disk.
+- It needs a graphics card that supports Vulkan or DirectX 12. It does not need the .NET Framework 3.5 feature.
+- Its source code is in [source/new-client](source/new-client); see [docs/NEW-CLIENT.md](docs/NEW-CLIENT.md).
 
 **Bots and raids**
 - Forced Darkness Falls raids start again for all three realms. A quest monster added to Darkness Falls with the
@@ -287,11 +320,14 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 **Launcher**
 - The note beside "Make Me a GM" on the Options tab now also says that monsters will not attack you while
   /gmstealth is on.
+- The launcher has a new-client mode for 0.36c: the copy in new-clientuntime starts the new client and runs the
+  game's own server (named in server_root.txt), so both clients use one account, one bot roster and one world. It
+  shows VERSION 0.36c.
 
 ## 0.35 / 0.35b — 2026-10-08
 
 Everything added since 0.34, in one complete download. The overview is in
-[docs/RELEASE-0.35.md](docs/RELEASE-0.35.md); every change is listed below.
+[docs/history/RELEASE-0.35.md](docs/history/RELEASE-0.35.md); every change is listed below.
 
 **Download and setup**
 - One complete download in checked parts, with two editions, as in 0.34:
