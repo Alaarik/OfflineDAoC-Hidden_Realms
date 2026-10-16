@@ -77,6 +77,20 @@ Progress transfer tests (test_release_import_036.py, real saves, copies only)
 - In every case the old folder was unchanged, and every import left XP at 1x,
   GM off and every bot offline.
 
+Download tests of the sealed releases (the downloader zips, assets read
+from disk instead of GitHub)
+- 0.36b and 0.36: each install matched the package file for file (37,344
+  files); 0.36 had its two edition files and EDITION.txt.
+- 0.36c, choice 1 (0.36b): stopped on purpose while unpacking part 4 of 19,
+  then run again: it continued and the install matched file for file
+  (91,099 files), with no part left in the download folder.
+- 0.36c, choice 2 (0.36): installed; then both clients logged in to the same
+  account through the launchers, the new client with the classic classes.
+- ADD-NEW-CLIENT-TO-0.36-OR-0.36b on the 0.36b and on the 0.36 install: both
+  matched file for file.
+- Refused as they should be: a game folder path over 100 characters (before
+  downloading anything) and adding the new client to a 0.35b game.
+
 Not claimed
 These are automated and package checks, and the short new-client logins
 above. Long live bot runs of the newest bot changes are not verified here,
