@@ -135,8 +135,36 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - Bots walking a long way to a town teleporter no longer give up while they are still getting closer.
 - Fewer server-wide hitches during Darkness Falls raids. Every raider whose post was not in direct reach re-ran the
   same large route search on every AI turn (about a second each); the answer is now shared and remembered.
+- A marching army that has not moved for four minutes pushes on for two: the leader stops fighting and walks, and the
+  others only fight back when attacked. Marchers also stop joining fights against enemies they cannot reach. Midgard's
+  army for Dun Dagda fought for over 40 minutes on one ridge in Emain Macha, mostly against Hibernians far below it.
+- Bot rams and trebuchets attack a keep's doors in the right order at keeps with ten or more doors. Doors 10 and 11 of
+  a relic keep were read as doors 0 and 1, so the rams went for an inner door beside the keep while the gate stood and
+  never found a place to set up.
+- A raid started from the launcher ends that realm's automatic raids that have not started yet, so they no longer
+  take the bots it needs. An automatic Summoner's Hall rally held 141 of the 200 bots a forced Caer Sidi raid needed.
+- Raiders who die inside an epic dungeon release at the raid's rally town (for example Fort Gwyntell for Caer Sidi)
+  instead of their capital, and come straight back. Caer Sidi's raid was down to 67 of 300 by the time it reached
+  Bane of Hope.
+- Bots take Caer Sidi's lift between floors in one step. They used to stop halfway up and hang between the floors,
+  cut off from the raid.
+- Epic dungeon raids fight the helpers a boss fight spawns (healers, summoned adds) before the boss itself.
+- Olcasgean's fight in Galladoria now starts when the bot raid reaches the waterfall bridge. The hidden script that
+  starts it (and other hidden encounter scripts like it) only ran while someone stood close to it, and it sits far
+  from the bridge, so the raid waited there for an hour and the fight never began. A bot raid anywhere on the bridge
+  starts it; players still start it from the usual spot.
+- Galladoria's Earthmenders heal only the Corrupt Primal of Earth, not each other. Healing each other, none of the
+  four could ever be brought down.
+- Soul Reckoner in Caer Sidi can be hurt anywhere in his hall and just outside it. Pulled a short way out of the room,
+  he took no damage at all.
+- With these changes bot raids killed Hurionthex in Galladoria for the first time (three times since), started the
+  Olcasgean fight for the first time, finished Tuscaran Glacier twice more, and Midgard's relic army reached Dun Dagda
+  and brought its gate down to 3%.
 
 **Server**
+- Fixed a slow memory leak that made long sessions stutter. Every time the server saved something (a bot, an item, a
+  character) it kept the previous save as well, and the one before that, without end. With 6,000 bots the memory in
+  use grew by 250-500 MB an hour, and after many hours the server froze for 2-3 seconds at a time.
 - NPCs no longer stay invisible after a teleport. Sometimes, after teleporting with companions, every NPC in a
   large area around you was invisible until you walked away and came back. The server sends each NPC to the game
   once, and the game could miss them while it was still loading after the jump. The server now sends everything
