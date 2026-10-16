@@ -160,11 +160,17 @@ These changes are made and will be in the 0.36 / 0.36b download. Until then, 0.3
 - With these changes bot raids killed Hurionthex in Galladoria for the first time (three times since), started the
   Olcasgean fight for the first time, finished Tuscaran Glacier twice more, and Midgard's relic army reached Dun Dagda
   and brought its gate down to 3%.
+- Relic sieges gather their army for longer (up to 85 minutes) while it is short of 120. An army of 98 reached Dun
+  Dagda with about 60, and the relic guards and defenders killed them in four minutes; an army of 135 had brought the
+  gate down to 3%.
 
 **Server**
 - Fixed a slow memory leak that made long sessions stutter. Every time the server saved something (a bot, an item, a
   character) it kept the previous save as well, and the one before that, without end. With 6,000 bots the memory in
   use grew by 250-500 MB an hour, and after many hours the server froze for 2-3 seconds at a time.
+- Dead pets no longer stay in memory. A monster that had fought a pet kept it on its list of enemies until it fought
+  again, so idle monsters held thousands of dead pets (9,111 Theurgist earth pets in one test). A pet now leaves those
+  lists when it is gone.
 - NPCs no longer stay invisible after a teleport. Sometimes, after teleporting with companions, every NPC in a
   large area around you was invisible until you walked away and came back. The server sends each NPC to the game
   once, and the game could miss them while it was still loading after the jump. The server now sends everything
