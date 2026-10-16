@@ -208,6 +208,11 @@ Everything added since 0.35, in one complete download, and a new game client. Th
 - Bot raids shoot down flying monsters within reach of their spells and bows. Galladoria's Corrupt Primal of Air
   circles high above the floor and never fights back, so bots left it alone, and Olcasgean only wakes when all four
   primals are dead.
+- One bot stuck on a bad spot no longer freezes the server. A bot whose route kept failing in the same place was moved
+  a short way off, walked back and failed again, every few seconds, and each try ran a search that froze the whole
+  game for 2 to 9 seconds: every bot slowed to a crawl and players were rubberbanded. Now a third failure in the same
+  spot sends the bot somewhere safe, and the search near the Albion and Hibernia starter dungeons is capped and
+  remembers its answer.
 
 **Server**
 - Fixed a slow memory leak that made long sessions stutter. Every time the server saved something (a bot, an item, a
