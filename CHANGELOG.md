@@ -24,29 +24,6 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   to the keep keep Caer Sursbrooke!"; now it is "Our army has laid siege to Caer Sursbrooke!" (and "the relic
   keep Dun Dagda" for relic keeps).
 
-**The new client (0.36c)**
-- The Magic tab lists each specialization's spells by level, lowest first, as the original client does. They were
-  grouped by specialization but mixed by spell type.
-- The death window has the original client's four release buttons: /RELEASE, /RELEASE CITY, /RELEASE HOUSE and
-  /RELEASE BIND, under the release timer and its bar. There was only one.
-- Monsters stand on their own feet. The terror bird, the boobrie bird, frogs, the phoenix and succubi were drawn sunk
-  halfway into the ground, and low-flying giant cicadas, skadedjur and dragonflies were half buried. Cold lights now
-  hover as in the original client.
-- A flying monster's body drops to the ground when it dies, so it can be looted there. It used to hang in the air and
-  then sink away.
-- Half Ogre, Frostalf and Shar NPCs (Elizabeth the Smith in Mularn and every other NPC of those races) are drawn as
-  their races with their outfits, like every other race. They were one old model with a single skin over every part.
-- Ghostly monsters and pets (spirit champions and the other Spiritmaster pets, the spectral snake, forest skrats) are
-  drawn as one see-through layer: their eyes and mouth no longer show through, and they no longer flicker as they move.
-- Combat styles show their colour flash, the coloured afterimages of the weapon along the swing.
-- The Cabalist's simulacrums look as they do in the original client: smooth grey stone with their belt, face and
-  muscles. They were drawn grainy and coloured, with their detail texture repeated all over the body.
-- Stablemaster flights (gryphons, dragonflies, wyverns) no longer flicker between the sky and the ground.
-- Monsters that are big clouds, such as the sulphurous cloud, have their name above the cloud and can be clicked
-  anywhere on it.
-- A gamebot the new client had lost track of comes back as soon as the server mentions it again, instead of staying
-  invisible until it left your view.
-
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
 Everything added since 0.35, in one complete download, and a new game client. The overview is in
