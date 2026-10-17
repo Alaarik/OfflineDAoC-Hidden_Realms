@@ -33,6 +33,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   face and muscles. They were drawn grainy, with their detail texture stretched and repeated over the body.
 - Ghostly NPCs (Spiritmaster pets, frost spectres, the spectral snake, forest skrats) no longer flicker between dark
   and bright white, even when several of them move about together, and they keep their colours under the ghostly look.
+- Half Ogre, Frostalf and Shar NPCs (Elizabeth the Smith in Mularn and every other NPC of those races) are drawn as
+  their races in their outfits, like every other race. They were one old model with a single skin over every part.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
