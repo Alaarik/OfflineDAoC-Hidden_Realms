@@ -25,6 +25,26 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   keep Dun Dagda" for relic keeps).
 - Animist bots plant their mushrooms only during a fight, and never in a city or town. They used to plant one
   whenever they stood still between fights, so towns filled up with them.
+- Siege armies attack together. The first bot of a marching army to reach a keep used to start the battle on its own
+  (Caer Berkstead's siege began with one attacker there); now the battle starts once most of the army has arrived.
+- Bots killed while attacking an enemy keep come back at their realm's muster point for that frontier, as their
+  frontier teleporter would bring them, instead of in their capital. At Dun Dagda the Midgard relic army went from
+  121 bots at the keep to none in an hour while every fallen attacker walked back from Jordheim.
+- Darkness Falls raid members who cannot join their realm's route from where they stand wait half a minute before
+  trying again. Over a hundred of them retried it on every turn, which made players rubberband.
+- Town teleporter trips fail less often. A bot that planned a teleporter trip and then joined a group, or got a new
+  task, kept walking to the teleporter for its old plan; that was a quarter of the failed trips.
+- Galladoria: the Earthmenders keep their wounds while raiders are in their room. Each one healed to full half a
+  minute after the primals pulled the raid away, so every Earthmender was given up in turn.
+- Caer Sidi: raids no longer get stuck clearing Lich Lord Sanguis's blood mages after he is dead. They kept
+  appearing, and the raid fought them for 40 minutes instead of moving on to Apocalypse.
+- Battleground assaults go for the keep lord. In all four battlegrounds the gates fell and the guards died for hours
+  while every lord stayed untouched, because the attackers waited in the courtyard and the lord stands upstairs.
+- Level 50 groups pick hunting grounds they can reach: a camp at most about 15 minutes away, or one of the nearest
+  third when none is that close. A quarter of them used to spend their whole task travelling, often to the far
+  side of the Shrouded Isles.
+- Less lag: fewer route checks for bots waiting to board a horse in town, and less memory churn from pets and bots
+  checking their abilities and skill timers.
 
 **Quests**
 - Every classic quest can now be started by talking to its giver. In 20 of them one line of the giver's
