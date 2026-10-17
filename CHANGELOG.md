@@ -148,6 +148,9 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   help track down any that still go missing. The key can be changed under Options > CONTROLS > Misc.
 - Riding a stable master's horse: your horse gallops (its hoof sounds were missing), and it no longer sinks into the
   ground going over hills (seen from Huginfell to Raumarik).
+- Monsters that borrow another creature's animations no longer float while fighting or swimming: their animations
+  keep the heights from the original client's files (428 monster models redone). The windswept wraith, mummy hags,
+  liches and gray spectres crouch on the ground in combat, as the original client shows them.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
