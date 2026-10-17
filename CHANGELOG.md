@@ -39,6 +39,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 - Ghostly monsters and pets (spirit champions and the other Spiritmaster pets, the spectral snake, forest skrats) are
   drawn as one see-through layer: their eyes and mouth no longer show through, and they no longer flicker as they move.
 - Combat styles show their colour flash, the coloured afterimages of the weapon along the swing.
+- The Cabalist's simulacrums look as they do in the original client: smooth grey stone with their belt, face and
+  muscles. They were drawn grainy and coloured, with their detail texture repeated all over the body.
 - Stablemaster flights (gryphons, dragonflies, wyverns) no longer flicker between the sky and the ground.
 - Monsters that are big clouds, such as the sulphurous cloud, have their name above the cloud and can be clicked
   anywhere on it.
