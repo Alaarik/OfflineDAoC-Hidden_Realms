@@ -93,6 +93,14 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   that zone-in spot.
 - Tuscaran Glacier's ice is far less shiny, closer to the original client's: its reflection no longer covers the
   blue ice in a white glare.
+- Ground-target spells work: an Animist's turrets no longer fail with "Your ground target is not in view." The new
+  client kept telling the server your ground target was out of sight.
+- The group window's DISBAND removes the member whose name you clicked (while they are still your target) instead of
+  breaking up the whole group; with no member picked you leave the group, as before.
+- Binding a key in the options keeps the key list where it was (it jumped back to the top) and shows which action
+  the key was taken from.
+- The UI SCALE slider resizes the interface when you let go of it; it resized under the mouse while dragging.
+- Click and drag on the character screens turns the character again (right drag zooms on the customize screen).
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
