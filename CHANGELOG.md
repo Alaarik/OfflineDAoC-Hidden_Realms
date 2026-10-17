@@ -27,6 +27,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 **The new client (0.36c)**
 - The Magic tab lists each specialization's spells by level, lowest first, as the original client does. They were
   grouped by specialization but mixed by spell type.
+- Stable rides seat you on your mount. On horses you jittered beside and behind the horse, and on flying routes
+  (gryphons, amphiteres) the mount jumped between positions and turned wildly during the flight.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
