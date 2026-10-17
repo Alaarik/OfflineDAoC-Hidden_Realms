@@ -128,6 +128,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 - Fewer hitches in busy fights: a spell effect's files now load in the background, starting as soon as the cast
   begins, instead of freezing the game for up to a second and a half the first time each effect appeared (most often
   with companions or gamebots casting). An effect that isn't ready yet shows a moment later.
+- A character that dies mid-cast plays its death instead of standing frozen in its cast until its body sinks (seen
+  with a Bonedancer companion's boneknitters after /disband); its glowing hands go out at once.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
