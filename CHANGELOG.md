@@ -157,6 +157,9 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   is over, as in the original client, instead of holding them out for several more seconds.
 - Gamebots and companions swim at the surface with you; they were drawn well under the water with only their names
   on top.
+- Savages' claw and fang greaves sit on the forearms the way the original client draws them: the right-hand one no
+  longer floats off the hand, the off-hand one faces the right way, and a Savage with a greave in each hand shows
+  both (the left one was dropped). Moon claws and other fist weapons were already right and are unchanged.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
