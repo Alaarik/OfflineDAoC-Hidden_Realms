@@ -35,6 +35,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   and bright white, even when several of them move about together, and they keep their colours under the ghostly look.
 - Half Ogre, Frostalf and Shar NPCs (Elizabeth the Smith in Mularn and every other NPC of those races) are drawn as
   their races in their outfits, like every other race. They were one old model with a single skin over every part.
+- The release window when you die has the original client's four choices: release (to your bind point), release to
+  the city, to your house, and to your bind, with the countdown bar. There was a single release button.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
