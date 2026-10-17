@@ -43,6 +43,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 - The training window (at a trainer or with /train) previews what each specialization teaches, as the original
   client does: click a specialization and a panel beside the window lists its spells, styles and abilities with
   their icons and the level each comes at, the ones you know dimmed and the next level's in gold.
+- Combat styles leave their colored trail behind the weapon the way the original client draws it: one smooth streak
+  that follows the swing as it happens. It was drawn late and choppy, as a few separate copies of the weapon.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
