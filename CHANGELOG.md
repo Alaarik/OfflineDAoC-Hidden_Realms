@@ -101,6 +101,16 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   the key was taken from.
 - The UI SCALE slider resizes the interface when you let go of it; it resized under the mouse while dragging.
 - Click and drag on the character screens turns the character again (right drag zooms on the customize screen).
+- Combat style trails no longer flood the game with errors when the weapon disappears mid-swing (a companion
+  vanishing, a weapon swap): one two-minute fight logged over 12,000 errors, which also cost frame rate.
+- Reflective surfaces no longer show white streaks fanning out from one point and swinging with the camera (seen on
+  Tuscaran Glacier's floor): the reflection is now worked out per corner of each triangle, as the original client did.
+- Flying monsters (Dyranapur, Lydsyg, the giant cicadas) have their names and click areas up with their flying
+  bodies; their names were drawn on the floor beneath them.
+- Found while testing (server, not changed): Dyranapur and Lydsyg in Iarnvidiur's Lair heal to full and walk back to
+  their spawn every 1.5 seconds whenever no one they will attack is near them, so a group of companions alone can't
+  bring them down. A fight against Dyranapur with a full companion group ran smoothly in the new client (no slowdown,
+  steady memory); the reported crash there wasn't reproduced, because the boss never cast its Black Plague.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
