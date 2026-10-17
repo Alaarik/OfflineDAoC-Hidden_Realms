@@ -34,7 +34,7 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   hover as in the original client.
 - A flying monster's body drops to the ground when it dies, so it can be looted there. It used to hang in the air and
   then sink away.
-- Half Ogre, Frostalf and Shar NPCs (Elizabeth the Smith and every other NPC of those races) are drawn as
+- Half Ogre, Frostalf and Shar NPCs (Elizabeth the Smith in Mularn and every other NPC of those races) are drawn as
   their races with their outfits, like every other race. They were one old model with a single skin over every part.
 - Ghostly monsters and pets (spirit champions and the other Spiritmaster pets, the spectral snake, forest skrats) are
   drawn as one see-through layer: their eyes and mouth no longer show through, and they no longer flicker as they move.
