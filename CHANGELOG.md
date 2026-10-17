@@ -71,6 +71,12 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
     every Albion class, 15 in all, and every one was broken.
 - Quest markers update when you level up. A quest giver whose quest opens at your new level shows its marker
   straight away; it used to show nothing until you logged out and back in (Troya in Howth at level 2, for example).
+- Fjall (the Healer and Shaman epic step "Search out Fjall and his fellows") is back in the fenrir fort in Yggdra
+  Forest, in the first hut on the right as you come in through the gate, as the period guides describe. He stood for
+  good, alone, outside Vindsaul Faste among the gate guards. Now four fenrir friends keep him company, and every so
+  often the group runs south of the lake to the Vindsaul gate and back. The quest's map marker points to the hut.
+- Guards fight a quest monster that wanders far from its home, as the Vindsaul gate guards fought Fjall and his
+  friends. Quest monsters that live among guards, such as the thieves inside Camelot, are still left to you.
 
 **The new client (0.36c)**
 - The Magic tab lists each specialization's spells by level, lowest first, as the original client does. They were
