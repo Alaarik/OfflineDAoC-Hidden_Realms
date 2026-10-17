@@ -115,6 +115,9 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   boss's Lifedrain) didn't crash or slow down the new client either; memory levelled off. It did show a few
   single-frame hitches of up to two seconds whose cause isn't known yet.
 - The small group window's names line up with the power gems and health bars; they sat a little higher.
+- Fewer hitches in busy fights: a spell effect's files now load in the background, starting as soon as the cast
+  begins, instead of freezing the game for up to a second and a half the first time each effect appeared (most often
+  with companions or gamebots casting). An effect that isn't ready yet shows a moment later.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
