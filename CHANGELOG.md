@@ -31,6 +31,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   (gryphons, amphiteres) the mount jumped between positions and turned wildly during the flight.
 - The Cabalist's simulacrums look as they do in the original client: smooth, marble-tinted stone with their belt,
   face and muscles. They were drawn grainy, with their detail texture stretched and repeated over the body.
+- Ghostly NPCs (Spiritmaster pets, frost spectres, the spectral snake, forest skrats) no longer flicker between dark
+  and bright white, even when several of them move about together, and they keep their colours under the ghostly look.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
