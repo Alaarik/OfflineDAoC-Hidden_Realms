@@ -45,9 +45,6 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 - Battleground assaults go for the keep lord, in through a broken main gate. In all four battlegrounds the gates
   fell and the guards died for hours while every lord stayed untouched: the attackers waited in the courtyard, and
   the ones heading upstairs to the lord stopped at a small side door that can't be broken.
-- Level 50 groups pick hunting grounds they can reach: a camp at most about 15 minutes away, or one of the nearest
-  third when none is that close. A quarter of them used to spend their whole task travelling, often to the far
-  side of the Shrouded Isles.
 - Less lag: fewer route checks for bots waiting to board a horse in town, and less memory churn from pets and bots
   checking their abilities and skill timers.
 
