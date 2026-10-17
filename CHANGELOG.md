@@ -6,7 +6,23 @@ The newest version is first. For the full detail of every earlier update, see
 ## 0.37 / 0.37b (not released yet)
 
 Changes made after 0.36 are listed here as they are made, and will be in the 0.37 / 0.37b download. Until then,
-0.36 / 0.36b / 0.36c is the latest release. Nothing has been added yet.
+0.36 / 0.36b / 0.36c is the latest release.
+
+**Bots and raids**
+- Automatic raid rallies give their army time to arrive. A rally used to fail if its army was not staged within 90
+  minutes of opening, counting the time spent gathering at the hub town: the Tuscaran Glacier rally needed 84 minutes
+  to gather at Hagall and had six left for the trip. A slow hub now sets out after 30 minutes once 120 have arrived
+  (late arrivals follow on), and after leaving the hub the army always has at least 45 minutes to stage.
+- Raiders on their way to a rally are no longer sent back to their capital by the stuck-bot check. During the
+  Cuuldurach rally it sent over 300 of them to Tir na Nog, and only 13 reached the dragon.
+- Bots that end up on a small cut-off patch of ground step back onto real ground at once, instead of failing route
+  after route first. In Vindsaul Faste this happened to bots heading for the stables almost every day, and it also
+  dropped members from raid parties. A walled-off ridge in the south-east of Lough Derg that bots got stuck on during
+  the Cuuldurach rally is now treated the same way.
+- Bots using the teleporter in Vale of Mularn no longer stand inside the bindstone next to it.
+- Siege and battle announcements read properly. They named the target twice, for example "Our army has laid siege
+  to the keep keep Caer Sursbrooke!"; now it is "Our army has laid siege to Caer Sursbrooke!" (and "the relic
+  keep Dun Dagda" for relic keeps).
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
