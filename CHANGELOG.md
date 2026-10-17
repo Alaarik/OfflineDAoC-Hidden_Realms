@@ -23,6 +23,24 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 - Siege and battle announcements read properly. They named the target twice, for example "Our army has laid siege
   to the keep keep Caer Sursbrooke!"; now it is "Our army has laid siege to Caer Sursbrooke!" (and "the relic
   keep Dun Dagda" for relic keeps).
+- Animist bots plant their mushrooms only during a fight, and never in a city or town. They used to plant one
+  whenever they stood still between fights, so towns filled up with them.
+
+**Quests**
+- Every classic quest can now be started by talking to its giver. In 20 of them one line of the giver's
+  conversation was missing, so the giver showed a quest marker but nothing you could click led to the quest (Aegan
+  in Mularn only said "You have learned much since I spoke to you last."). The missing lines are back, word for
+  word from the period quest walkthroughs. The broken quests were:
+  - Evenings Empty Blessing: Aegan, Mularn (Midgard, levels 15 to 50)
+  - Lover's Circle: Sugnhild, Huginfell (Midgard, levels 15 to 50)
+  - Better Off Buried: Gudlor, Huginfell (Midgard, levels 27 to 50)
+  - Uncle Thulin: Achae Smith, Fort Gwyntell (Albion, levels 25 to 50)
+  - Cleric Mulgrut: Hugh Gallen, Prydwen Keep (Albion, levels 5 to 50). He also names Mulgrut's son, Durren, again;
+    he used to say your name instead.
+  - Tale of Druids: Vadri Pade, the Magic Shoppe in Camelot (Albion, levels 10 to 50). This quest has a copy for
+    every Albion class, 15 in all, and every one was broken.
+- Quest markers update when you level up. A quest giver whose quest opens at your new level shows its marker
+  straight away; it used to show nothing until you logged out and back in (Troya in Howth at level 2, for example).
 
 **The new client (0.36c)**
 - The Magic tab lists each specialization's spells by level, lowest first, as the original client does. They were
