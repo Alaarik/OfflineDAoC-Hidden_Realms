@@ -49,6 +49,9 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   leader watched the road ahead and only its puller was allowed to start a fight, so when the two were different
   bots the whole group stood still, sometimes for an hour and a half, until its task ran out. The puller now takes
   the monster on, and a group that can't get ready to fight it within about a minute goes around it or walks on.
+- Bot groups travel as one pack, the way your companions follow you. Each member used to walk to a spot just
+  ahead of its leader, stop there and wait a few seconds for its next decision, so a travelling group moved in
+  stops and starts. Members now keep their place around the leader continuously while it walks.
 - Less lag: fewer route checks for bots waiting to board a horse in town, and less memory churn from pets and bots
   checking their abilities and skill timers.
 
