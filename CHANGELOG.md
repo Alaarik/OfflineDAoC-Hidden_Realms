@@ -89,6 +89,10 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   their icons and the level each comes at, the ones you know dimmed and the next level's in gold.
 - Combat styles leave their colored trail behind the weapon the way the original client draws it: one smooth streak
   that follows the swing as it happens. It was drawn late and choppy, as a few separate copies of the weapon.
+- Delling Crater's entrance to Tuscaran Glacier works again: walking into it zones you in. The new client was missing
+  that zone-in spot.
+- Tuscaran Glacier's ice is far less shiny, closer to the original client's: its reflection no longer covers the
+  blue ice in a white glare.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
