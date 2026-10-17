@@ -33,6 +33,10 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   121 bots at the keep to none in an hour while every fallen attacker walked back from Jordheim.
 - Darkness Falls raid members who cannot join their realm's route from where they stand wait half a minute before
   trying again. Over a hundred of them retried it on every turn, which made players rubberband.
+- Less lag during the Darkness Falls raids. Raiders on their way to a boss with no route to their spot (Prince
+  Abdin) searched for one on every turn, a search that takes up to five seconds, because the raid's spot moves a
+  little whenever the raid advances. A failed search now counts for every spot near it for a minute, for all
+  raiders at once.
 - Town teleporter trips fail less often. A bot that planned a teleporter trip and then joined a group, or got a new
   task, kept walking to the teleporter for its old plan; that was a quarter of the failed trips.
 - Galladoria: the Earthmenders keep their wounds while raiders are in their room, and they fight back. Each one
