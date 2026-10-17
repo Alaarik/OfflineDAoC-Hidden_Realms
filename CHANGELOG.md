@@ -45,6 +45,10 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 - Battleground assaults go for the keep lord, in through a broken main gate. In all four battlegrounds the gates
   fell and the guards died for hours while every lord stayed untouched: the attackers waited in the courtyard, and
   the ones heading upstairs to the lord stopped at a small side door that can't be broken.
+- Groups on their way to a hunting ground no longer freeze in front of a monster on the road. Only the group's
+  leader watched the road ahead and only its puller was allowed to start a fight, so when the two were different
+  bots the whole group stood still, sometimes for an hour and a half, until its task ran out. The puller now takes
+  the monster on, and a group that can't get ready to fight it within about a minute goes around it or walks on.
 - Less lag: fewer route checks for bots waiting to board a horse in town, and less memory churn from pets and bots
   checking their abilities and skill timers.
 
