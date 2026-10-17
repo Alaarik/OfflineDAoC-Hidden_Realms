@@ -111,6 +111,10 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   their spawn every 1.5 seconds whenever no one they will attack is near them, so a group of companions alone can't
   bring them down. A fight against Dyranapur with a full companion group ran smoothly in the new client (no slowdown,
   steady memory); the reported crash there wasn't reproduced, because the boss never cast its Black Plague.
+  A two-minute simulation of that fight (Black Plague landing on a full group of eight every second, plus the
+  boss's Lifedrain) didn't crash or slow down the new client either; memory levelled off. It did show a few
+  single-frame hitches of up to two seconds whose cause isn't known yet.
+- The small group window's names line up with the power gems and health bars; they sat a little higher.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
