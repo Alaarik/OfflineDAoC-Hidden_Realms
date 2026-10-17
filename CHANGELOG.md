@@ -24,6 +24,10 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   to the keep keep Caer Sursbrooke!"; now it is "Our army has laid siege to Caer Sursbrooke!" (and "the relic
   keep Dun Dagda" for relic keeps).
 
+**The new client (0.36c)**
+- The Magic tab lists each specialization's spells by level, lowest first, as the original client does. They were
+  grouped by specialization but mixed by spell type.
+
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
 Everything added since 0.35, in one complete download, and a new game client. The overview is in
