@@ -51,7 +51,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   the monster on, and a group that can't get ready to fight it within about a minute goes around it or walks on.
 - Bot groups travel as one pack, the way your companions follow you. Each member used to walk to a spot just
   ahead of its leader, stop there and wait a few seconds for its next decision, so a travelling group moved in
-  stops and starts. Members now keep their place around the leader continuously while it walks.
+  stops and starts. Members now keep their place around the leader continuously while it walks, save their
+  ordinary buffs for when the group stops, and carry on as soon as a cast ends.
 - Less lag: fewer route checks for bots waiting to board a horse in town, and less memory churn from pets and bots
   checking their abilities and skill timers.
 
