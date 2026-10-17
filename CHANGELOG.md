@@ -29,6 +29,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   grouped by specialization but mixed by spell type.
 - Stable rides seat you on your mount. On horses you jittered beside and behind the horse, and on flying routes
   (gryphons, amphiteres) the mount jumped between positions and turned wildly during the flight.
+- The Cabalist's simulacrums look as they do in the original client: smooth, marble-tinted stone with their belt,
+  face and muscles. They were drawn grainy, with their detail texture stretched and repeated over the body.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
