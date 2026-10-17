@@ -37,6 +37,12 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   Abdin) searched for one on every turn, a search that takes up to five seconds, because the raid's spot moves a
   little whenever the raid advances. A failed search now counts for every spot near it for a minute, for all
   raiders at once.
+- Less lag from bots trying to sell loot to merchants they can't reach. Bots picked Kel and Kuz, the giant merchants
+  on top of the hill at Grimspound in Dartmoor, which they have no way up to. They searched for a way there every
+  turn for 20 minutes or more. A bot that can't reach a merchant now chooses another one, and once two bots have
+  failed, every bot skips that merchant for half an hour.
+- Less lag at keep sieges. Pets and group members whose way was blocked by a closed keep door looked for a way
+  around it twice a second. When there is no way around, they now wait a few seconds before looking again.
 - Town teleporter trips fail less often. A bot that planned a teleporter trip and then joined a group, or got a new
   task, kept walking to the teleporter for its old plan; that was a quarter of the failed trips.
 - Galladoria: the Earthmenders keep their wounds while raiders are in their room, and they fight back. Each one
