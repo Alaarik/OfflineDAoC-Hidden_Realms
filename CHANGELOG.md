@@ -151,6 +151,10 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 - Monsters that borrow another creature's animations no longer float while fighting or swimming: their animations
   keep the heights from the original client's files (428 monster models redone). The windswept wraith, mummy hags,
   liches and gray spectres crouch on the ground in combat, as the original client shows them.
+- Options > AUDIO has separate SOUND EFFECTS (spells, melee, monster and character noises, footsteps, doors) and
+  AMBIENCE (the zone's own background sounds) volume sliders; they were one slider.
+- Pets and monsters (dread commanders, boneguards ...) put their weapons away as soon as the server says their fight
+  is over, as in the original client, instead of holding them out for several more seconds.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
