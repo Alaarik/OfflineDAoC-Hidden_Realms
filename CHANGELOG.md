@@ -130,6 +130,11 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   with companions or gamebots casting). An effect that isn't ready yet shows a moment later.
 - A character that dies mid-cast plays its death instead of standing frozen in its cast until its body sinks (seen
   with a Bonedancer companion's boneknitters after /disband); its glowing hands go out at once.
+- Invisible gamebots and pets: the new client now asks the server for any character it hears about but was never
+  sent, as the original client does, so they appear. The server can mark a character as already shown to you without
+  ever sending it, and the new client never asked for it, so those characters fought and moved with no body or name.
+- F12 writes a report of nearby characters that aren't drawn and why (bot_report.log in the game's save folder), to
+  help track down any that still go missing. The key can be changed under Options > CONTROLS > Misc.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
