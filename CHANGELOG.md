@@ -155,6 +155,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   AMBIENCE (the zone's own background sounds) volume sliders; they were one slider.
 - Pets and monsters (dread commanders, boneguards ...) put their weapons away as soon as the server says their fight
   is over, as in the original client, instead of holding them out for several more seconds.
+- Gamebots and companions swim at the surface with you; they were drawn well under the water with only their names
+  on top.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
