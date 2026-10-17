@@ -37,6 +37,9 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   their races in their outfits, like every other race. They were one old model with a single skin over every part.
 - The release window when you die has the original client's four choices: release (to your bind point), release to
   the city, to your house, and to your bind, with the countdown bar. There was a single release button.
+- Monsters stand, fly and hover at their proper height. Low-flying giant cicadas, skadedjur and terror birds were
+  sunk halfway into the ground, hovering monsters such as cold lights sat on the ground, and a flying monster's body
+  stayed in the air when it died; it now falls to the ground.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
