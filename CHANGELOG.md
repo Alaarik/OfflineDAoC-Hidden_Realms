@@ -109,8 +109,9 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   blue ice in a white glare.
 - Ground-target spells work: an Animist's turrets no longer fail with "Your ground target is not in view." The new
   client kept telling the server your ground target was out of sight.
-- The group window's DISBAND removes the member whose name you clicked (while they are still your target) instead of
-  breaking up the whole group; with no member picked you leave the group, as before.
+- The group window's DISBAND removes the member you have targeted (clicked in the world, on their name in the group
+  window, or with the group-target keys) instead of breaking up the whole group; with no group member targeted you
+  leave the group, as before.
 - Binding a key in the options keeps the key list where it was (it jumped back to the top) and shows which action
   the key was taken from.
 - The UI SCALE slider resizes the interface when you let go of it; it resized under the mouse while dragging.
@@ -139,6 +140,8 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   ever sending it, and the new client never asked for it, so those characters fought and moved with no body or name.
 - F12 writes a report of nearby characters that aren't drawn and why (bot_report.log in the game's save folder), to
   help track down any that still go missing. The key can be changed under Options > CONTROLS > Misc.
+- Riding a stable master's horse: your horse gallops (its hoof sounds were missing), and it no longer sinks into the
+  ground going over hills (seen from Huginfell to Raumarik).
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
