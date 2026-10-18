@@ -23,6 +23,10 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   name and emblem, and drop them when you leave the guild.
 
 **Bots and raids**
+- 22 weapons, shields and pieces of armour that were drawn as a bag now look like what they are: among them Luso's
+  Claws (which a level 47 Savage companion carried in its left hand), Morvalt Bladed Ericril, Master Smed's Eye
+  Remover, the Savage's Stoneheart Claw quest reward, Gulak's, Snaebjorn's and Silistar's Claws, the Staff of Mourning
+  and the Shield of Lifeless Dreams. Each now uses the look of similar items of its kind and level.
 - Automatic raid rallies give their army time to arrive. A rally used to fail if its army was not staged within 90
   minutes of opening, counting the time spent gathering at the hub town: the Tuscaran Glacier rally needed 84 minutes
   to gather at Hagall and had six left for the trip. A slow hub now sets out after 30 minutes once 120 have arrived
