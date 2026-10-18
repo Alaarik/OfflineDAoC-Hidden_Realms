@@ -199,7 +199,7 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   on top.
 - Savages' claw and fang greaves sit on the forearms the way the original client draws them: the right-hand one no
   longer floats off the hand, the off-hand one faces the right way, and a Savage with a greave in each hand shows
-  both (the left one was dropped). Moon claws and other fist weapons were already right and are unchanged.
+  both (the left one was dropped).
 - Monsters, horses and pets no longer turn solid black (and fire smoke pink) partway through a session. Loading the
   next zone in the background read a ground texture back from the graphics card in the middle of a frame, which
   broke drawing for every texture loaded after it; that value is now read from the texture file instead.
@@ -208,6 +208,18 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   to pick up" or "You can't get that!". Pick up what you have targeted with the Get Item key (G), and target the
   nearest loot within range with the Nearest Loot key (F7; graves are skipped). Both can be changed under Options >
   CONTROLS.
+- Fist weapons stab forward: fang greaves, moon claws, moon fangs and the slash fist weapons used to stick out
+  sideways or upward from the fist; they now point along the arm in both hands. The Pict fist weapons stood straight
+  up and are fixed too.
+- Gamebots' and companions' weapons show their dyes and weapon glows; they were always drawn plain.
+- Guilds (with the server's gamebot guilds):
+  - A guild window (Shift+G, can be changed under Options > CONTROLS): your guild's and alliance's members with
+    level, class, rank, group, zone or last seen and note, sortable, ten to a page, online only or everyone, with
+    Send, Invite, Promote, Demote, Remove, Guild Info, MOTD and Leave Guild. Gamebot members are listed too.
+  - Guild emblems are drawn on cloaks and shields the way the original client draws them (its colours, patterns and
+    logos): on your own gear, other players', gamebots' and companions', and on the character select screen.
+  - The emblem picker (the emblemer, /gc emblem) has the original window with a turning shield to preview the
+    emblem and every logo to choose from.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
