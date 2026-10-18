@@ -102,6 +102,23 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   teleporter at once, and a trip the bot is led away from (by its party) is dropped without blaming the teleporter.
 - Battleground stormers turn for the keep gate, and then for the lord, the moment their step changes, instead of
   first finishing the walk they were on.
+- Siege armies raise their fallen during the battle. Healers of the attacking realm raise a fallen comrade near them
+  once nothing has hit them for a few seconds and no enemy stands by the body, as players did from the back line.
+  Before, they raised only when out of combat, which at a keep under siege never happened: the dead waited for a
+  raise, then walked back from their realm's frontier, and the army at Dun Dagda melted away.
+- Galladoria: raids no longer stand round a monster that a pet class is charming (a "grogan" held 230 raiders for
+  four minutes), no longer chase the Watery Vortexes over the water primal's pool (out of reach, back every six
+  minutes, and they wiped most of the raid), and send idle raiders onto a target that only a handful are fighting
+  (the Guardian Earthmender took 20 minutes with one to seven raiders on it while dozens stood by).
+- Caer Sidi: the raid keeps climbing to the final encounter. The way up is long, and the raid used to give up the
+  climb after three minutes and fall back.
+- Bots of any task can leave their realm's portal keep through its door (136 Hibernians stuck inside Hibernia's
+  portal keep in Odin's Gate kept giving up their routes).
+- Bots crossing a zone border find a way where all the best-looking crossings lead into dead ends, such as sealed
+  tower rooms at Vindsaul Faste coming from Yggdra Forest. Routes that already worked are unchanged (checked on
+  360 recorded bot trips).
+- Less memory churn on a full server: a once-a-minute database check of every retired bot's commands now looks at
+  each one once, and pet classes choose their pet buff and heal without building lists every turn.
 - Galladoria: the Organic-Energy Mechanism no longer breaks spell casting on the server. It casts its damage shield
   each time it is hit, and with a raid hitting it at once these casts overran the spell queue (an error on every hit,
   42 in one fight), so its fight never played out. Every scripted monster that casts when struck is fixed with it.
