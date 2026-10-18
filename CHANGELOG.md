@@ -9,6 +9,9 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 0.36 / 0.36b / 0.36c is the latest release.
 
 **Guilds**
+- You can form a guild on your own. Stand near a Guild Registrar (Brit in Jordheim, Lord Christopher in Camelot,
+  Filidh Fadywn in Tir na Nog) and type /gc form <guild name>; it costs 1 gold. Before, forming a guild needed a
+  group of other players to accept, so on your own server it could never be done.
 - Gamebots can join your guild. Target one of your realm's gamebots (or name it) and use /gc invite; it joins at
   once. Guild gamebots appear in the guild and alliance social window, show the guild name under their name to
   their own realm, wear the guild emblem on their cloak and shield, and chat in guild chat (and answer you there).
