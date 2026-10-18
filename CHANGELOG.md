@@ -181,6 +181,11 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 - Monsters, horses and pets no longer turn solid black (and fire smoke pink) partway through a session. Loading the
   next zone in the background read a ground texture back from the graphics card in the middle of a frame, which
   broke drawing for every texture loaded after it; that value is now read from the texture file instead.
+- Clicking something on the ground (your gravestone, loot, a relic) targets it, as in the original client, instead of
+  trying to pick it up straight away. Your own grave can be targeted for /pray again; it used to answer "too far away
+  to pick up" or "You can't get that!". Pick up what you have targeted with the Get Item key (G), and target the
+  nearest loot within range with the Nearest Loot key (F7; graves are skipped). Both can be changed under Options >
+  CONTROLS.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
