@@ -84,6 +84,27 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 - Galladoria: the Earthmenders keep their wounds while raiders are in their room, and they fight back. Each one
   healed to full half a minute after the primals pulled the raid away, and because they never attacked, raiders
   busy with the primals never turned on them, so every Earthmender was given up in turn.
+- Bots no longer walk into the tower wall at Vindsaul Faste. The keep's ground on the Yggdra Forest border is a narrow
+  strip along a tower, and the bots' route planner took a crossing point just behind the wall, inside the sealed
+  tower room, for one it could reach. Bots stood at the wall and gave up their trip, 74 times in one evening.
+- Parties no longer stall at zone borders. When the leader crossed into the next zone, the other members' places in
+  the formation lay over the border, where the members' route planning does not reach, and they stood still until
+  the leader was far enough in. They now step over the border right behind the leader.
+- Realm armies and siege parties march to keeps without stopping at every waypoint of their route. Each bot walked
+  into the waypoint it had just reached, stopped there and waited for its next decision before walking on. Bots
+  walking to a stable master for a horse turn for it at once in the same way.
+- Group travel is smoother where a party member's place in the formation cannot be reached (behind a wall, over a
+  ledge, the far side of a narrow bridge): the member now walks just behind the leader for a few seconds instead of
+  standing still until its place moved somewhere it could reach.
+- Town teleporter trips no longer walk away from the teleporter. A bot already on its way somewhere (to its camp)
+  that decided to take a teleporter kept walking its old way, away from the teleporter, until the trip failed and
+  the bot avoided that teleporter for ten minutes: 162 of the 175 failed trips in one evening. It now turns for the
+  teleporter at once, and a trip the bot is led away from (by its party) is dropped without blaming the teleporter.
+- Battleground stormers turn for the keep gate, and then for the lord, the moment their step changes, instead of
+  first finishing the walk they were on.
+- Galladoria: the Organic-Energy Mechanism no longer breaks spell casting on the server. It casts its damage shield
+  each time it is hit, and with a raid hitting it at once these casts overran the spell queue (an error on every hit,
+  42 in one fight), so its fight never played out. Every scripted monster that casts when struck is fixed with it.
 - Caer Sidi: raids no longer get stuck clearing Lich Lord Sanguis's blood mages after he is dead. They kept
   appearing, and the raid fought them for 40 minutes instead of moving on to Apocalypse.
 - Caer Sidi: the Skeletal Sacristan stops walking while he is being hit and walks on 10 seconds after the last
