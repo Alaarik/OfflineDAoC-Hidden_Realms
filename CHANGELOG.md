@@ -117,6 +117,12 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   wear it down (Galladoria's Corrupt Primal of Fire).
 - Party members keep walking with their leader instead of reaching the spot they were heading for and pausing
   until their next step: they now aim a little further ahead of a walking leader.
+- Bots on their way to Dun Lamfhota no longer bounce between Emain Macha and Breifine. Coming into Breifine they
+  were taken to be on a cut-off ledge and sent back to Emain Macha, then into Breifine again, over and over.
+- Every party of a dragon raid can reach its spot round the lair. One of Cuuldurach's 38 staging spots lay on
+  ground the route planner did not link to the lair, so the party sent there was routed out through Shannon
+  Estuary and never arrived. A full check of every dragon, relic keep, Apocalypse and Olcasgean route found no
+  other spot bots cannot reach.
 - Caer Sidi: the raid keeps climbing to the final encounter. The way up is long, and the raid used to give up the
   climb after three minutes and fall back.
 - Bots of any task can leave their realm's portal keep through its door (136 Hibernians stuck inside Hibernia's
