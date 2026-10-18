@@ -39,10 +39,18 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   raiders at once.
 - Less lag from bots trying to sell loot to merchants they can't reach. Bots picked Kel and Kuz, the giant merchants
   on top of the hill at Grimspound in Dartmoor, which they have no way up to. They searched for a way there every
-  turn for 20 minutes or more. A bot that can't reach a merchant now chooses another one, and once two bots have
-  failed, every bot skips that merchant for half an hour.
+  turn for 20 minutes or more. A bot that has tried for a minute without getting any closer to a merchant now
+  chooses another one, and once two bots have given up on it, every bot skips that merchant for half an hour. Bots
+  that are simply far away, such as across Camelot from the Realm Exchange, still walk there.
 - Less lag at keep sieges. Pets and group members whose way was blocked by a closed keep door looked for a way
   around it twice a second. When there is no way around, they now wait a few seconds before looking again.
+- Less lag overall: the server creates far less short-lived data while bots choose hunting spots, look after their
+  pets and plan paths, so memory clean-up pauses come less often.
+- Battlegrounds with only a few bots of a realm no longer announce keep sieges that go nowhere. A realm with too few
+  bots in a battleground for an assault (Thidranki often had one or two) now fights in the open field instead of
+  waiting forever for an assault group. Sieges that involve a player are still announced.
+- Battleground assaults on a keep whose gates are all shut now march on the nearest gate and batter it, instead of
+  trying to walk straight to the keep lord through the closed keep.
 - Town teleporter trips fail less often. A bot that planned a teleporter trip and then joined a group, or got a new
   task, kept walking to the teleporter for its old plan; that was a quarter of the failed trips.
 - Galladoria: the Earthmenders keep their wounds while raiders are in their room, and they fight back. Each one
