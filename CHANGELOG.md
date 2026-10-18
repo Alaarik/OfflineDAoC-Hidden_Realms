@@ -110,6 +110,13 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   four minutes), no longer chase the Watery Vortexes over the water primal's pool (out of reach, back every six
   minutes, and they wiped most of the raid), and send idle raiders onto a target that only a handful are fighting
   (the Guardian Earthmender took 20 minutes with one to seven raiders on it while dozens stood by).
+- Siege crews set up rams past the wrecks of broken engines. After Dun Dagda's outer gate fell, the wrecks of the
+  first rams blocked every spot in front of the Relic Gate, so no new ram could be placed.
+- Raid parties that find no free spot at the raid's next stop walk there anyway instead of waiting where they were;
+  and a raid boss with a very large health pool is no longer given up as "taking no damage" while a few raiders
+  wear it down (Galladoria's Corrupt Primal of Fire).
+- Party members keep walking with their leader instead of reaching the spot they were heading for and pausing
+  until their next step: they now aim a little further ahead of a walking leader.
 - Caer Sidi: the raid keeps climbing to the final encounter. The way up is long, and the raid used to give up the
   climb after three minutes and fall back.
 - Bots of any task can leave their realm's portal keep through its door (136 Hibernians stuck inside Hibernia's
