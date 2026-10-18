@@ -85,6 +85,10 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   checking their abilities and skill timers.
 
 **Quests**
+- Bounties count every monster with the bounty's name. With a svartalf foister bounty, any svartalf foister you
+  kill counts, whatever its level and wherever it is. Before, Hard and Very Hard bounties ignored ones more than a
+  level below the target, and only ones in the bounty's own lands or dungeon counted. How bounties are picked, how
+  many kills they need and their rewards are unchanged.
 - Every classic quest can now be started by talking to its giver. In 20 of them one line of the giver's
   conversation was missing, so the giver showed a quest marker but nothing you could click led to the quest (Aegan
   in Mularn only said "You have learned much since I spoke to you last."). The missing lines are back, word for
