@@ -51,6 +51,16 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
   waiting forever for an assault group. Sieges that involve a player are still announced.
 - Battleground assaults on a keep whose gates are all shut now march on the nearest gate and batter it, instead of
   trying to walk straight to the keep lord through the closed keep.
+- Relic and keep sieges: the attacking army's healers now raise any fallen comrade near them, not only members
+  of their own group, and the fallen wait for that raise. Before, a dead attacker came back on foot from its realm's
+  frontier muster, so the army at Dun Dagda melted away even while it was winning the fight.
+- Midgard and Hibernia bots can leave the battlegrounds again. Their own portal keep's door blocked the way out, so
+  they could not go home to train (Albion's way out has no door).
+- Warbands no longer pick meeting spots around Castle Sauvage that are cut off from the keep; bots that arrived by
+  teleporter used to get stuck walking to them.
+- Bots that drop into the sunken patch near the Realm Exchange in Camelot are put back on the street at once.
+- Bots take a town teleporter only when it really is quicker: the walk to it is now judged by the actual route, not
+  the straight line, so they no longer head for a teleporter that is only reachable by a long detour.
 - Town teleporter trips fail less often. A bot that planned a teleporter trip and then joined a group, or got a new
   task, kept walking to the teleporter for its old plan; that was a quarter of the failed trips.
 - Galladoria: the Earthmenders keep their wounds while raiders are in their room, and they fight back. Each one
