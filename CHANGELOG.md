@@ -8,6 +8,17 @@ The newest version is first. For the full detail of every earlier update, see
 Changes made after 0.36 are listed here as they are made, and will be in the 0.37 / 0.37b download. Until then,
 0.36 / 0.36b / 0.36c is the latest release.
 
+**Guilds**
+- Gamebots can join your guild. Target one of your realm's gamebots (or name it) and use /gc invite; it joins at
+  once. Guild gamebots appear in the guild and alliance social window, show the guild name under their name to
+  their own realm, wear the guild emblem on their cloak and shield, and chat in guild chat (and answer you there).
+  Enemy players still see only their realm rank title under the name, but they can see the emblem.
+- The emblem stays on through every gear upgrade, changes at once when the guild changes its emblem, and
+  disappears when the gamebot is removed (/gc remove <name>), when the guild disbands, or when the gamebot is
+  removed from the launcher's roster (which also takes it out of the guild).
+- /spawn companions never join a guild (they are temporary), but while they are with you they show your guild
+  name and emblem, and drop them when you leave the guild.
+
 **Bots and raids**
 - Automatic raid rallies give their army time to arrive. A rally used to fail if its army was not staged within 90
   minutes of opening, counting the time spent gathering at the hub town: the Tuscaran Glacier rally needed 84 minutes
