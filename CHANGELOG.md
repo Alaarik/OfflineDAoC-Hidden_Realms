@@ -178,6 +178,9 @@ Changes made after 0.36 are listed here as they are made, and will be in the 0.3
 - Savages' claw and fang greaves sit on the forearms the way the original client draws them: the right-hand one no
   longer floats off the hand, the off-hand one faces the right way, and a Savage with a greave in each hand shows
   both (the left one was dropped). Moon claws and other fist weapons were already right and are unchanged.
+- Monsters, horses and pets no longer turn solid black (and fire smoke pink) partway through a session. Loading the
+  next zone in the background read a ground texture back from the graphics card in the middle of a frame, which
+  broke drawing for every texture loaded after it; that value is now read from the texture file instead.
 
 ## 0.36 / 0.36b / 0.36c — 2026-10-16
 
