@@ -1856,6 +1856,29 @@ namespace DOL.UnitTests
                     Assert.That(def.HiberniaTarget.ZoneName, Is.EqualTo("Muire Tomb"));
                     Assert.That(def.HiberniaTarget.BriefingDialogue, Does.Contain("Muire Tomb"));
                 }
+                // Verify realm-specific epic dungeon instances in chapter 8
+                else if (def.ChapterNumber == 8)
+                {
+                    Assert.That(def.AlbionTarget.ZoneName, Is.EqualTo("Caer Sidi"));
+                    Assert.That(def.AlbionTarget.Region, Is.EqualTo(60));
+                    Assert.That(def.AlbionTarget.BriefingDialogue, Does.Contain("Caer Sidi"));
+                    Assert.That(def.MidgardTarget.ZoneName, Is.EqualTo("Tuscaran Glacier"));
+                    Assert.That(def.MidgardTarget.Region, Is.EqualTo(160));
+                    Assert.That(def.MidgardTarget.BriefingDialogue, Does.Contain("Tuscaran Glacier"));
+                    Assert.That(def.HiberniaTarget.ZoneName, Is.EqualTo("Galladoria"));
+                    Assert.That(def.HiberniaTarget.Region, Is.EqualTo(191));
+                    Assert.That(def.HiberniaTarget.BriefingDialogue, Does.Contain("Galladoria"));
+                }
+                // Verify Chapter 9 climax in the Nevernever
+                else if (def.ChapterNumber == 9)
+                {
+                    Assert.That(def.AlbionTarget.ZoneName, Is.EqualTo("The Deep Nevernever"));
+                    Assert.That(def.AlbionTarget.Region, Is.EqualTo(197));
+                    Assert.That(def.MidgardTarget.ZoneName, Is.EqualTo("The Deep Nevernever"));
+                    Assert.That(def.MidgardTarget.Region, Is.EqualTo(197));
+                    Assert.That(def.HiberniaTarget.ZoneName, Is.EqualTo("The Deep Nevernever"));
+                    Assert.That(def.HiberniaTarget.Region, Is.EqualTo(197));
+                }
             }
         }
     }

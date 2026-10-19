@@ -510,63 +510,63 @@ namespace DOL.GS.Quests
                 },
 
                 // -------------------------------------------------------------
-                // Chapter 8 (Level 45): The Audit of the Sanctuary
+                // Chapter 8 (Level 45): The Relics of Mortality
                 // -------------------------------------------------------------
                 [typeof(CouncilWardenEpic45)] = new()
                 {
                     QuestType = typeof(CouncilWardenEpic45),
                     ChapterNumber = 8,
-                    Title = "Chapter 8: The Audit of the Sanctuary",
+                    Title = "Chapter 8: The Relics of Mortality",
                     QuestLevel = 45,
-                    CuriosityDiscovery = "Triangulating Brigid's sympathetic twin-bond with Mairead reveals the Unbound's staging fortress: a pocket demesne floating in the deep Nevernever—Caer Sidi!",
+                    CuriosityDiscovery = "Recovering Morgana's shed mortal relic breaks the Unbound's grand siphon and isolates Morcant's ritual site in the Deep Nevernever!",
                     MilestonePiece = CouncilWardenEpicArmor.Chapter8GreyCloak,
                     AlbionTarget = new(
-                        eRealm.Albion, "Cabal Soul-Hunter Malakor", "Camelot Hills (Outskirts of Camelot)",
-                        "Plant the Silver Grounding Rods on the outskirts of Camelot to reverse the sympathetic mistletoe-link and triangulate the Unbound's astral demesne.",
-                        "Before we accuse a founder and tear the Council apart, you must conduct a proper Warden's Inquiry. Use this Sight-Focus Crystal in the Heart-Stone chamber. Find the sympathetic link, question the suspects, then ride to Camelot Hills outside the walls of Camelot, plant the grounding rods, and eliminate Cabal Soul-Hunter Malakor to lock onto their pocket demesne.",
-                        "The triangulation worked! Brigid's twin sister Mairead was riding their soul-link to leak our passwords. Their fortress isn't in Britain or Faerie—it is Caer Sidi, an astral redoubt torn out of time! Take the Warden's Grey Cloak. It is time for the cleansing stroke.",
-                        1, 326650, 682020, 2694, 47, 45),
+                        eRealm.Albion, "Archon Malakor of the Void", "Caer Sidi",
+                        "Infiltrate the threshold of Caer Sidi on the Isle of Avalon, cut down Archon Malakor, and recover Morgana's Athame before the Lich Lord's siphon drains the island's ley-lines.",
+                        "Morcant has hidden the three mortal anchors of Morgana le Fay inside the epic citadels of the three realms. In Albion, he placed Morgana's Athame into the vaults of Caer Sidi, using its dark resonance to awaken the Lich Lord Apocalypse. Infiltrate the threshold of Caer Sidi, destroy Archon Malakor, and bring that cursed blade back to Edinburgh!",
+                        "You breached Caer Sidi and recovered Morgana's Athame! Look at the cold-steel blade—it bears the raven crest of Tintagel, yet an oily, sickening void-rot clings to the edge. Morcant used her shed mortal malice to poison the roots of reality. Take the Warden's Grey Cloak. We have located his final retreat in the Nevernever!",
+                        60, 31666, 35982, 18639, 47, 45),
                     MidgardTarget = new(
-                        eRealm.Midgard, "Cabal Soul-Hunter Sigurd", "East Svealand (Outskirts of Jordheim)",
-                        "Plant the Silver Grounding Rods on the outskirts of Jordheim to reverse the sympathetic mistletoe-link and triangulate the Unbound's astral demesne.",
-                        "Before we draw steel on our own kin, we must follow the trail. Take this Sight-Focus Crystal into the Heart-Stone chamber. Find the sympathetic link, question the suspects, then travel to East Svealand outside the gates of Jordheim, plant the grounding rods, and cut down Cabal Soul-Hunter Sigurd to reveal Morcant's hidden hall.",
-                        "The triangulation worked! It was Brigid's twin sister Mairead, riding their shared blood to steal our ward-keys. Their hall is Caer Sidi, a frozen citadel floating in the void! Don the Warden's Grey Mantle. It is time to hunt the wolf.",
-                        100, 615290, 761990, 4552, 47, 168),
+                        eRealm.Midgard, "Jarl Sigurd of the Void", "Tuscaran Glacier",
+                        "Infiltrate the frozen threshold of Tuscaran Glacier, strike down Jarl Sigurd, and recover The Tear of Nimue before Queen Kula's siphon locks Midgard in eternal permafrost.",
+                        "Morcant hid the three relics of Morgana's mortal soul inside the three grand epic fortresses of the world. In Midgard, he placed The Tear of Nimue into the howling vaults of Tuscaran Glacier, feeding Morgana's shed mortal grief to Queen Kula to freeze our lands into the Winter Nevernever. Enter Tuscaran Glacier, strike down Jarl Sigurd, and recover the sapphire teardrop!",
+                        "You survived Tuscaran Glacier and secured The Tear of Nimue! The sapphire pulses with the raw, heartbroken cold Morgana wept when Merlin cast her out. Morcant fed that despair to the frost-jotuns. Don the Warden's Grey Mantle. The path to his final sanctuary in the Nevernever is opened!",
+                        160, 35612, 17899, 19050, 47, 168),
                     HiberniaTarget = new(
-                        eRealm.Hibernia, "Cabal Soul-Hunter Lorcan", "Lough Gur (Outskirts of Tir na nOg)",
-                        "Plant the Silver Grounding Rods on the outskirts of Tir na nOg to reverse the sympathetic mistletoe-link and triangulate the Unbound's astral demesne.",
-                        "Before accusations turn into bloodshed, we must seek the truth. Take this Sight-Focus Crystal into the Heart-Stone chamber. Find the sympathetic link, question the elders, then travel to Lough Gur outside the perimeter of Tir na nOg, plant the grounding rods, and defeat Cabal Soul-Hunter Lorcan to pinpoint the conspirators' hidden redoubt.",
-                        "The triangulation succeeded! Brigid's twin sister Mairead was riding their shared soul-bond to steal the Council's secrets. Their redoubt is Caer Sidi, a pocket citadel floating in the void! Don the Warden's Grey Mantle. It is time to cleanse the rot.",
-                        200, 382730, 667510, 4788, 47, 310),
+                        eRealm.Hibernia, "Hierophant Lorcan of the Void", "Galladoria",
+                        "Infiltrate the blighted roots of Galladoria, defeat Hierophant Lorcan, and recover The Root-Blood of Avalon before Olcasgean's siphon corrupts the Great Tree of HyBrasil.",
+                        "Morcant has bound the three vessels of Morgana's discarded mortality inside the epic strongholds of the three realms. In Hibernia, he placed The Root-Blood of Avalon beneath the ancient boughs of Galladoria, feeding her discarded mortal blood to Olcasgean to turn the Great Tree into a psychic plague-pump. Venture into Galladoria, strike down Hierophant Lorcan, and reclaim the sacred vessel!",
+                        "The rot in Galladoria is broken, and you recovered The Root-Blood of Avalon! When Morgana shed her mortal flesh to become Queen of Winter, she bled into the soil. Morcant warped that holy blood with the taint of the Outside. Take the Warden's Grey Cloak. The way into his redoubt in the Nevernever is now laid bare!",
+                        191, 32020, 29622, 17045, 47, 310),
                 },
 
                 // -------------------------------------------------------------
-                // Chapter 9 (Level 50): The Reckoning at Caer Sidi
+                // Chapter 9 (Level 50): The Reckoning in the Nevernever
                 // -------------------------------------------------------------
                 [typeof(CouncilWardenEpic50)] = new()
                 {
                     QuestType = typeof(CouncilWardenEpic50),
                     ChapterNumber = 9,
-                    Title = "Chapter 9: The Reckoning at Caer Sidi",
+                    Title = "Chapter 9: The Reckoning in the Nevernever",
                     QuestLevel = 50,
                     CuriosityDiscovery = "The First Blackstaff has fallen, his Outsider contagion shattered by your silver blade. Edinburgh's witchfire braziers burn bright as you are consecrated a Master Warden of the White Council!",
                     MilestonePiece = null,
                     AlbionTarget = new(
-                        eRealm.Albion, "Morcant of Caerleon, the First Blackstaff", "Caer Sidi (The Nevernever)",
-                        "Breach the astral rift from the Nevernever Crossroads into Caer Sidi, cut down Mairead the Unbound, and execute Morcant of Caerleon!",
-                        "Your silver blade is awakened. Report to the Nevernever Crossroads with your companions. Strike the Waystone, breach the astral rift directly into Caer Sidi, and execute Morcant of Caerleon under the Seven Laws of Merlin!",
+                        eRealm.Albion, "Morcant of Caerleon, the First Blackstaff", "The Deep Nevernever",
+                        "Breach the astral rift from the Nevernever Crossroads into the Deep Nevernever, cut down Mairead the Unbound, and execute Morcant of Caerleon!",
+                        "Your silver blade is awakened, and the three realm anchors are shattered. Report to the Nevernever Crossroads with your companions. Strike the Waystone, breach the astral rift directly into the Deep Nevernever, and execute Morcant of Caerleon under the Seven Laws of Merlin!",
                         "The First Blackstaff is dead, his Outsider contagion severed, and the Blackstaff secured in Edinburgh's deepest vaults. Stand tall, Master Warden. The White Council salutes you!",
                         197, 32000, 32500, 16000, 53, 63),
                     MidgardTarget = new(
-                        eRealm.Midgard, "Morcant of Caerleon, the First Blackstaff", "Caer Sidi (The Nevernever)",
-                        "Breach the astral rift from the Nevernever Crossroads into Caer Sidi, cut down Mairead the Unbound, and execute Morcant of Caerleon!",
-                        "Your blade is forged and quenched in meteoric silver. Gather your shield-brothers at the Nevernever Crossroads. Strike the Waystone, breach the rift into Caer Sidi, and put an end to Morcant of Caerleon under the Laws of the Council!",
+                        eRealm.Midgard, "Morcant of Caerleon, the First Blackstaff", "The Deep Nevernever",
+                        "Breach the astral rift from the Nevernever Crossroads into the Deep Nevernever, cut down Mairead the Unbound, and execute Morcant of Caerleon!",
+                        "Your blade is forged and quenched in meteoric silver, and the three stolen relics are safe. Gather your shield-brothers at the Nevernever Crossroads. Strike the Waystone, breach the rift into the Deep Nevernever, and put an end to Morcant of Caerleon under the Laws of the Council!",
                         "The First Blackstaff is slain, the Outsider contagion severed, and the Blackstaff secured beneath Edinburgh. Raise your horn, Master Warden—the Allfather and the White Council honor your vigil!",
                         197, 32000, 32500, 16000, 53, 63),
                     HiberniaTarget = new(
-                        eRealm.Hibernia, "Morcant of Caerleon, the First Blackstaff", "Caer Sidi (The Nevernever)",
-                        "Breach the astral rift from the Nevernever Crossroads into Caer Sidi, cut down Mairead the Unbound, and execute Morcant of Caerleon!",
-                        "Your silver blade is awakened. Gather your companions at the Nevernever Crossroads. Strike the Waystone, breach the astral rift into Caer Sidi, and bring Morcant of Caerleon to justice under the Laws of the Council!",
+                        eRealm.Hibernia, "Morcant of Caerleon, the First Blackstaff", "The Deep Nevernever",
+                        "Breach the astral rift from the Nevernever Crossroads into the Deep Nevernever, cut down Mairead the Unbound, and execute Morcant of Caerleon!",
+                        "Your silver blade is awakened, and the three realm siphons are severed. Gather your companions at the Nevernever Crossroads. Strike the Waystone, breach the astral rift into the Deep Nevernever, and bring Morcant of Caerleon to justice under the Laws of the Council!",
                         "The First Blackstaff has fallen, the Outsider contagion is severed, and the Blackstaff rests in Edinburgh's deep vaults. Stand tall, Master Warden—the sacred groves and the White Council are forever in your debt!",
                         197, 32000, 32500, 16000, 53, 63),
                 },
