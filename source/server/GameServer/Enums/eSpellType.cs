@@ -435,6 +435,9 @@ namespace DOL.GS
         // not register it with the normal controlled-pet list.
         SluaghbinderEpicSummon,
 
+        // Sluaghbinder class realm ability: a snare that tightens every second, then bursts (AtlasOF_CripplingPlague).
+        SluaghbinderCripplingPlague,
+
         // Council Warden custom Evocation, Abjuration, Thaumaturgy, and Sight spell types.
         CouncilWardenThermalSpark,
         CouncilWardenKineticLance,
