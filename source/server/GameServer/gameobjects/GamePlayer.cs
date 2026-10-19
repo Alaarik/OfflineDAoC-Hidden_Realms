@@ -10913,6 +10913,12 @@ namespace DOL.GS
                     return;
                 }
 
+                if (CouncilWardenMechanics.HasWardensBrand(this))
+                {
+                    Out.SendMessage("You are marked by a Council Warden's Brand and cannot hide!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+                    return;
+                }
+
                 if (IsOnHorse || IsSummoningMount)
                     IsOnHorse = false;
 
@@ -11073,6 +11079,8 @@ namespace DOL.GS
                 return true;
             if (effectListComponent.ContainsEffectForEffectType(eEffect.TrueSight))
                 return true;
+            if (CouncilWardenMechanics.CanDetectByWardenSightOrBrand(this, bot))
+                return true;
             int stealthLevel = Math.Min(50, bot.GetModifiedSpecLevel(Specs.Stealth));
             int levelDiff = Math.Max(0, Level - stealthLevel);
             bool camouflage = bot.effectListComponent.ContainsEffectForEffectType(eEffect.Camouflage);
@@ -11085,6 +11093,7 @@ namespace DOL.GS
             if (HasAbilityType(typeof(AtlasOF_SeeHidden)) && bot.CharacterClass?.IsAssassin != true && !camouflage)
                 range = Math.Max(range, 2700 - 36 * stealthLevel);
             range += BaseBuffBonusCategory[eProperty.Skill_Stealth];
+            range += CouncilWardenMechanics.GetSensationOfHostileEnergiesRadiusBonus(this);
             return IsWithinRadius(bot, Math.Min(range, 1900));
         }
 
@@ -11112,6 +11121,9 @@ namespace DOL.GS
 
                     // This ignores the hard cap.
                     if (effectListComponent.ContainsEffectForEffectType(eEffect.TrueSight))
+                        return true;
+
+                    if (CouncilWardenMechanics.CanDetectByWardenSightOrBrand(this, enemyPlayer))
                         return true;
 
                     /*
@@ -11158,6 +11170,7 @@ namespace DOL.GS
                     }*/
 
                     range += BaseBuffBonusCategory[eProperty.Skill_Stealth];
+                    range += CouncilWardenMechanics.GetSensationOfHostileEnergiesRadiusBonus(this);
 
                     // //Buff (Stealth Detection)
                     // //Increases the target's ability to detect stealthed players and monsters.

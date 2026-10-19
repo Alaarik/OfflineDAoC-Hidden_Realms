@@ -1,0 +1,33 @@
+{
+  "created": "20261016-102549",
+  "before": {
+    "gamedata.mpk": "1bd2d73691066e2ad5bfd776e72bf56c060c523390577d38db8cc6d8f3dad999",
+    "skin099.mpk": "b0a967825f4374ec88665e5e79eb4071a34d96825c52a70f51e513475f320dfc"
+  },
+  "after": {
+    "gamedata.mpk": "54eb2692450a55d29485afac63a408310c9f16b84c2bd0ebf754c629f31f8d5b",
+    "skin099.mpk": "1c89917b348949a02a823e7207d766eb0b7171cac22ab6f80d8dec5fd5f8c314"
+  },
+  "nifs": {
+    "WardenFae_BrambleCreeper.NIF": "8ffdbe19edb9fe8be404f5aede5948b12f5ff1e4790c35e5b1cd810eda93d6c5",
+    "WardenFae_ThornBoggart.NIF": "813986cb1b608ec9aa429087ad56621b9c16bca8a1bff3b9cdf3f41124b353c4",
+    "WardenFae_BriarSprite.NIF": "88855175afe8844df0450bd7b52ebf350d67f5b760d94b2f7d91fc1d1dee1095",
+    "WardenFae_BrambleLurker.NIF": "3cfe456578eb2cd4f1948d734c26f73803b89d9b0b893f43c7c20078d37e2999",
+    "WardenFae_RedcapCutthroat.NIF": "7c9aae1fc0b0044ccd1a8bbdf658d39573086d9ce96d6a0921b2fc6b43337efc",
+    "WardenFae_RedcapMarauder.NIF": "7c9aae1fc0b0044ccd1a8bbdf658d39573086d9ce96d6a0921b2fc6b43337efc",
+    "WardenFae_ShadowMalk.NIF": "afd1d720d538455c79633e9dab2ee148363c60d48d55a41a156a6e78edc64599",
+    "WardenFae_WinterMalk.NIF": "1417603bb07d9eedbe09862a8be0417dcdc4a52f5e228a14f7e2aba9263e97ce",
+    "WardenFae_TwilightFetch.NIF": "13ca0c86dbd98960b728a577d109ec2716a8d9a09d29f28a6600d935ff4cfe77",
+    "WardenFae_RimeFetch.NIF": "a4bbb4b8dd055c90bf0d5be603a1efb29b63cde0ee7f6fd0f788f8d9540189b5",
+    "WardenFae_BogHag.NIF": "9218675fe30733a2fd993c1d376e77bf388d087f298eaab9972c877f9651723d",
+    "WardenFae_RawheadBoss.NIF": "0a20ea240419cd7aba62aab7626186f329d7fb2c56b9accb4e5c36738179019c",
+    "WardenFae_GlacialFrosthound.NIF": "9fce98352f52d83e5f12012254a494b41c03f1790f0166a8b80c8a79a3a141a8",
+    "WardenFae_FrostWendigo.NIF": "8efd13245deb16aff4f44b4d41d49199b4f04dc098169bb5456c5e801239c159",
+    "WardenFae_UnseelieSentinel.NIF": "d6da5f00beec144fbf74fcd534469877541973f13a2adad4cd3db6ead1e87d54",
+    "WardenFae_LordSlate.NIF": "6f28ce3d034434a10ee4246cdf3c13924d0987aa60488768aaa4f124dde42b62",
+    "WardenFae_SeelieSentinel.NIF": "d6da5f00beec144fbf74fcd534469877541973f13a2adad4cd3db6ead1e87d54",
+    "WardenFae_LordTaliesin.NIF": "6f28ce3d034434a10ee4246cdf3c13924d0987aa60488768aaa4f124dde42b62",
+    "WardenFae_BriarThornsteed.NIF": "31eac1c48bee8f0233e6f38f78af0e57a323f9a95e0b18e78d6e7beb861e6910",
+    "WardenFae_ElderGruff.NIF": "41e55e266d530775502ba712dbd84b4fc582ef3f520ebdd291aa86a9f64c8e3f"
+  }
+}

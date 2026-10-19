@@ -665,6 +665,9 @@ namespace DOL.AI.Brain
 
         public virtual bool CanAggroTarget(GameLiving target)
         {
+            if (NeverneverWardedRoad.IsProtectedFromMobAggro(Body, target))
+                return false;
+
             if (!GameServer.ServerRules.IsAllowedToAttack(Body, target, true))
                 return false;
 

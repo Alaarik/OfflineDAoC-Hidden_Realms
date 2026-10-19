@@ -26,6 +26,9 @@
 **/.vs/
 /.downloads/
 /playable/
+/playable-*/
+/source/server/build/
+test_out.txt
 /artifacts/
 /tools/dotnet/
 /tools/nuget-feed/

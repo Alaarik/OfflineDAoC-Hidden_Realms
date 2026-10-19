@@ -55,7 +55,7 @@ namespace DOL.GS.Trainer
 				// player can be promoted
 				if (player.Level>=5)
 				{
-					player.Out.SendMessage(this.Name + " says, \"You must now seek your training elsewhere. Which path would you like to follow? [Warrior], [Berserker], [Skald] or [Thane]?\"", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage(this.Name + " says, \"You must now seek your training elsewhere. Which path would you like to follow? [Warrior], [Berserker], [Skald], [Thane] or [Council Warden]?\"", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
 				}
 				else
 				{
@@ -120,6 +120,16 @@ namespace DOL.GS.Trainer
 					else
 					{
 						player.Out.SendMessage(this.Name + " says, \"The path of a Thane is not available to your race. Please choose another.\"",eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+					}
+					return true;
+				case "Council Warden":
+					if(player.Race == (int) eRace.Norseman)
+					{
+						player.Out.SendMessage(this.Name + " says, \"A Warden of the White Council? They wield Norse steel alongside disciplined Evocation and Abjuration to enforce the Seven Laws of Magic. Seek out the White Council Liaison in Jordheim to take up the Grey Cloak.\"",eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+					}
+					else
+					{
+						player.Out.SendMessage(this.Name + " says, \"The path of a Council Warden is only open to mortal Norsemen. Please choose another.\"",eChatType.CT_Say,eChatLoc.CL_PopupWindow);
 					}
 					return true;
 				case "practice weapon":

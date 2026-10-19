@@ -534,6 +534,19 @@ namespace DOL.GS.PacketHandler.Client.v168
                 return true;
             }
 
+            // Council Warden characters selected directly via slots 60/61/58 start
+            // as their realm's base combat novice (Fighter, Viking, Guardian) at
+            // levels 1-4 so StartupEquipment and StartupLocations grant normal
+            // realm starter weapons, armor, and spawn coordinates before the
+            // Level 5 Council Liaison promotion.
+            ch.Class = (eCharacterClass)ch.Class switch
+            {
+                eCharacterClass.MaulerAlb => (int)eCharacterClass.Fighter,
+                eCharacterClass.MaulerMid => (int)eCharacterClass.Viking,
+                eCharacterClass.Vampiir => (int)eCharacterClass.Guardian,
+                _ => ch.Class
+            };
+
             // Save the character in the database
             GameServer.Database.AddObject(ch);
 

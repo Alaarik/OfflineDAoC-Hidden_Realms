@@ -144,7 +144,7 @@ namespace DOL.GS.PropertyCalc
             {
                 double hpFromConstitution = (constitution - constitutionOffset) * hpPerConstitution;
                 double hpFromLevel = hpPerLevelPlusOne * (npc.Level + 1) + hpPerSquaredLevel * npc.Level * npc.Level;
-                return (int) ((hpFromConstitution + hpFromLevel + hpBonus) * npc.MaxHealthScalingFactor);
+                return Math.Max(1, (int) ((hpFromConstitution + hpFromLevel + hpBonus) * npc.MaxHealthScalingFactor));
             }
         }
 

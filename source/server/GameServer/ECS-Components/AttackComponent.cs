@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -891,15 +891,6 @@ namespace DOL.GS
                             ad.StyleDamage += keepstyle;
                         }
 
-                        // Vampiir.
-                        if (playerOwner.CharacterClass is PlayerClass.ClassVampiir &&
-                            target is not GameKeepComponent and not GameKeepDoor and not GameSiegeWeapon)
-                        {
-                            int perc = Convert.ToInt32((double) (ad.Damage + ad.CriticalDamage) / 100 * (55 - playerOwner.Level));
-                            perc = (perc < 1) ? 1 : ((perc > 15) ? 15 : perc);
-                            playerOwner.Mana += Convert.ToInt32(Math.Ceiling((decimal) (perc * playerOwner.MaxMana) / 100));
-                        }
-
                         break;
                     }
                 }
@@ -1252,6 +1243,8 @@ namespace DOL.GS
                     ad.Modifier = (int) Math.Floor(resistModifier);
                     ad.CriticalChance = CalculateCriticalChance(action);
                     ad.CriticalDamage = CalculateCriticalDamage(ad);
+                    DOL.GS.Spells.CouncilWardenMechanics.ApplyColdIronAndIronSicknessOnMeleeHit(ad);
+                    DOL.GS.Spells.CouncilWardenMechanics.AdjustMurphyonicSiegeDamage(ad);
 
                     if (playerOwner != null && playerOwner.UseDetailedCombatLog)
                         PrintDetailedCombatLog(playerOwner, armorFactor, absorb, armorMod, baseWeaponSkill, varianceRange, specModifier, weaponSkill, damageMod, baseDamageCap, styleDamageCap);
@@ -1298,7 +1291,7 @@ namespace DOL.GS
             ad.Target.StartInterruptTimer(interval, ad.AttackType, ad.Attacker);
 
             // If we're attacking via melee, start an interrupt timer on ourselves so we cannot swing + immediately cast.
-            if (ad.IsMeleeAttack)
+            if (ad.IsMeleeAttack && !owner.CanCastWhileAttacking())
                 owner.StartInterruptTimer(owner.SelfInterruptDurationOnMeleeAttack, ad.AttackType, ad.Attacker);
 
             // Handles CC breaks, ablatives...
@@ -1765,6 +1758,9 @@ namespace DOL.GS
             // Must be set before calling `GetMissChance`.
             if (playerTarget != null)
                 ad.ArmorHitLocation = playerTarget.CalculateArmorHitLocation(ad);
+
+            if (DOL.GS.Spells.CouncilWardenMechanics.RollMurphyonicCrossbowMisfire(ad.Target, attackerWeapon))
+                return eAttackResult.Fumbled;
 
             double missChance = Math.Min(1, GetMissChance(action, ad, lastAttackData, attackerWeapon) * 0.01);
             double fumbleChance = ad.IsMeleeAttack ? Math.Min(1, ad.Attacker.GetModified(eProperty.FumbleChance) * 0.001) : 0;

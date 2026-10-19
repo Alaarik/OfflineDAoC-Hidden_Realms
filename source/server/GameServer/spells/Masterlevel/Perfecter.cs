@@ -283,15 +283,8 @@ namespace DOL.GS.Spells
             if (target.InCombat) return;
             if (target.ObjectState != GameObject.eObjectState.Active) return;
             if (target.IsAlive == false) return;
-            if (target is GamePlayer)
-            {
-                GamePlayer player = target as GamePlayer;
-                if (player.CharacterClass.ID == (int)eCharacterClass.Vampiir 
-                    || player.CharacterClass.ID == (int)eCharacterClass.MaulerHib
-                    || player.CharacterClass.ID == (int)eCharacterClass.MaulerMid
-                    || player.CharacterClass.ID == (int)eCharacterClass.MaulerAlb)
-                    return;
-            }
+            if (target is GamePlayer player && player.CharacterClass.ID == (int)eCharacterClass.MaulerHib)
+                return;
 
             base.OnDirectEffect(target);
             double heal = Spell.Value * CasterEffectiveness;

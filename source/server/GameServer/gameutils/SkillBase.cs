@@ -1123,6 +1123,9 @@ namespace DOL.GS
 			m_specToSkill.Add(Specs.Aura_Manipulation, eProperty.Skill_Aura_Manipulation);
 			m_specToSkill.Add(Specs.Magnetism, eProperty.Skill_Magnetism);
 			m_specToSkill.Add(Specs.Power_Strikes, eProperty.Skill_Power_Strikes);
+			m_specToSkill.Add(Specs.Evocation, eProperty.Skill_Magnetism);
+			m_specToSkill.Add(Specs.Abjuration, eProperty.Skill_Aura_Manipulation);
+			m_specToSkill.Add(Specs.Thaumaturgy, eProperty.Skill_Power_Strikes);
 
 			m_specToSkill.Add(Specs.Archery, eProperty.Skill_Archery);
 
@@ -1166,6 +1169,11 @@ namespace DOL.GS
 			m_specToFocus.Add(Specs.Cursing, eProperty.Focus_Cursing);
 			m_specToFocus.Add(Specs.Hexing, eProperty.Focus_Hexing);
 			m_specToFocus.Add(Specs.Witchcraft, eProperty.Focus_Witchcraft);
+
+			// Council Warden focus mappings (activates Focus 50 / AllFocusLevels curve)
+			m_specToFocus.Add(Specs.Evocation, eProperty.Focus_Fire);
+			m_specToFocus.Add(Specs.Abjuration, eProperty.Focus_Spirit);
+			m_specToFocus.Add(Specs.Thaumaturgy, eProperty.Focus_Matter);
 		}
 
 		/// <summary>

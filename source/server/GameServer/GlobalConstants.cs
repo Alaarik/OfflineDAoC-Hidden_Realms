@@ -192,6 +192,12 @@ namespace DOL.GS
 			if ((objectTypeID >= 1 && objectTypeID <= 28) || objectTypeID == (int)eObjectType.Shield) return true;
 			return false;
 		}
+
+		public static bool IsWeapon(DOL.Database.DbInventoryItem item)
+		{
+			return item != null && IsWeapon(item.Object_Type);
+		}
+
 		/// <summary>
 		/// Check an Object_Type to determine if it's armor
 		/// </summary>
@@ -201,6 +207,67 @@ namespace DOL.GS
 		{
 			if (objectTypeID >= 32 && objectTypeID <= 38) return true;
 			return false;
+		}
+
+		public static bool IsArmor(DOL.Database.DbInventoryItem item)
+		{
+			return item != null && IsArmor(item.Object_Type);
+		}
+
+		/// <summary>
+		/// Check if an item is a wearable piece of jewelry / accessory
+		/// </summary>
+		/// <param name="objectTypeID"></param>
+		/// <param name="itemTypeID"></param>
+		/// <returns></returns>
+		public static bool IsJewelry(int objectTypeID, int itemTypeID)
+		{
+			if (objectTypeID == (int)eObjectType.Magical)
+			{
+				return itemTypeID is (int)eInventorySlot.Jewelry
+					or (int)eInventorySlot.Neck
+					or (int)eInventorySlot.Waist
+					or (int)eInventorySlot.LeftBracer
+					or (int)eInventorySlot.RightBracer
+					or (int)eInventorySlot.LeftRing
+					or (int)eInventorySlot.RightRing
+					or (int)eInventorySlot.Mythical
+					or (int)eInventorySlot.Cloak
+					or (int)eInventorySlot.LeftHandWeapon;
+			}
+			return false;
+		}
+
+		public static bool IsJewelry(DOL.Database.DbInventoryItem item)
+		{
+			if (item == null) return false;
+			return IsJewelry(item.Object_Type, item.Item_Type);
+		}
+
+		public static bool IsJewelry(DOL.Database.DbItemTemplate item)
+		{
+			if (item == null) return false;
+			return IsJewelry(item.Object_Type, item.Item_Type);
+		}
+
+		public static bool IsRing(DOL.Database.DbInventoryItem item)
+		{
+			return item != null && item.Item_Type is (int)eInventorySlot.LeftRing or (int)eInventorySlot.RightRing;
+		}
+
+		public static bool IsBracer(DOL.Database.DbInventoryItem item)
+		{
+			return item != null && item.Item_Type is (int)eInventorySlot.LeftBracer or (int)eInventorySlot.RightBracer;
+		}
+
+		public static bool IsBelt(DOL.Database.DbInventoryItem item)
+		{
+			return item != null && item.Item_Type is (int)eInventorySlot.Waist;
+		}
+
+		public static bool IsFocus(DOL.Database.DbInventoryItem item)
+		{
+			return item != null && item.Object_Type == (int)eObjectType.Magical && item.Item_Type is (int)eInventorySlot.LeftHandWeapon;
 		}
 		/// <summary>
 		/// Offensive, Defensive, or Positional
@@ -961,7 +1028,7 @@ namespace DOL.GS
 				eCharacterClass.Reaver, 		// Reaver = 19,
 				eCharacterClass.Disciple,		// Disciple = 20,
 				// eCharacterClass.Heretic, 		// Heretic = 33,
-				// eCharacterClass.MaulerAlb		// Mauler_Alb = 60,
+				eCharacterClass.MaulerAlb,		// Council Warden (Albion) = 60,
 			}},
 			{eRealm.Midgard, new List<eCharacterClass>() {eCharacterClass.Viking, eCharacterClass.Mystic, eCharacterClass.Seer, eCharacterClass.MidgardRogue,
 				// post 1.93
@@ -983,7 +1050,7 @@ namespace DOL.GS
 				eCharacterClass.Seer, 			// Seer = 37,
 				eCharacterClass.MidgardRogue,	// MidgardRogue = 38,
 				// eCharacterClass.Warlock, 		// Warlock = 59,
-				// eCharacterClass.MaulerMid		// Mauler_Mid = 61,
+				eCharacterClass.MaulerMid,		// Council Warden (Midgard) = 61,
 			}},
 			{eRealm.Hibernia, new List<eCharacterClass>() {eCharacterClass.Guardian, eCharacterClass.Stalker, eCharacterClass.Naturalist, eCharacterClass.Magician, eCharacterClass.Forester,
 				// post 1.93
@@ -1006,9 +1073,9 @@ namespace DOL.GS
 				eCharacterClass.Animist, 		// Animist = 55,
 				eCharacterClass.Valewalker, 	// Valewalker = 56,
 				eCharacterClass.Forester, 		// Forester = 57,
+				eCharacterClass.Vampiir, 		// Council Warden (Hibernia) = 58,
 				eCharacterClass.Acolyte,       // Experimental Sluaghbinder novice (levels 1-4)
 				eCharacterClass.Sluaghbinder, 	// Sluaghbinder = 63 (experimental player-only class)
-				// eCharacterClass.Vampiir, 		// Vampiir = 58,
 				// eCharacterClass.MaulerHib	 	// Mauler_Hib = 62,
 			}},
 		};

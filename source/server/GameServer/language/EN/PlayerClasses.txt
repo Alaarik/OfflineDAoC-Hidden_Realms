@@ -1,4 +1,4 @@
-﻿# Player Classes
+# Player Classes
 
 ## Class Professions
 
@@ -29,8 +29,9 @@ PlayerClass.Profession.HouseofThor:		    House of Thor
 PlayerClass.Profession.HouseofTyr:		    House of Tyr
 PlayerClass.Profession.HouseofYmir:		    House of Ymir
 
-### Mauler
+### Mauler / White Council
 PlayerClass.Profession.TempleofIronFist:	Temple of the Iron Fist
+PlayerClass.Profession.WhiteCouncil:		White Council
 
 ## Classes
 
@@ -50,7 +51,7 @@ PlayerClass.Name.Cleric:			        Cleric
 PlayerClass.Name.Friar:				        Friar
 PlayerClass.Name.Heretic:			        Heretic
 PlayerClass.Name.Infiltrator:			    Infiltrator
-PlayerClass.Name.Mauler_Alb:			    Mauler
+PlayerClass.Name.Mauler_Alb:			    Council Warden
 PlayerClass.Name.Mercenary:			        Mercenary
 PlayerClass.Name.Minstrel:			        Minstrel
 PlayerClass.Name.Necromancer:			    Necromancer
@@ -84,8 +85,8 @@ PlayerClass.Name.Mentalist:			        Mentalist
 PlayerClass.Name.Nightshade:			    Nightshade
 PlayerClass.Name.Ranger:			        Ranger
 PlayerClass.Name.Valewalker:			    Valewalker
-PlayerClass.Name.Vampiir:			        Vampiir
-PlayerClass.Name.Warden:			        Warden
+PlayerClass.Name.Vampiir:			        Council Warden
+PlayerClass.Name.Warden:			        Grove Warden
 PlayerClass.Name.Sluaghbinder:              Sluaghbinder
 
 ### Midgard
@@ -100,7 +101,7 @@ PlayerClass.Name.Berserker:			        Berserker
 PlayerClass.Name.Bonedancer:			    Bonedancer
 PlayerClass.Name.Healer:			        Healer
 PlayerClass.Name.Hunter:			        Hunter
-PlayerClass.Name.Mauler_Mid:			    Mauler
+PlayerClass.Name.Mauler_Mid:			    Council Warden
 PlayerClass.Name.Runemaster:			    Runemaster
 PlayerClass.Name.Savage:			        Savage
 PlayerClass.Name.Shadowblade:			    Shadowblade

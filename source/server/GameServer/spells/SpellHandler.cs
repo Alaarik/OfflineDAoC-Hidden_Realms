@@ -2222,6 +2222,7 @@ namespace DOL.GS.Spells
 			}
 
 			duration *= effectiveness;
+			duration = CouncilWardenMechanics.ApplyCellularResilienceDuration(target, Spell, duration);
 
 			if (duration < 1)
 				duration = 1;
@@ -3052,10 +3053,7 @@ namespace DOL.GS.Spells
 			{
 				switch ((eCharacterClass) playerCaster.CharacterClass.ID)
 				{
-					case eCharacterClass.MaulerAlb:
-					case eCharacterClass.MaulerMid:
 					case eCharacterClass.MaulerHib:
-					case eCharacterClass.Vampiir:
 						break;
 					case eCharacterClass.Nightshade:
 					{
@@ -3081,10 +3079,7 @@ namespace DOL.GS.Spells
 			{
 				switch ((eCharacterClass) botCaster.CharacterClass.ID)
 				{
-					case eCharacterClass.MaulerAlb:
-					case eCharacterClass.MaulerMid:
 					case eCharacterClass.MaulerHib:
-					case eCharacterClass.Vampiir:
 						break;
 					case eCharacterClass.Nightshade:
 					{
@@ -3206,6 +3201,9 @@ namespace DOL.GS.Spells
 			ad.Damage = (int) finalDamage;
 			ad.CriticalDamage = criticalDamage;
 			ad.CriticalChance = criticalChance;
+			CouncilWardenMechanics.ApplyFaeMagicWard(ad);
+			CouncilWardenMechanics.AdjustIncomingSpellDamage(ad);
+			CouncilWardenMechanics.AdjustMurphyonicSiegeDamage(ad);
 			ad.Target.ModifyAttack(ad); // Attacked living may modify the attack data. Primarily used for keep doors and components.
 			m_lastAttackData = ad;
 			return ad;

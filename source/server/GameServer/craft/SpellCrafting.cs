@@ -138,30 +138,49 @@ namespace DOL.GS
 			}
 			else
 			{
-				ArrayList bonusToApply = new ArrayList(4);
-				if (item.Bonus1Type != 0)
+				ArrayList coreBonuses = new ArrayList(4);
+				ArrayList toaBonuses = new ArrayList(2);
+				ArrayList allBonuses = new ArrayList(6);
+
+				// Read existing bonuses on item
+				for (int slot = 1; slot <= 4; slot++)
 				{
-					bonusToApply.Add(item.Bonus1Type);
-					if (item.Bonus2Type != 0)
+					int bType = slot switch { 1 => item.Bonus1Type, 2 => item.Bonus2Type, 3 => item.Bonus3Type, 4 => item.Bonus4Type, _ => 0 };
+					if (bType != 0)
 					{
-						bonusToApply.Add(item.Bonus2Type);
-						if (item.Bonus3Type != 0)
-						{
-							bonusToApply.Add(item.Bonus3Type);
-							if (item.Bonus4Type != 0)
-							{
-								player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.IsAllowedToCombine.AlreadyImbued", item.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
-								return false;
-							}
-						}
+						if (IsToABonus(bType)) toaBonuses.Add(bType);
+						else coreBonuses.Add(bType);
+						allBonuses.Add(bType);
+					}
+				}
+				for (int slot = 5; slot <= 6; slot++)
+				{
+					int bType = slot == 5 ? item.Bonus5Type : item.Bonus6Type;
+					if (bType != 0)
+					{
+						if (IsToABonus(bType)) toaBonuses.Add(bType);
+						else coreBonuses.Add(bType);
+						allBonuses.Add(bType);
 					}
 				}
 
+				int draughtCount = 0;
 				lock (player.TradeWindow.Lock)
 				{
 					for (int i = 0; i < player.TradeWindow.ItemsCount; i++)
 					{
 						DbInventoryItem currentItem = (DbInventoryItem)player.TradeWindow.TradeItems[i];
+
+						if (currentItem.Id_nb == "reagent_stability_draught")
+						{
+							draughtCount++;
+							if (draughtCount > 1)
+							{
+								player.Out.SendMessage("You may only use one Draught of Greater Stability per combine!", eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								return false;
+							}
+							continue;
+						}
 
 						if (currentItem.Object_Type != (int)eObjectType.SpellcraftGem)
 						{
@@ -169,30 +188,53 @@ namespace DOL.GS
 							return false;
 						}
 
-						if (bonusToApply.Contains(currentItem.Bonus1Type))
+						if (allBonuses.Contains(currentItem.Bonus1Type))
 						{
 							player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.IsAllowedToCombine.NoSameBonus"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
 							return false;
 						}
 
-						if (bonusToApply.Count > 4)
+						if (IsToABonus(currentItem.Bonus1Type))
 						{
-							player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.IsAllowedToCombine.DifferentTypes", item.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
-							return false;
+							if (toaBonuses.Count >= 2)
+							{
+								player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.IsAllowedToCombine.DifferentTypes", item.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								return false;
+							}
+							toaBonuses.Add(currentItem.Bonus1Type);
+						}
+						else
+						{
+							if (coreBonuses.Count >= 4)
+							{
+								player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.IsAllowedToCombine.DifferentTypes", item.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+								return false;
+							}
+							coreBonuses.Add(currentItem.Bonus1Type);
 						}
 
-						bonusToApply.Add(currentItem.Bonus1Type);
+						allBonuses.Add(currentItem.Bonus1Type);
 					}
 				}
 
-				int bonusLevel = GetTotalImbuePoints(player, item);
-				if (bonusLevel > player.GetCraftingSkillValue(eCraftingSkill.SpellCrafting) / 20)
+				int coreBonusLevel = GetTotalCoreImbuePoints(player, item);
+				int maxCoreBonusLevel = GetItemMaxImbuePoints(item);
+				int toaBonusLevel = GetTotalToAImbuePoints(player, item);
+				int maxToABonusLevel = GetItemMaxToAImbuePoints(item);
+
+				if (coreBonusLevel > player.GetCraftingSkillValue(eCraftingSkill.SpellCrafting) / 20)
 				{
 					player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.IsAllowedToCombine.NotEnoughSkill"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
 					return false;
 				}
 
-				if (bonusLevel - GetItemMaxImbuePoints(item) > 6)
+				if (coreBonusLevel - maxCoreBonusLevel > 6)
+				{
+					player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.IsAllowedToCombine.NoMoreLevels", item.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+					return false;
+				}
+
+				if (toaBonusLevel - maxToABonusLevel > 4)
 				{
 					player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.IsAllowedToCombine.NoMoreLevels", item.Name), eChatType.CT_System, eChatLoc.CL_SystemWindow);
 					return false;
@@ -200,6 +242,16 @@ namespace DOL.GS
 			}
 
 			return true;
+		}
+
+		public static bool IsToABonus(int bonusType)
+		{
+			return (bonusType >= (int)eProperty.ToABonus_First && bonusType <= (int)eProperty.ToABonus_Last)
+				|| (bonusType >= (int)eProperty.StatCapBonus_First && bonusType <= (int)eProperty.StatCapBonus_Last)
+				|| (bonusType >= (int)eProperty.ResCapBonus_First && bonusType <= (int)eProperty.ResCapBonus_Last)
+				|| bonusType == (int)eProperty.SpellRange
+				|| bonusType == (int)eProperty.MeleeSpeed
+				|| bonusType == (int)eProperty.MeleeDamage;
 		}
 
 		#endregion
@@ -310,15 +362,28 @@ namespace DOL.GS
 		/// <returns></returns>
 		private void ApplySpellcraftGems(GamePlayer player, DbInventoryItem item)
 		{
-			int maxBonusLevel = GetItemMaxImbuePoints(item);
-			int bonusLevel = GetTotalImbuePoints(player, item);
+			int maxCoreBonusLevel = GetItemMaxImbuePoints(item);
+			int coreBonusLevel = GetTotalCoreImbuePoints(player, item);
+			int maxToABonusLevel = GetItemMaxToAImbuePoints(item);
+			int toaBonusLevel = GetTotalToAImbuePoints(player, item);
+
+			int coreDiff = Math.Max(0, coreBonusLevel - maxCoreBonusLevel);
+			int toaDiff = Math.Max(0, toaBonusLevel - maxToABonusLevel);
+			int totalDiff = coreDiff + toaDiff;
 
 			int sucessChances = 100;
-			if (bonusLevel > maxBonusLevel) sucessChances = CalculateChanceToOverchargeItem(player, item, maxBonusLevel, bonusLevel);
-			int destroyChance = 100 - CalculateChanceToPreserveItem(player, item, maxBonusLevel, bonusLevel);
-
+			if (totalDiff > 0)
+				sucessChances = CalculateChanceToOverchargeItem(player, item, maxCoreBonusLevel, coreBonusLevel, maxToABonusLevel, toaBonusLevel);
+			int destroyChance = 100 - CalculateChanceToPreserveItem(player, item, maxCoreBonusLevel, coreBonusLevel, maxToABonusLevel, toaBonusLevel);
 
 			GamePlayer tradePartner = player.TradeWindow.Partner;
+			bool inSanctum = LeyLineSanctum.IsInSanctum(player, out _);
+			if (inSanctum)
+			{
+				string hum = "[Ley-Line Confluence] You feel the raw hum of the earth vibrating through the ancient stones.";
+				player.Out.SendMessage(hum, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+				tradePartner?.Out.SendMessage(hum, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+			}
 
 			if (Util.Chance(sucessChances))
 			{
@@ -327,25 +392,57 @@ namespace DOL.GS
 					player.Inventory.BeginChanges();
 					foreach (DbInventoryItem gem in (ArrayList)player.TradeWindow.TradeItems.Clone())
 					{
-						if (item.Bonus1Type == 0)
+						if (gem.Id_nb == "reagent_stability_draught")
 						{
-							item.Bonus1Type = gem.Bonus1Type;
-							item.Bonus1 = gem.Bonus1;
+							if (totalDiff <= 2)
+							{
+								player.Out.SendMessage("The magical weave was stable; your Draught of Greater Stability was preserved.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+								continue;
+							}
+							else
+							{
+								player.Out.SendMessage("The Draught of Greater Stability vaporizes into a protective ward, absorbing the magical backlash.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+								player.Inventory.RemoveCountFromStack(gem, 1);
+								InventoryLogging.LogInventoryAction(player, "(craft)", eInventoryActionType.Craft, gem.Template);
+								continue;
+							}
 						}
-						else if (item.Bonus2Type == 0)
+
+						if (IsToABonus(gem.Bonus1Type))
 						{
-							item.Bonus2Type = gem.Bonus1Type;
-							item.Bonus2 = gem.Bonus1;
+							if (item.Bonus5Type == 0)
+							{
+								item.Bonus5Type = gem.Bonus1Type;
+								item.Bonus5 = gem.Bonus1;
+							}
+							else if (item.Bonus6Type == 0)
+							{
+								item.Bonus6Type = gem.Bonus1Type;
+								item.Bonus6 = gem.Bonus1;
+							}
 						}
-						else if (item.Bonus3Type == 0)
+						else
 						{
-							item.Bonus3Type = gem.Bonus1Type;
-							item.Bonus3 = gem.Bonus1;
-						}
-						else if (item.Bonus4Type == 0)
-						{
-							item.Bonus4Type = gem.Bonus1Type;
-							item.Bonus4 = gem.Bonus1;
+							if (item.Bonus1Type == 0)
+							{
+								item.Bonus1Type = gem.Bonus1Type;
+								item.Bonus1 = gem.Bonus1;
+							}
+							else if (item.Bonus2Type == 0)
+							{
+								item.Bonus2Type = gem.Bonus1Type;
+								item.Bonus2 = gem.Bonus1;
+							}
+							else if (item.Bonus3Type == 0)
+							{
+								item.Bonus3Type = gem.Bonus1Type;
+								item.Bonus3 = gem.Bonus1;
+							}
+							else if (item.Bonus4Type == 0)
+							{
+								item.Bonus4Type = gem.Bonus1Type;
+								item.Bonus4 = gem.Bonus1;
+							}
 						}
 						player.Inventory.RemoveCountFromStack(gem, 1);
 						InventoryLogging.LogInventoryAction(player, "(craft)", eInventoryActionType.Craft, gem.Template);
@@ -366,17 +463,22 @@ namespace DOL.GS
 				lock (player.TradeWindow.Lock)
 				{
 					player.Inventory.BeginChanges();
-                    // Luhz Crafting Update:
-                    // The base item is no longer lost when spellcrafting explodes - only gems are destroyed.
-                    foreach (DbInventoryItem gem in (ArrayList)player.TradeWindow.TradeItems.Clone())
-                    {
-                        if (gem.Object_Type == (int)eObjectType.SpellcraftGem)
+					foreach (DbInventoryItem gem in (ArrayList)player.TradeWindow.TradeItems.Clone())
+					{
+						if (gem.Id_nb == "reagent_stability_draught")
 						{
-                            player.Inventory.RemoveCountFromStack(gem, 1);
+							player.Inventory.RemoveCountFromStack(gem, 1);
+							InventoryLogging.LogInventoryAction(player, "(craft)", eInventoryActionType.Craft, gem.Template);
+							continue;
+						}
+						
+						if (gem.Object_Type == (int)eObjectType.SpellcraftGem)
+						{
+							player.Inventory.RemoveCountFromStack(gem, 1);
 							InventoryLogging.LogInventoryAction(player, "(craft)", eInventoryActionType.Craft, gem.Template);
 						}
-                    }
-                    player.Inventory.CommitChanges();
+					}
+					player.Inventory.CommitChanges();
 				}
 
 				player.Emote(eEmote.SpellGoBoom);
@@ -397,10 +499,41 @@ namespace DOL.GS
 			}
 			else
 			{
+				lock (player.TradeWindow.Lock)
+				{
+					player.Inventory.BeginChanges();
+					foreach (DbInventoryItem gem in (ArrayList)player.TradeWindow.TradeItems.Clone())
+					{
+						if (gem.Id_nb == "reagent_stability_draught")
+						{
+							if (totalDiff <= 2)
+							{
+								player.Out.SendMessage("The magical weave was stable; your Draught of Greater Stability was preserved.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+								continue;
+							}
+							else
+							{
+								player.Inventory.RemoveCountFromStack(gem, 1);
+								InventoryLogging.LogInventoryAction(player, "(craft)", eInventoryActionType.Craft, gem.Template);
+								continue;
+							}
+						}
+
+						if (gem.Object_Type == (int)eObjectType.SpellcraftGem)
+						{
+							player.Inventory.RemoveCountFromStack(gem, 1);
+							InventoryLogging.LogInventoryAction(player, "(craft)", eInventoryActionType.Craft, gem.Template);
+						}
+					}
+					player.Inventory.CommitChanges();
+				}
+
 				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ApplySpellcraftGems.Failed"), eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+				player.Out.SendMessage("The magical weave destabilizes and dissipates harmlessly into the ether; the item is spared.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
 				if (tradePartner != null)
 				{
 					tradePartner.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ApplySpellcraftGems.Failed"), eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+					tradePartner.Out.SendMessage("The magical weave destabilizes and dissipates harmlessly into the ether; the item is spared.", eChatType.CT_Important, eChatLoc.CL_SystemWindow);
 				}
 			}
 		}
@@ -415,27 +548,42 @@ namespace DOL.GS
 			if ((player.TradeWindow.TradeItems[0] as DbInventoryItem).Model == 525)
 				return;
 
-			ArrayList spellCraftingInfo = new(10);
-			int totalItemCharges = GetItemMaxImbuePoints(item);
-			int totalGemCharges = GetTotalImbuePoints(player, item);
-			spellCraftingInfo.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ShowSpellCraftingInfo.TotalImbue", item.Name, totalItemCharges));
+			ArrayList spellCraftingInfo = new(16);
+			int maxCoreCharges = GetItemMaxImbuePoints(item);
+			int totalCoreCharges = GetTotalCoreImbuePoints(player, item);
+			int maxToACharges = GetItemMaxToAImbuePoints(item);
+			int totalToACharges = GetTotalToAImbuePoints(player, item);
+
+			spellCraftingInfo.Add($"*** Spellcrafting: {item.Name} ***");
+			spellCraftingInfo.Add($"* Core Imbue Capacity: {totalCoreCharges}/{maxCoreCharges} pts (Slots 1-4)");
+			spellCraftingInfo.Add($"* ToA Imbue Capacity: {totalToACharges}/{maxToACharges} pts (Slots 5-6)");
 			spellCraftingInfo.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ShowSpellCraftingInfo.CurrentBonus", item.Name));
 
-			if (item.Bonus1Type != 0)
+			for (int slot = 1; slot <= 6; slot++)
 			{
-				spellCraftingInfo.Add($"* {SkillBase.GetPropertyName((eProperty) item.Bonus1Type)}: {item.Bonus1} {(item.Bonus1Type is >= (int) eProperty.Resist_First and <= (int) eProperty.Resist_Last ? "%" : " pts")}");
-
-				if (item.Bonus2Type != 0)
+				int bType = slot switch {
+					1 => item.Bonus1Type,
+					2 => item.Bonus2Type,
+					3 => item.Bonus3Type,
+					4 => item.Bonus4Type,
+					5 => item.Bonus5Type,
+					6 => item.Bonus6Type,
+					_ => 0
+				};
+				int bVal = slot switch {
+					1 => item.Bonus1,
+					2 => item.Bonus2,
+					3 => item.Bonus3,
+					4 => item.Bonus4,
+					5 => item.Bonus5,
+					6 => item.Bonus6,
+					_ => 0
+				};
+				if (bType != 0)
 				{
-					spellCraftingInfo.Add($"* {SkillBase.GetPropertyName((eProperty) item.Bonus2Type)}: {item.Bonus2} {(item.Bonus2Type is >= (int) eProperty.Resist_First and <= (int) eProperty.Resist_Last ? "%" : "pts")}");
-
-					if (item.Bonus3Type != 0)
-					{
-						spellCraftingInfo.Add($"* {SkillBase.GetPropertyName((eProperty) item.Bonus3Type)}: {item.Bonus3} {(item.Bonus3Type is >= (int) eProperty.Resist_First and <= (int) eProperty.Resist_Last ? "%" : "pts")}");
-
-						if (item.Bonus4Type != 0)
-							spellCraftingInfo.Add($"* {SkillBase.GetPropertyName((eProperty) item.Bonus4Type)}: {item.Bonus4} {(item.Bonus4Type is >= (int) eProperty.Resist_First and <= (int) eProperty.Resist_Last ? "%" : "pts")}");
-					}
+					string suffix = GetBonusSuffix(bType);
+					string slotLabel = slot <= 4 ? $"Slot {slot} (Core)" : $"Slot {slot} (ToA)";
+					spellCraftingInfo.Add($"* [{slotLabel}] {SkillBase.GetPropertyName((eProperty)bType)}: +{bVal}{suffix}");
 				}
 			}
 
@@ -446,18 +594,20 @@ namespace DOL.GS
 				for (int i = 0; i < player.TradeWindow.ItemsCount; i++)
 				{
 					DbInventoryItem currentGem = player.TradeWindow.TradeItems[i] as DbInventoryItem;
-					spellCraftingInfo.Add($"* {currentGem.Name} - {SkillBase.GetPropertyName((eProperty) currentGem.Bonus1Type)}: ({GetGemImbuePoints(currentGem.Bonus1Type, currentGem.Bonus1)}) {currentGem.Bonus1} {(currentGem.Bonus1Type >= (int) eProperty.Resist_First && currentGem.Bonus1Type <= (int) eProperty.Resist_Last ? "%" : "pts")}");
+					string suffix = GetBonusSuffix(currentGem.Bonus1Type);
+					string cat = IsToABonus(currentGem.Bonus1Type) ? "ToA" : "Core";
+					spellCraftingInfo.Add($"* [{cat}] {currentGem.Name} - {SkillBase.GetPropertyName((eProperty)currentGem.Bonus1Type)}: ({GetGemImbuePoints(currentGem.Bonus1Type, currentGem.Bonus1)} pts) +{currentGem.Bonus1}{suffix}");
 				}
 			}
 
-			spellCraftingInfo.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ShowSpellCraftingInfo.ImbueCapacity", totalGemCharges, totalItemCharges));
-
-			if (totalGemCharges > totalItemCharges)
+			bool isOvercharged = (totalCoreCharges > maxCoreCharges) || (totalToACharges > maxToACharges);
+			if (isOvercharged)
 			{
-				int maxBonusLevel = GetItemMaxImbuePoints(item);
-				int bonusLevel = GetTotalImbuePoints(player, item);
-				spellCraftingInfo.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ShowSpellCraftingInfo.Penalty", GetOverchargePenality(totalItemCharges, totalGemCharges)));
-				spellCraftingInfo.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ShowSpellCraftingInfo.Success", CalculateChanceToOverchargeItem(player, item, maxBonusLevel, bonusLevel)));
+				int coreDiff = Math.Max(0, totalCoreCharges - maxCoreCharges);
+				int toaDiff = Math.Max(0, totalToACharges - maxToACharges);
+				int totalDiff = coreDiff + toaDiff;
+				spellCraftingInfo.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ShowSpellCraftingInfo.Penalty", GetOverchargePenality(maxCoreCharges, maxCoreCharges + totalDiff)));
+				spellCraftingInfo.Add(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ShowSpellCraftingInfo.Success", CalculateChanceToOverchargeItem(player, item, maxCoreCharges, totalCoreCharges, maxToACharges, totalToACharges)));
 			}
 
 			GamePlayer partner = player.TradeWindow.Partner;
@@ -468,8 +618,39 @@ namespace DOL.GS
 				partner?.Out.SendMessage(line, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
 			}
 
-			if (totalGemCharges > totalItemCharges)
+			if (LeyLineSanctum.IsInSanctum(player, out _))
+			{
+				string hum = "[Ley-Line Confluence] You feel the raw hum of the earth vibrating through the ancient stones.";
+				player.Out.SendMessage(hum, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+				partner?.Out.SendMessage(hum, eChatType.CT_Important, eChatLoc.CL_SystemWindow);
+			}
+
+			if (isOvercharged)
 				player.Out.SendMessage(LanguageMgr.GetTranslation(player.Client.Account.Language, "SpellCrafting.ShowSpellCraftingInfos.Modified"), eChatType.CT_System, eChatLoc.CL_SystemWindow);
+		}
+
+		private static string GetBonusSuffix(int bonusType)
+		{
+			if (bonusType >= (int)eProperty.Resist_First && bonusType <= (int)eProperty.Resist_Last)
+				return "%";
+			if (bonusType >= (int)eProperty.ResCapBonus_First && bonusType <= (int)eProperty.ResCapBonus_Last)
+				return "% cap";
+			if (bonusType >= (int)eProperty.StatCapBonus_First && bonusType <= (int)eProperty.StatCapBonus_Last)
+				return " cap";
+			if (bonusType == (int)eProperty.SpellRange ||
+			    bonusType == (int)eProperty.CastingSpeed ||
+			    bonusType == (int)eProperty.SpellDamage ||
+			    bonusType == (int)eProperty.SpellDuration ||
+			    bonusType == (int)eProperty.MeleeDamage ||
+			    bonusType == (int)eProperty.MeleeSpeed ||
+			    bonusType == (int)eProperty.StyleDamage ||
+			    bonusType == (int)eProperty.HealingEffectiveness ||
+			    bonusType == (int)eProperty.BuffEffectiveness ||
+			    bonusType == (int)eProperty.PowerPool ||
+			    (bonusType >= (int)eProperty.ToABonus_First && bonusType <= (int)eProperty.ToABonus_Last))
+				return "%";
+
+			return " pts";
 		}
 
 		# endregion
@@ -495,7 +676,7 @@ namespace DOL.GS
             try {
             int success = 34 + ItemQualOCModifiers[item.Quality - 94];
             success -= OCStartPercentages[bonusLevel-maxBonusLevel];
-            int skillbonus = (player.GetCraftingSkillValue(eCraftingSkill.SpellCrafting) / 10);
+            int skillbonus = (player != null ? player.GetCraftingSkillValue(eCraftingSkill.SpellCrafting) : 1000) / 10;
             if (skillbonus > 100) 
                 skillbonus = 100;
             success += skillbonus;
@@ -511,22 +692,48 @@ namespace DOL.GS
                 // Probably a GM or someone testing; I suppose we should just let them.
                 return 100;
             }
+		}
 
-            
+		public int CalculateChanceToOverchargeItem(GamePlayer player, DbInventoryItem item, int maxCoreBonus, int coreBonus, int maxToABonus, int toaBonus, bool forceSanctum = false)
+		{
+			int coreDiff = Math.Max(0, coreBonus - maxCoreBonus);
+			int toaDiff = Math.Max(0, toaBonus - maxToABonus);
+			int totalDiff = coreDiff + toaDiff;
+
+			if (totalDiff <= 0) return 100;
+			if (totalDiff > 5) return 0;
+
+			int success = CalculateChanceToOverchargeItem(player, item, maxCoreBonus, maxCoreBonus + totalDiff);
+			bool inSanctum = forceSanctum || (player != null && LeyLineSanctum.IsInSanctum(player, out _));
+			if (inSanctum)
+			{
+				success += 15; // Ley-Line Sanctum convergence: +15% overcharge success rate
+				if (success > 100) success = 100;
+			}
+
+			return success;
+		}
+
+		public int CalculateChanceToPreserveItem(GamePlayer player, DbInventoryItem item, int maxCoreBonus, int coreBonus, int maxToABonus, int toaBonus, bool forceDraught = false, bool forceSanctum = false)
+		{
+			int coreDiff = Math.Max(0, coreBonus - maxCoreBonus);
+			int toaDiff = Math.Max(0, toaBonus - maxToABonus);
+			int totalDiff = coreDiff + toaDiff;
+
+			if (totalDiff <= 2)
+				return 100; // Option B: Grace Period (0% destroy chance on overcharge <= 2)
+
+			return CalculateChanceToPreserveItem(player, item, maxCoreBonus, maxCoreBonus + totalDiff, forceDraught, forceSanctum);
 		}
 
 		/// <summary>
-		/// Get the maximum bonus level the item can hold
+		/// Get the maximum bonus level the item can hold (Core slots)
 		/// </summary>
 		/// <param name="item"></param>
 		/// <returns></returns>
-		protected int GetItemMaxImbuePoints(DbInventoryItem item)
+		public int GetItemMaxImbuePoints(DbInventoryItem item)
 		{
-			//if (item.Level > 51) return 32;
 			if (item.Level < 1) return 0;
-            // Luhz Crafting Update:
-            // All items have MP level imbue points
-            //return itemMaxBonusLevel[item.Level - 1, 100 - 94];
             
             if (item.Quality == 100)
 	            return (int)Math.Round(0.625 * item.Level);
@@ -542,38 +749,60 @@ namespace DOL.GS
 	            return (int)Math.Round(0.295 * item.Level);
             
             return (int)Math.Round(0.2 * item.Level);
-            
 		}
 
 		/// <summary>
-		/// Get gems bonus level
+		/// Get the maximum ToA bonus level the item can hold (ToA slots 5 & 6)
+		/// Baseline: 16 safe points at Level 51 100% Masterpiece
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public int GetItemMaxToAImbuePoints(DbInventoryItem item)
+		{
+			if (item.Level < 1) return 0;
+
+			if (item.Quality >= 100)
+				return (int)Math.Round(0.313 * item.Level);
+			if (item.Quality == 99)
+				return (int)Math.Round(0.275 * item.Level);
+			if (item.Quality == 98)
+				return (int)Math.Round(0.235 * item.Level);
+			if (item.Quality == 97)
+				return (int)Math.Round(0.200 * item.Level);
+			if (item.Quality == 96)
+				return (int)Math.Round(0.160 * item.Level);
+			if (item.Quality == 95)
+				return (int)Math.Round(0.120 * item.Level);
+
+			return (int)Math.Round(0.100 * item.Level);
+		}
+
+		/// <summary>
+		/// Get gems bonus level (Core)
 		/// </summary>
 		/// <param name="player">player spellcrafting</param>
 		/// <param name="item">item to calculate imbues for</param>
 		/// <returns></returns>
-		protected int GetTotalImbuePoints(GamePlayer player, DbInventoryItem item)
+		public int GetTotalImbuePoints(GamePlayer player, DbInventoryItem item)
+		{
+			return GetTotalCoreImbuePoints(player, item);
+		}
+
+		public int GetTotalCoreImbuePoints(GamePlayer player, DbInventoryItem item)
 		{
 			int totalGemBonus = 0;
 			int biggerGemCharge = 0;
 
-			if (item.Bonus1Type != 0)
+			for (int slot = 1; slot <= 4; slot++)
 			{
-				int currentBonusImbuePoint = GetGemImbuePoints(item.Bonus1Type, item.Bonus1);
-				totalGemBonus += currentBonusImbuePoint;
-				if (currentBonusImbuePoint > biggerGemCharge) biggerGemCharge = currentBonusImbuePoint;
+				int bType = slot switch { 1 => item.Bonus1Type, 2 => item.Bonus2Type, 3 => item.Bonus3Type, 4 => item.Bonus4Type, _ => 0 };
+				int bVal = slot switch { 1 => item.Bonus1, 2 => item.Bonus2, 3 => item.Bonus3, 4 => item.Bonus4, _ => 0 };
 
-				if (item.Bonus2Type != 0)
+				if (bType != 0 && !IsToABonus(bType))
 				{
-					currentBonusImbuePoint = GetGemImbuePoints(item.Bonus2Type, item.Bonus2);
+					int currentBonusImbuePoint = GetGemImbuePoints(bType, bVal);
 					totalGemBonus += currentBonusImbuePoint;
 					if (currentBonusImbuePoint > biggerGemCharge) biggerGemCharge = currentBonusImbuePoint;
-
-					if (item.Bonus3Type != 0)
-					{
-						currentBonusImbuePoint = GetGemImbuePoints(item.Bonus3Type, item.Bonus3);
-						totalGemBonus += currentBonusImbuePoint;
-						if (currentBonusImbuePoint > biggerGemCharge) biggerGemCharge = currentBonusImbuePoint;
-					}
 				}
 			}
 
@@ -582,10 +811,13 @@ namespace DOL.GS
 				for (int i = 0; i < player.TradeWindow.TradeItems.Count; i++)
 				{
 					DbInventoryItem currentGem = (DbInventoryItem)player.TradeWindow.TradeItems[i];
-					int currentGemCharge = GetGemImbuePoints(currentGem.Bonus1Type, currentGem.Bonus1);
-					if (currentGemCharge > biggerGemCharge) biggerGemCharge = currentGemCharge;
+					if (currentGem.Object_Type == (int)eObjectType.SpellcraftGem && !IsToABonus(currentGem.Bonus1Type))
+					{
+						int currentGemCharge = GetGemImbuePoints(currentGem.Bonus1Type, currentGem.Bonus1);
+						if (currentGemCharge > biggerGemCharge) biggerGemCharge = currentGemCharge;
 
-					totalGemBonus += currentGemCharge;
+						totalGemBonus += currentGemCharge;
+					}
 				}
 			}
 			totalGemBonus += biggerGemCharge;
@@ -594,21 +826,74 @@ namespace DOL.GS
 			return (int)Math.Floor((double)totalGemBonus);
 		}
 
+		public int GetTotalToAImbuePoints(GamePlayer player, DbInventoryItem item)
+		{
+			int totalToAGemPoints = 0;
+
+			for (int slot = 5; slot <= 6; slot++)
+			{
+				int bType = slot == 5 ? item.Bonus5Type : item.Bonus6Type;
+				int bVal = slot == 5 ? item.Bonus5 : item.Bonus6;
+
+				if (bType != 0 && IsToABonus(bType))
+				{
+					totalToAGemPoints += GetGemImbuePoints(bType, bVal);
+				}
+			}
+
+			lock (player.TradeWindow.Lock)
+			{
+				for (int i = 0; i < player.TradeWindow.TradeItems.Count; i++)
+				{
+					DbInventoryItem currentGem = (DbInventoryItem)player.TradeWindow.TradeItems[i];
+					if (currentGem.Object_Type == (int)eObjectType.SpellcraftGem && IsToABonus(currentGem.Bonus1Type))
+					{
+						totalToAGemPoints += GetGemImbuePoints(currentGem.Bonus1Type, currentGem.Bonus1);
+					}
+				}
+			}
+
+			return totalToAGemPoints;
+		}
+
 		/// <summary>
-		/// Get how much the gem use like bonus point
+		/// Get how much the gem uses in imbue points
 		/// </summary>
 		/// <param name="bonusType"></param>
 		/// <param name="bonusValue"></param>
 		/// <returns></returns>
-		protected int GetGemImbuePoints(int bonusType, int bonusValue)
+		public int GetGemImbuePoints(int bonusType, int bonusValue)
 		{
 			int gemBonus;
-			if (bonusType <= (int)eProperty.Stat_Last) gemBonus = (int)(((bonusValue - 1) * 2 / 3) + 1); //stat
-			else if (bonusType == (int)eProperty.MaxMana) gemBonus = (int)((bonusValue * 2) - 2); //mana
-			else if (bonusType == (int)eProperty.MaxHealth) gemBonus = (int)(bonusValue / 4); //HP
-			else if (bonusType <= (int)eProperty.Resist_Last) gemBonus = (int)((bonusValue * 2) - 2);//resist
-			else if (bonusType <= (int)eProperty.Skill_Last) gemBonus = (int)((bonusValue - 1) * 5);//skill
-			else gemBonus = 1;// focus
+			if (bonusType >= (int)eProperty.Stat_First && bonusType <= (int)eProperty.Stat_Last) 
+				gemBonus = (int)(((bonusValue - 1) * 2 / 3) + 1); // stat
+			else if (bonusType == (int)eProperty.MaxMana) 
+				gemBonus = (int)((bonusValue * 2) - 2); // mana
+			else if (bonusType == (int)eProperty.MaxHealth) 
+				gemBonus = (int)(bonusValue / 4); // HP
+			else if (bonusType >= (int)eProperty.Resist_First && bonusType <= (int)eProperty.Resist_Last) 
+				gemBonus = (int)((bonusValue * 2) - 2); // resist
+			else if (bonusType >= (int)eProperty.Skill_First && bonusType <= (int)eProperty.Skill_Last) 
+				gemBonus = (int)((bonusValue - 1) * 5); // skill
+			else if (bonusType >= (int)eProperty.StatCapBonus_First && bonusType <= (int)eProperty.StatCapBonus_Last)
+				gemBonus = bonusType == (int)eProperty.MaxHealthCapBonus ? Math.Max(1, bonusValue / 5) : bonusValue * 2; // Stat cap (+1..+5 -> 2..10), HP cap (+10..+50 -> 2..10)
+			else if (bonusType >= (int)eProperty.ResCapBonus_First && bonusType <= (int)eProperty.ResCapBonus_Last)
+				gemBonus = bonusValue * 2; // Resist cap (+1%..+5% -> 2..10)
+			else if (bonusType == (int)eProperty.SpellRange ||
+			         bonusType == (int)eProperty.CastingSpeed ||
+			         bonusType == (int)eProperty.SpellDamage ||
+			         bonusType == (int)eProperty.SpellDuration ||
+			         bonusType == (int)eProperty.MeleeDamage ||
+			         bonusType == (int)eProperty.MeleeSpeed ||
+			         bonusType == (int)eProperty.StyleDamage ||
+			         bonusType == (int)eProperty.HealingEffectiveness ||
+			         bonusType == (int)eProperty.BuffEffectiveness ||
+			         bonusType == (int)eProperty.PowerPool ||
+			         (bonusType >= (int)eProperty.ToABonus_First && bonusType <= (int)eProperty.ToABonus_Last))
+				gemBonus = bonusValue; // Percentage bonuses (+2%..+10% -> 2..10)
+			else 
+				gemBonus = 1; // focus or other
+
 			if (gemBonus < 1) gemBonus = 1;
 
 			return gemBonus;
@@ -638,20 +923,33 @@ namespace DOL.GS
 		/// <param name="maxBonusLevel"></param>
 		/// <param name="bonusLevel"></param>
 		/// <returns></returns>
-		protected int CalculateChanceToPreserveItem(GamePlayer player, DbInventoryItem item, int maxBonusLevel, int bonusLevel)
+		public int CalculateChanceToPreserveItem(GamePlayer player, DbInventoryItem item, int maxBonusLevel, int bonusLevel, bool forceDraught = false, bool forceSanctum = false)
 		{
 			int baseChance = 0;
 
 			double gemModifier = 0;
-			lock (player.TradeWindow.Lock)
+			bool hasDraught = forceDraught;
+			if (player?.TradeWindow != null)
 			{
-				foreach (DbInventoryItem gem in player.TradeWindow.TradeItems)
-					gemModifier += (gem.Quality - 92) * 1.8;
+				lock (player.TradeWindow.Lock)
+				{
+					foreach (DbInventoryItem gem in player.TradeWindow.TradeItems)
+					{
+						if (gem.Id_nb == "reagent_stability_draught")
+						{
+							hasDraught = true;
+						}
+						else
+						{
+							gemModifier += (gem.Quality - 92) * 1.8;
+						}
+					}
+				}
 			}
 
 			gemModifier = gemModifier * item.Quality / 100;
 
-			int intSkill = player.GetCraftingSkillValue(eCraftingSkill.SpellCrafting);
+			int intSkill = player != null ? player.GetCraftingSkillValue(eCraftingSkill.SpellCrafting) : 1000;
 			int intSkillMod;
 			if (intSkill < 50) { intSkillMod = -50; }
 			else if (intSkill < 100) { intSkillMod = -45; }
@@ -675,7 +973,20 @@ namespace DOL.GS
 			else if (intSkill < 1000) { intSkillMod = 45; }
 			else { intSkillMod = 50; }
 
-			int finalChances = (int)(intSkillMod + gemModifier + baseChance);
+			int stabilizationBonus = 0;
+			bool inSanctum = forceSanctum || (player != null && LeyLineSanctum.IsInSanctum(player, out _));
+
+			// Stacking: Draught (+35%) and Ley-Line Sanctum (+35%) stack up to +70%
+			if (inSanctum)
+			{
+				stabilizationBonus += 35;
+			}
+			if (hasDraught)
+			{
+				stabilizationBonus += 35;
+			}
+
+			int finalChances = (int)(intSkillMod + gemModifier + baseChance + stabilizationBonus);
 			if (finalChances > 100) finalChances = 100;
 			else if (finalChances < 0) finalChances = 0;
 

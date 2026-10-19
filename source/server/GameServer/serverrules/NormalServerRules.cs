@@ -53,6 +53,21 @@ namespace DOL.GS.ServerRules
 				return false;
 			}
 
+			// Edinburgh (Regions 65, 192) and The Nevernever (Regions 195, 196, 197) Peace Sanctuaries:
+			// PvP combat is completely disabled between players.
+			if (attacker is GamePlayer && defender is GamePlayer)
+			{
+				ushort aReg = attacker.CurrentRegionID;
+				ushort dReg = defender.CurrentRegionID;
+				if (aReg is 65 or 192 or 195 or 196 or 197 || dReg is 65 or 192 or 195 or 196 or 197)
+				{
+					if (!quiet)
+						MessageToLiving(attacker, "The ancient wards enforce total peace here. Player-versus-player combat is forbidden!");
+
+					return false;
+				}
+			}
+
 			// Don't allow attacks on same realm members.
 			if (attacker.Realm == defender.Realm)
 			{
@@ -143,6 +158,12 @@ namespace DOL.GS.ServerRules
 			
 			if (source.Realm != target.Realm)
 			{
+				if (source.CurrentRegionID is 65 or 192 or 195 or 196 or 197 &&
+				    target.CurrentRegionID is 65 or 192 or 195 or 196 or 197)
+				{
+					return true;
+				}
+
 				if(quiet == false) MessageToLiving(source, "You can't group with a player from another realm!");
 				return false;
 			}
@@ -187,6 +208,12 @@ namespace DOL.GS.ServerRules
 
 			if(source.Realm != target.Realm)
 			{
+				if (source.CurrentRegionID is 65 or 192 or 195 or 196 or 197 &&
+				    target.CurrentRegionID is 65 or 192 or 195 or 196 or 197)
+				{
+					return true;
+				}
+
 				if(quiet == false) MessageToLiving(source, "You can't trade with enemy realm!");
 				return false;
 			}
@@ -197,7 +224,7 @@ namespace DOL.GS.ServerRules
 		{
 			if(source == null || target == null) return false;
 
-			if (source.CurrentRegionID == 27) return true;
+			if (source.CurrentRegionID is 27 or 65 or 192 or 195 or 196 or 197) return true;
 
 			// clients with priv level > 1 are allowed to talk and hear anyone
 			if(source is GamePlayer && ((GamePlayer)source).Client.Account.PrivLevel > 1) return true;

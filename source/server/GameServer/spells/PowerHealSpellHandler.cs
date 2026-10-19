@@ -29,12 +29,7 @@ namespace DOL.GS.Spells
 
 			foreach (GameLiving healTarget in targets)
 			{
-				if (healTarget is GamePlayer 
-				    && (
-				    ((GamePlayer)healTarget).CharacterClass is PlayerClass.ClassVampiir
-					|| ((GamePlayer)healTarget).CharacterClass is PlayerClass.ClassMaulerAlb
-					|| ((GamePlayer)healTarget).CharacterClass is PlayerClass.ClassMaulerHib
-					|| ((GamePlayer)healTarget).CharacterClass is PlayerClass.ClassMaulerMid))
+				if (healTarget is GamePlayer { CharacterClass: PlayerClass.ClassMaulerHib })
 					continue;
 
 				if (Spell.Value < 0)

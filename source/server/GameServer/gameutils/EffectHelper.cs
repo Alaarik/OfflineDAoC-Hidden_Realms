@@ -50,6 +50,8 @@ namespace DOL.GS
                 case eSpellType.DamageShield: // FocusShield: Could be the wrong SpellType here.
                     return eEffect.FocusShield;
                 case eSpellType.AblativeArmor:
+                case eSpellType.MagicAblativeArmor:
+                case eSpellType.BothAblativeArmor:
                     return eEffect.AblativeArmor;
                 case eSpellType.MeleeDamageBuff:
                     return eEffect.MeleeDamageBuff;
@@ -133,6 +135,7 @@ namespace DOL.GS
                 case eSpellType.StyleBleeding:
                     return eEffect.Bleed;
                 case eSpellType.DamageOverTime:
+                case eSpellType.CouncilWardenThermalSpark:
                     return eEffect.DamageOverTime;
                 case eSpellType.Charm:
                     return eEffect.Charm;
@@ -156,6 +159,7 @@ namespace DOL.GS
                 // Crowd control.
                 case eSpellType.StyleStun:
                 case eSpellType.Stun:
+                case eSpellType.CouncilWardenRepulsionWave:
                     return eEffect.Stun;
                 //case eSpellType.StunImmunity:
                 //    return eEffect.StunImmunity;
@@ -188,6 +192,7 @@ namespace DOL.GS
                 case eSpellType.ArmorAbsorptionDebuff:
                     return eEffect.ArmorAbsorptionDebuff;
                 case eSpellType.ArmorFactorDebuff:
+                case eSpellType.CouncilWardenConflagration:
                     return eEffect.ArmorFactorDebuff;
 
                 // Resists.

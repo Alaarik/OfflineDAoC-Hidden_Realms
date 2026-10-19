@@ -22,6 +22,9 @@ namespace DOL.GS.PropertyCalc
             if (living.IsDiseased || living.effectListComponent.ContainsEffectForEffectType(eEffect.Bleed))
                 return 0;
 
+            if (DOL.GS.Spells.CouncilWardenMechanics.GetIronSicknessEffect(living)?.SuppressHealthRegen == true)
+                return 0;
+
             /* PATCH 1.87 COMBAT AND REGENERATION
               - While in combat, health and power regeneration ticks will happen twice as often.
               - Each tick of health and power is now twice as effective.
@@ -50,6 +53,7 @@ namespace DOL.GS.PropertyCalc
             }
 
             regen *= ServerProperties.Properties.HEALTH_REGEN_AMOUNT_MODIFIER;
+            regen = DOL.GS.Spells.CouncilWardenMechanics.ApplyCellularResilienceRestingRegen(living, regen);
             return Math.Max(1, (int) regen);
         }
     }

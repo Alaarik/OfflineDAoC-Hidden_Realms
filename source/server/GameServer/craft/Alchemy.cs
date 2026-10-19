@@ -78,6 +78,36 @@ namespace DOL.GS
 				return false;
 			}
 
+			DbInventoryItem tinctureItem = (DbInventoryItem)player.TradeWindow.TradeItems[0];
+
+			// Jewelry cannot be struck nor strike
+			if (GlobalConstants.IsJewelry(item))
+			{
+				player.Out.SendMessage("Jewelry cannot be imbued with combat procs, as jewelry cannot strike or be struck!", PacketHandler.eChatType.CT_System, PacketHandler.eChatLoc.CL_SystemWindow);
+				return false;
+			}
+
+			// Enforce Volatile (Weapon) vs Reactive (Armor / Shield) targets
+			string tName = (tinctureItem.Name ?? string.Empty).ToLower();
+			string tId = (tinctureItem.Id_nb ?? string.Empty).ToLower();
+
+			if (tName.Contains("weapon") || tId.StartsWith("volatile_"))
+			{
+				if (!GlobalConstants.IsWeapon(item))
+				{
+					player.Out.SendMessage("Volatile weapon tinctures can only be applied to weapons!", PacketHandler.eChatType.CT_System, PacketHandler.eChatLoc.CL_SystemWindow);
+					return false;
+				}
+			}
+			else if (tName.Contains("armor") || tId.StartsWith("reactive_"))
+			{
+				if (!GlobalConstants.IsArmor(item) && item.Object_Type != (int)eObjectType.Shield)
+				{
+					player.Out.SendMessage("Reactive armor tinctures can only be applied to armor and shields!", PacketHandler.eChatType.CT_System, PacketHandler.eChatLoc.CL_SystemWindow);
+					return false;
+				}
+			}
+
 			return true;
 		}
 
@@ -111,6 +141,9 @@ namespace DOL.GS
 				item.MaxCharges = GetItemMaxCharges(item);
 				item.Charges = item.MaxCharges;
 				item.SpellID = tincture.SpellID;
+
+				if (tincture.CanUseEvery > 0)
+					item.CanUseEvery = tincture.CanUseEvery;
 
 				// Send an item update so that the tooltip shows the charge.
 				GamePlayer playerToSendUpdate = player.TradeWindow.Partner ?? player;

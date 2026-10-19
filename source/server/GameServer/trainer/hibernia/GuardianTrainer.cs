@@ -56,7 +56,7 @@ namespace DOL.GS.Trainer
 				// player can be promoted
 				if (player.Level>=5)
 				{
-					player.Out.SendMessage(this.Name + " says, \"You must now seek your training elsewhere. Which path would you like to follow? [Hero], [Champion] or [Blademaster]?\"", eChatType.CT_System, eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage(this.Name + " says, \"You must now seek your training elsewhere. Which path would you like to follow? [Hero], [Champion], [Blademaster] or [Council Warden]?\"", eChatType.CT_System, eChatLoc.CL_PopupWindow);
 				}
 				else
 				{
@@ -116,6 +116,15 @@ namespace DOL.GS.Trainer
 					}
 					else{
 						player.Out.SendMessage(this.Name + " says, \"The path of a Blademaster is not available to your race. Please choose another.\"", eChatType.CT_System, eChatLoc.CL_PopupWindow);
+					}
+					return true;
+				case "Council Warden":
+					if(player.Race == (int)eRace.Celt)
+					{
+						player.Out.SendMessage(this.Name + " says, \"A Warden of the White Council? They pair Celtic blades with disciplined Evocation and Abjuration to guard the mortal world against the Nevernever. Seek out the White Council Liaison in Tir na Nog to take up the Grey Cloak.\"", eChatType.CT_System, eChatLoc.CL_PopupWindow);
+					}
+					else{
+						player.Out.SendMessage(this.Name + " says, \"The path of a Council Warden is only open to mortal Celts. Please choose another.\"", eChatType.CT_System, eChatLoc.CL_PopupWindow);
 					}
 					return true;
 				case "practice weapon":

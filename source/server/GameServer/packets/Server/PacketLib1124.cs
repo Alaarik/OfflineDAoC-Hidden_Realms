@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -401,7 +401,6 @@ namespace DOL.GS.PacketHandler
 				if (playerToCreate.IsUnderwater) flags |= 0x02; //swimming
 				if (playerToCreate.IsStealthed) flags |= 0x10;
 				if (playerToCreate.IsWireframe) flags |= 0x20;
-				if (playerToCreate.CharacterClass.ID == (int)eCharacterClass.Vampiir) flags |= 0x40; //Vamp fly
 				pak.WriteByte((byte)flags);
 
 				pak.WriteByte(playerToCreate.GetFaceAttribute(eCharFacePart.EyeSize)); //1-4 = Eye Size / 5-8 = Nose Size

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -23,8 +23,15 @@ namespace DOL.GS.PacketHandler
 				? (byte)eCharacterClass.MaulerHib
 				: (byte)classId;
 
+		private static bool IsCouncilWardenOverview(int classId) =>
+			classId is (int)eCharacterClass.MaulerAlb or (int)eCharacterClass.MaulerMid or (int)eCharacterClass.Vampiir;
+
 		private static string GetClientOverviewClassName(int classId, int realm) =>
-			IsSluaghbinderOverview(classId, realm) ? "Sluaghbinder" : ((eCharacterClass)classId).ToString();
+			IsSluaghbinderOverview(classId, realm)
+				? "Sluaghbinder"
+				: IsCouncilWardenOverview(classId)
+					? "Council Warden"
+					: ((eCharacterClass)classId).ToString();
 
 		/// <summary>
 		/// Constructs a new PacketLib for Client Version 1.104

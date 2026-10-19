@@ -11,6 +11,8 @@ namespace DOL.GS.Spells
 	[SpellHandler(eSpellType.CureAll)]
 	public class CureAllSpellHandler : RemoveSpellEffectHandler
 	{
+		public override string ShortDescription => "Removes all poison, disease, and curse effects from the target.";
+
 		// constructor
 		public CureAllSpellHandler(GameLiving caster, Spell spell, SpellLine line)
 			: base(caster, spell, line)

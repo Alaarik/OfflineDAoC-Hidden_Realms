@@ -57,11 +57,12 @@ namespace DOL.GS.PacketHandler
 		/// <summary>
 		/// Every Sluaghbinder spell (59000-59111, including the Dullahan's
 		/// Graveplate, the Cairn Aegis-Stronghold ranks and the Barrow
-		/// Riposte/Wardblade parry ranks) has its own tooltip.
+		/// Riposte/Wardblade parry ranks) and Council Warden spell (59200-59399)
+		/// has its own tooltip.
 		/// </summary>
 		public static bool UsesOwnTooltipIdentity(int spellId)
 		{
-			return spellId is >= 59000 and <= 59111;
+			return spellId is (>= 59000 and <= 59111) or (>= 59200 and <= 59399);
 		}
 
         /// <summary>

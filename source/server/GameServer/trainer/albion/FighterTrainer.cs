@@ -62,7 +62,7 @@ namespace DOL.GS.Trainer
 				// player can be promoted
 				if (player.Level>=5)
 				{
-					player.Out.SendMessage(this.Name + " says, \"You must now seek your training elsewhere. Which path would you like to follow? [Armsman], [Paladin], or [Mercenary]?\"", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
+					player.Out.SendMessage(this.Name + " says, \"You must now seek your training elsewhere. Which path would you like to follow? [Armsman], [Paladin], [Mercenary], or [Council Warden]?\"", eChatType.CT_Say, eChatLoc.CL_PopupWindow);
 				}
 				else
 				{
@@ -122,6 +122,14 @@ namespace DOL.GS.Trainer
 					}
 					else{
 						player.Out.SendMessage(this.Name + " says, \"The path of a Paladin is not available to your race. Please choose another.\"",eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+					}
+					return true;
+				case "Council Warden":
+					if(player.Race == (int) eRace.Avalonian || player.Race == (int) eRace.Briton || player.Race == (int) eRace.Highlander || player.Race == (int) eRace.Saracen){
+						player.Out.SendMessage(this.Name + " says, \"A Warden of the White Council? They blend steel with disciplined Evocation and Abjuration to enforce the Seven Laws of Magic. Seek out the White Council Liaison in Camelot—or their hidden outpost in Campacorentin Forest—to take up the Grey Cloak.\"",eChatType.CT_Say,eChatLoc.CL_PopupWindow);
+					}
+					else{
+						player.Out.SendMessage(this.Name + " says, \"The path of a Council Warden is only open to mortal humans. Please choose another.\"",eChatType.CT_Say,eChatLoc.CL_PopupWindow);
 					}
 					return true;
 				case "practice weapon":

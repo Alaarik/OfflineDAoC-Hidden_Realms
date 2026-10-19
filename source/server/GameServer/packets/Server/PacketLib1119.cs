@@ -122,6 +122,7 @@ namespace DOL.GS.PacketHandler
 				case eCraftingSkill.Fletching:
 				case eCraftingSkill.Tailoring:
 				case eCraftingSkill.WeaponCrafting:
+				case eCraftingSkill.SpellCrafting:
 					if (m_gameClient.Player.CraftingSkills.ContainsKey(eCraftingSkill.Alchemy)
 						|| m_gameClient.Player.CraftingSkills.ContainsKey(eCraftingSkill.SpellCrafting))
 						flag |= 0x04; // enable craft button

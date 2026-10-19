@@ -169,6 +169,18 @@ namespace DOL.GS
 				case (int)eObjectType.SiegeTrebuchet:
 					return eCraftingSkill.SiegeCrafting;
 
+				case (int)eObjectType.Magical:
+					if (GlobalConstants.IsJewelry(item))
+					{
+						if (item.Item_Type is (int)eInventorySlot.LeftRing or (int)eInventorySlot.RightRing or (int)eInventorySlot.LeftBracer or (int)eInventorySlot.RightBracer or (int)eInventorySlot.Neck)
+							return eCraftingSkill.ArmorCrafting;
+						if (item.Item_Type is (int)eInventorySlot.Waist)
+							return eCraftingSkill.Tailoring;
+						if (item.Item_Type is (int)eInventorySlot.Jewelry or (int)eInventorySlot.LeftHandWeapon)
+							return eCraftingSkill.SpellCrafting;
+					}
+					return eCraftingSkill.NoCrafting;
+
 				default:
 					return eCraftingSkill.NoCrafting;
 			}

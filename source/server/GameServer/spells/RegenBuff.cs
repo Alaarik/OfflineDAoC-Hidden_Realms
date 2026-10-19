@@ -28,11 +28,7 @@ namespace DOL.GS.Spells
         public override void ApplyEffectOnTarget(GameLiving target)
         {
             if (target is GamePlayer playerTarget &&
-                ((eCharacterClass) playerTarget.CharacterClass.ID is
-                eCharacterClass.Vampiir or
-                eCharacterClass.MaulerAlb or
-                eCharacterClass.MaulerMid or
-                eCharacterClass.MaulerHib))
+                (eCharacterClass) playerTarget.CharacterClass.ID is eCharacterClass.MaulerHib)
             {
                 MessageToCaster("This spell has no effect on this class!", eChatType.CT_Spell);
                 return;

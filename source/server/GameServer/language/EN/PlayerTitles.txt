@@ -1,4 +1,4 @@
-﻿# Titles
+# Titles
 PlayerClass.GetTitle.none:		            none
 
 ## Title Handler
@@ -619,3 +619,14 @@ PlayerClass.Warden.GetTitle.15:		Guardian
 PlayerClass.Warden.GetTitle.10:		Woodsman
 PlayerClass.Warden.GetTitle.5:		Watcher
 
+#### Council Warden
+PlayerClass.Council Warden.GetTitle.50:	Warden of the White Council
+PlayerClass.Council Warden.GetTitle.45:	Grey Cloak
+PlayerClass.Council Warden.GetTitle.40:	Commander of the Watch
+PlayerClass.Council Warden.GetTitle.35:	Regional Warden
+PlayerClass.Council Warden.GetTitle.30:	Warden Investigator
+PlayerClass.Council Warden.GetTitle.25:	Warden of the Watch
+PlayerClass.Council Warden.GetTitle.20:	Field Warden
+PlayerClass.Council Warden.GetTitle.15:	Junior Warden
+PlayerClass.Council Warden.GetTitle.10:	Council Apprentice
+PlayerClass.Council Warden.GetTitle.5:	Council Initiate

@@ -857,5 +857,13 @@ namespace DOL.GS
 		public const string Perfecter 	= "Perfecter";
 		public const string Stormlord 	= "Stormlord";
 		public const string Sojourner 	= "Sojourner";
+
+		/// <summary>
+		/// Council Warden Magic Specs
+		/// </summary>
+		public const string Evocation 	= "Evocation";
+		public const string Abjuration 	= "Abjuration";
+		public const string Thaumaturgy = "Thaumaturgy";
+		public const string Minor_Thaumaturgy = "Minor Thaumaturgy";
 	}
 }

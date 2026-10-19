@@ -255,7 +255,10 @@ namespace DOL.GS
 		/// </summary>
 		public virtual bool CanCastWhileAttacking()
 		{
-			return false;
+			return this is IGamePlayer gp && gp.CharacterClass is DOL.GS.PlayerClass.ClassVampiir
+				or DOL.GS.PlayerClass.ClassMaulerAlb
+				or DOL.GS.PlayerClass.ClassMaulerMid
+				or DOL.GS.PlayerClass.ClassMaulerHib;
 		}
 
         public virtual int CalculateCastingTime(SpellHandler spellHandler)
@@ -1535,8 +1538,8 @@ namespace DOL.GS
 						LastAttackedByEnemyTickPvP = GameLoop.GameLoopTime;
 				}
 
-				// Melee attack that actually caused damage.
-				if (ad.IsMeleeAttack && ad.Damage > 0)
+				// Attack that actually caused damage (MatchingDamageType filters melee/ranged/magic per ablative type).
+				if (ad.Damage > 0)
 				{
 					// Handle ablatives.
 					List<ECSGameSpellEffect> effects = effectListComponent.GetSpellEffects(eEffect.AblativeArmor);
@@ -1584,6 +1587,9 @@ namespace DOL.GS
 					for (int i = 0; i < dProcEffects.Count; i++)
 						(dProcEffects[i].SpellHandler as DefensiveProcSpellHandler).EventHandler(ad);
 				}
+
+				// Council Warden Vinculum Reflection (25% damage return)
+				DOL.GS.Spells.CouncilWardenMechanics.HandleVinculumReflection(this, ad);
 			}
 			else if (ad.IsSpellResisted && ad.Target is GameNPC npc)
 				npc.CancelReturnToSpawnPoint();
@@ -1996,6 +2002,7 @@ namespace DOL.GS
 		public virtual void ProcessDeath(GameObject killer)
 		{
 			attackComponent.StopAttack();
+			CouncilWardenMechanics.TriggerDeathCurse(this, killer);
 			List<GamePlayer> playerAttackers = new();
 
 			foreach (GameObject attacker in attackComponent.AttackerTracker.Attackers)
@@ -2647,7 +2654,7 @@ namespace DOL.GS
 					return false;
 
 				eCharacterClass characterClass = (eCharacterClass) player.CharacterClass.ID;
-				return characterClass is eCharacterClass.Vampiir || (characterClass >= eCharacterClass.MaulerAlb && characterClass <= eCharacterClass.MaulerHib);
+				return characterClass is eCharacterClass.MaulerHib;
 			}
 		}
 
@@ -2744,7 +2751,7 @@ namespace DOL.GS
 						return false;
 
 					int classId = player.CharacterClass.ID;
-					return (eCharacterClass) classId is eCharacterClass.Vampiir || (classId > 59 && classId < 63);
+					return (eCharacterClass) classId is eCharacterClass.MaulerHib;
 				}
 			}
 		}

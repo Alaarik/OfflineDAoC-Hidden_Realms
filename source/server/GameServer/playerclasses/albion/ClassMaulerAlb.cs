@@ -21,26 +21,28 @@ using System.Collections.Generic;
 
 namespace DOL.GS.PlayerClass
 {
-	[CharacterClass((int)eCharacterClass.MaulerAlb, "Mauler", "Fighter")]
+	[CharacterClass((int)eCharacterClass.MaulerAlb, "Council Warden", "Fighter")]
 	public class ClassMaulerAlb : ClassFighter
 	{
 		public ClassMaulerAlb()
 			: base()
 		{
-			m_profession = "PlayerClass.Profession.TempleofIronFist";
-			m_specializationMultiplier = 15;
-			m_wsbase = 440;
-			m_baseHP = 600;
+			m_profession = "PlayerClass.Profession.WhiteCouncil";
+			m_specializationMultiplier = 20;
+			m_wsbase = 400;
+			m_baseHP = 720;
 			m_primaryStat = eStat.STR;
-			m_secondaryStat = eStat.CON;
-			m_tertiaryStat = eStat.QUI;
-            m_manaStat = eStat.STR;
+			m_secondaryStat = eStat.INT;
+			m_tertiaryStat = eStat.CON;
+			m_manaStat = eStat.INT;
 		}
 
 		public override bool CanUseLefthandedWeapon
 		{
-			get { return true; }
+			get { return false; }
 		}
+
+		public override bool IsFocusCaster => true;
 
 		public override eClassType ClassType
 		{
@@ -59,8 +61,10 @@ namespace DOL.GS.PlayerClass
 
 		public override List<PlayerRace> EligibleRaces => new List<PlayerRace>()
 		{
-			// PlayerRace.Korazh, PlayerRace.Briton, PlayerRace.Inconnu,
+			PlayerRace.Briton,
+			PlayerRace.Highlander,
+			PlayerRace.Saracen,
+			PlayerRace.Avalonian,
 		};
-
 	}
 }

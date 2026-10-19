@@ -433,6 +433,23 @@ namespace DOL.GS
         // Isolated Sluaghbinder epic-quest service summons.  These are not
         // combat pets: the handler creates a stationary service NPC and does
         // not register it with the normal controlled-pet list.
-        SluaghbinderEpicSummon
+        SluaghbinderEpicSummon,
+
+        // Council Warden custom Evocation, Abjuration, Thaumaturgy, and Sight spell types.
+        CouncilWardenThermalSpark,
+        CouncilWardenKineticLance,
+        CouncilWardenConflagration,
+        CouncilWardenRepulsionWave,
+        CouncilWardenSeveranceField,
+        CouncilWardenSpellsever,
+        CouncilWardenTheSight,
+        CouncilWardenOpenWay,
+        CouncilWardenVinculum,
+        CouncilWardenProbabilityHex,
+        CouncilWardenCircleOfContainment,
+        CouncilWardenLeyWell,
+        CouncilWardenLeyLineConduit,
+        CouncilWardenSeveringBolt,
+        CouncilWardenKineticDeflection
     }
 }
