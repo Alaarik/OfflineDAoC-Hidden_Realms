@@ -1869,15 +1869,29 @@ namespace DOL.UnitTests
                     Assert.That(def.HiberniaTarget.Region, Is.EqualTo(191));
                     Assert.That(def.HiberniaTarget.BriefingDialogue, Does.Contain("Galladoria"));
                 }
-                // Verify Chapter 9 climax in the Nevernever
+                // Verify Chapter 9 climax in the Nevernever with investigation & triangulation
                 else if (def.ChapterNumber == 9)
                 {
                     Assert.That(def.AlbionTarget.ZoneName, Is.EqualTo("The Deep Nevernever"));
                     Assert.That(def.AlbionTarget.Region, Is.EqualTo(197));
+                    Assert.That(def.AlbionTarget.BriefingDialogue, Does.Contain("Sight-Focus Crystal"));
+                    Assert.That(def.AlbionTarget.BriefingDialogue, Does.Contain("triangulate"));
+                    Assert.That(def.AlbionTarget.BriefingDialogue, Does.Contain("Mairead"));
+                    Assert.That(def.AlbionTarget.BriefingDialogue, Does.Contain("Silver Grounding Rods"));
+
                     Assert.That(def.MidgardTarget.ZoneName, Is.EqualTo("The Deep Nevernever"));
                     Assert.That(def.MidgardTarget.Region, Is.EqualTo(197));
+                    Assert.That(def.MidgardTarget.BriefingDialogue, Does.Contain("Sight-Focus Crystal"));
+                    Assert.That(def.MidgardTarget.BriefingDialogue, Does.Contain("triangulate"));
+                    Assert.That(def.MidgardTarget.BriefingDialogue, Does.Contain("Mairead"));
+                    Assert.That(def.MidgardTarget.BriefingDialogue, Does.Contain("Silver Grounding Rods"));
+
                     Assert.That(def.HiberniaTarget.ZoneName, Is.EqualTo("The Deep Nevernever"));
                     Assert.That(def.HiberniaTarget.Region, Is.EqualTo(197));
+                    Assert.That(def.HiberniaTarget.BriefingDialogue, Does.Contain("Sight-Focus Crystal"));
+                    Assert.That(def.HiberniaTarget.BriefingDialogue, Does.Contain("triangulate"));
+                    Assert.That(def.HiberniaTarget.BriefingDialogue, Does.Contain("Mairead"));
+                    Assert.That(def.HiberniaTarget.BriefingDialogue, Does.Contain("Silver Grounding Rods"));
                 }
             }
         }

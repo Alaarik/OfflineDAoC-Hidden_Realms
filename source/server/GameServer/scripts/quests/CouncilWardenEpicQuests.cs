@@ -231,6 +231,27 @@ namespace DOL.GS.Quests
         public CouncilWardenEpic50(GamePlayer player, DbQuest quest) : base(player, quest) { }
         protected override Type Prerequisite => typeof(CouncilWardenEpic45);
         protected override int RequiredLevel => 50;
+
+        public override string Description
+        {
+            get
+            {
+                var target = Definition.GetTargetForRealm(m_questPlayer?.Realm ?? eRealm.Albion);
+                string liaisonText = (m_questPlayer?.Realm) switch
+                {
+                    eRealm.Albion => "Warden Alistair in Camelot (or Lord-Commander Caelan Vance in Edinburgh)",
+                    eRealm.Midgard => "Warden Haldor in Jordheim (or Lord-Commander Caelan Vance in Edinburgh)",
+                    eRealm.Hibernia => "Warden Cormac in Tir na nOg (or Lord-Commander Caelan Vance in Edinburgh)",
+                    _ => "your Council Warden liaison"
+                };
+                return Step switch
+                {
+                    1 => $"{target.Clue}\n\n[Phase I - The Sanctuary Inquiry & Triangulation]: Take the Sight-Focus Crystal into Edinburgh's Heart-Stone chamber to detect the sympathetic link between Brigid and Mairead the Unbound. Then deploy the Silver Grounding Rods at the Nevernever Crossroads to reverse the sympathetic resonance and triangulate Morcant's cloaked sanctuary.\n\n[Phase II - The Nevernever Confrontation]: Step through the revealed rift into {target.ZoneName} and execute {target.TargetName} under the Seven Laws of Merlin!\n\n[Warden Briefing]: \"{target.BriefingDialogue}\"\n\nObjective: Travel to {target.ZoneName} and defeat {target.TargetName}.",
+                    2 => $"[Mission Debrief]: \"{target.CompletionDialogue}\"\n\nDiscovery: {Definition.CuriosityDiscovery}\n\nObjective: Return to {liaisonText} to claim your full AF 102 Epic Armor set and Master Warden consecration.",
+                    _ => base.Description,
+                };
+            }
+        }
     }
 
     // Backward-compatibility alias
@@ -549,25 +570,25 @@ namespace DOL.GS.Quests
                     ChapterNumber = 9,
                     Title = "Chapter 9: The Reckoning in the Nevernever",
                     QuestLevel = 50,
-                    CuriosityDiscovery = "The First Blackstaff has fallen, his Outsider contagion shattered by your silver blade. Edinburgh's witchfire braziers burn bright as you are consecrated a Master Warden of the White Council!",
+                    CuriosityDiscovery = "By using the Sight-Focus Crystal to expose Mairead's sympathetic link and planting the Silver Grounding Rods at the Nevernever Crossroads, you triangulated Morcant's cloaked sanctuary! The First Blackstaff has fallen, his Outsider contagion shattered, and Mother Winter's Blackstaff secured in Edinburgh's deepest vaults as you are consecrated a Master Warden of the White Council!",
                     MilestonePiece = null,
                     AlbionTarget = new(
                         eRealm.Albion, "Morcant of Caerleon, the First Blackstaff", "The Deep Nevernever",
-                        "Breach the astral rift from the Nevernever Crossroads into the Deep Nevernever, cut down Mairead the Unbound, and execute Morcant of Caerleon!",
-                        "Your silver blade is awakened, and the three realm anchors are shattered. Report to the Nevernever Crossroads with your companions. Strike the Waystone, breach the astral rift directly into the Deep Nevernever, and execute Morcant of Caerleon under the Seven Laws of Merlin!",
-                        "The First Blackstaff is dead, his Outsider contagion severed, and the Blackstaff secured in Edinburgh's deepest vaults. Stand tall, Master Warden. The White Council salutes you!",
+                        "Conduct the Warden's Inquiry in the Heart-Stone chamber with the Sight-Focus Crystal to expose the sympathetic mole, triangulate Morcant's cloaked redoubt using the Silver Grounding Rods at the Nevernever Crossroads, and breach the rift to execute the First Blackstaff!",
+                        "With the three mortal relics recovered from the Shrouded Isles, Morcant's grand siphon is broken, but his final redoubt remains hidden behind an astral cloak. Before we strike, you must complete the investigation: take this Sight-Focus Crystal into the Heart-Stone chamber to trace the leak. Brigid's twin sister Mairead is riding their shared blood to hide Morcant's coordinates! Plant the Silver Grounding Rods at the Nevernever Crossroads to reverse the sympathetic bond, triangulate his redoubt, breach the rift into the Deep Nevernever, and bring Morcant of Caerleon to justice under the Laws of the Council!",
+                        "The triangulation held and the First Blackstaff is dead! His Outsider contagion is severed, Mother Winter's Blackstaff is secured in Edinburgh's deepest vaults, and the White Council stands inviolate. Stand tall, Master Warden. Camelot and the Senior Council salute your vigil!",
                         197, 32000, 32500, 16000, 53, 63),
                     MidgardTarget = new(
                         eRealm.Midgard, "Morcant of Caerleon, the First Blackstaff", "The Deep Nevernever",
-                        "Breach the astral rift from the Nevernever Crossroads into the Deep Nevernever, cut down Mairead the Unbound, and execute Morcant of Caerleon!",
-                        "Your blade is forged and quenched in meteoric silver, and the three stolen relics are safe. Gather your shield-brothers at the Nevernever Crossroads. Strike the Waystone, breach the rift into the Deep Nevernever, and put an end to Morcant of Caerleon under the Laws of the Council!",
-                        "The First Blackstaff is slain, the Outsider contagion severed, and the Blackstaff secured beneath Edinburgh. Raise your horn, Master Warden—the Allfather and the White Council honor your vigil!",
+                        "Conduct the Warden's Inquiry in the Heart-Stone chamber with the Sight-Focus Crystal to expose the sympathetic mole, triangulate Morcant's cloaked redoubt using the Silver Grounding Rods at the Nevernever Crossroads, and breach the rift to execute the First Blackstaff!",
+                        "The relics of Morgana are safe, but the wolf's lair remains cloaked in the void. Before drawing steel, you must finish the inquiry: take this Sight-Focus Crystal into the Heart-Stone chamber to sniff out the traitor. Brigid's twin sister Mairead has been using their shared blood to mask Morcant's hall! Take the Silver Grounding Rods to the Nevernever Crossroads, reverse the sympathetic bond to triangulate his coordinates, breach the rift into the Deep Nevernever, and sever Morcant's thread under the Laws of the Council!",
+                        "The triangulation held and the traitor Morcant is slain! His Outsider contagion is shattered, Mother Winter's Blackstaff is locked beneath Edinburgh's vaults, and the White Council's honor is redeemed. Raise your horn, Master Warden—Jordheim and the Allfather honor your triumph!",
                         197, 32000, 32500, 16000, 53, 63),
                     HiberniaTarget = new(
                         eRealm.Hibernia, "Morcant of Caerleon, the First Blackstaff", "The Deep Nevernever",
-                        "Breach the astral rift from the Nevernever Crossroads into the Deep Nevernever, cut down Mairead the Unbound, and execute Morcant of Caerleon!",
-                        "Your silver blade is awakened, and the three realm siphons are severed. Gather your companions at the Nevernever Crossroads. Strike the Waystone, breach the astral rift into the Deep Nevernever, and bring Morcant of Caerleon to justice under the Laws of the Council!",
-                        "The First Blackstaff has fallen, the Outsider contagion is severed, and the Blackstaff rests in Edinburgh's deep vaults. Stand tall, Master Warden—the sacred groves and the White Council are forever in your debt!",
+                        "Conduct the Warden's Inquiry in the Heart-Stone chamber with the Sight-Focus Crystal to expose the sympathetic mole, triangulate Morcant's cloaked redoubt using the Silver Grounding Rods at the Nevernever Crossroads, and breach the rift to execute the First Blackstaff!",
+                        "The sacred mortal relics are reclaimed, but Morcant's citadel remains shrouded behind a veil of false glamour. To find him, you must finish the investigation: take this Sight-Focus Crystal into the Heart-Stone chamber to unmask the leak. Brigid's twin sister Mairead has been whispering through their soul-bond to shield Morcant's sanctuary! Plant the Silver Grounding Rods at the Nevernever Crossroads, reverse the sympathetic flow to triangulate his redoubt, breach the astral rift into the Deep Nevernever, and bring the First Blackstaff to justice under the Laws of the Council!",
+                        "The triangulation pierced his veil, and the First Blackstaff has fallen! His Outsider contagion is severed, the Blackstaff rests in Edinburgh's deep vaults, and the harmony of the realms is restored. Stand tall, Master Warden—the sacred groves and the White Council are forever in your debt!",
                         197, 32000, 32500, 16000, 53, 63),
                 },
             };
