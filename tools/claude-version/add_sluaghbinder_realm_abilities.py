@@ -8,7 +8,12 @@ No Mastery of Concentration, Raging Power or Ethereal Bond: the pure casters' po
 import datetime, os, sqlite3, subprocess, sys
 
 # <playable>/tools/claude-version -> <playable>/runtime/data/opendaoc.sqlite3.db
-DB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "runtime", "data", "opendaoc.sqlite3.db")
+ROOT = os.path.dirname(os.path.abspath(__file__))
+DB = os.path.join(ROOT, "..", "..", "runtime", "data", "opendaoc.sqlite3.db")
+if not os.path.exists(DB):
+    candidate = os.path.join(ROOT, "..", "..", "playable-v0.35b", "runtime", "data", "opendaoc.sqlite3.db")
+    if os.path.exists(candidate):
+        DB = candidate
 CLASS = 63
 PLAGUE = dict(KeyName="AtlasOF_CripplingPlague", Name="Crippling Plague",
               Description="Instant plague on an enemy: it slows the target by 10%, rising every second to 95% over 10 seconds, "
@@ -25,8 +30,9 @@ ABILITIES = ["AtlasOF_AugStr", "AtlasOF_MasteryOfArms", "AtlasOF_AugDex", "Atlas
 
 
 def main():
-    if "coreserver" in subprocess.run(["tasklist"], capture_output=True, text=True).stdout.lower():
-        sys.exit("CoreServer is running; stop the server first.")
+    if sys.platform == "win32":
+        if "coreserver" in subprocess.run(["tasklist"], capture_output=True, text=True).stdout.lower():
+            sys.exit("CoreServer is running; stop the server first.")
     con = sqlite3.connect(DB)
     stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
     bk = sqlite3.connect(os.path.join(os.path.dirname(DB), f"opendaoc.sqlite3.before-sluaghbinder-ras-{stamp}.db"))
